@@ -82,17 +82,6 @@ export default function App() {
               </button>
             </FadeIn>
           </div>
-
-          {/* Tagline pill — bottom right */}
-          <FadeIn immediate delay={600} duration={500}>
-            <div className="liquid-glass border border-white/10 px-5 py-2 rounded-lg self-end">
-              <p className="text-[10px] font-light text-white/70 tracking-[0.2em] uppercase"
-                style={{ textShadow: '0 1px 6px rgba(0,0,0,0.7)' }}>
-                Menos gestión, más visión.
-              </p>
-            </div>
-          </FadeIn>
-
         </div>
       </div>
 
