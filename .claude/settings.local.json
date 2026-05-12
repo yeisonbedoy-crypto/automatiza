@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git clone *)",
+      "Bash(bun --version)",
+      "Bash(npm --version)",
+      "Bash(npm install *)",
+      "Bash(bun run *)",
+      "Bash(node .claude/skills/impeccable/scripts/load-context.mjs)",
+      "PowerShell(New-Item *)",
+      "Bash(Sort-Object LastWriteTime -Descending)",
+      "Bash(Select-Object -First 3)",
+      "PowerShell(npm run *)",
+      "Bash(npx tsc *)",
+      "Bash(Get-ChildItem -Path \"E:\\\\TrabajosWeb\\\\automatiza\" -Recurse -File)",
+      "Bash(Select-Object FullName)",
+      "Bash(Get-ChildItem \"C:\\\\Users\\\\yeiso\\\\Pictures\\\\Screenshots\")",
+      "Bash(Select-Object -First 1)",
+      "Bash(sort -Property LastWriteTime -Descending)",
+      "Skill(impeccable)",
+      "Bash(node *)",
+      "Bash(Select-Object Name, FullName)",
+      "PowerShell(Get-ChildItem -Path \"E:\\\\TrabajosWeb\\\\automatiza\" -Exclude \"node_modules\" -Recurse | Where-Object {$_.Extension -in @\\('.html', '.css', '.js', '.jsx', '.ts', '.tsx', '.json'\\)} | Select-Object -ExpandProperty FullName | Sort-Object)",
+      "Bash(Select-Object -First 10 Name, LastWriteTime)",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\yeiso\\\\Downloads\" | Where-Object { $_.Extension -match '\\\\.\\(mp4|webm|mov|avi|mkv\\)' } | Sort-Object LastWriteTime -Descending | Select-Object -First 5 Name, LastWriteTime)",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git config *)"
+    ]
+  }
+}

@@ -1,0 +1,228 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-05-09T00:00:00Z",
+  "title": "Design System: Automatiza",
+  "extensions": {
+    "colorMeta": {
+      "jet": {
+        "role": "neutral",
+        "displayName": "Jet",
+        "canonical": "#0A0B0E",
+        "tonalRamp": ["#0A0B0E", "#14161A", "#1E2026", "#282B32", "#32363E", "#3C414A", "#464C57", "#505763"]
+      },
+      "cloud-white": {
+        "role": "primary",
+        "displayName": "Cloud White",
+        "canonical": "#F8F9FA",
+        "tonalRamp": ["#20222A", "#3A3D47", "#565964", "#737781", "#909499", "#ACB0B5", "#C8CBD0", "#F8F9FA"]
+      },
+      "thermal-concrete": {
+        "role": "neutral",
+        "displayName": "Thermal Concrete",
+        "canonical": "#94999E",
+        "tonalRamp": ["#1A1C1E", "#2E3033", "#434649", "#58595C", "#6E6F72", "#84868A", "#9A9C9F", "#D1D4D7"]
+      },
+      "command-slate": {
+        "role": "neutral",
+        "displayName": "Command Slate",
+        "canonical": "#2A2F37",
+        "tonalRamp": ["#0B0C0E", "#16181C", "#212428", "#2A2F37", "#3A404A", "#4B525D", "#5D6470", "#8A9099"]
+      },
+      "warm-sepia-cream": {
+        "role": "neutral",
+        "displayName": "Warm Sepia Cream",
+        "canonical": "#F5F0EA",
+        "tonalRamp": ["#201A15", "#3B2E24", "#5C4637", "#7E5E4A", "#A07B62", "#C0997F", "#DCB89D", "#F5F0EA"]
+      },
+      "whatsapp-green": {
+        "role": "secondary",
+        "displayName": "WhatsApp Green",
+        "canonical": "#25D366",
+        "tonalRamp": ["#072E16", "#0E5C2C", "#158A42", "#1CB858", "#25D366", "#52DB82", "#7FE49E", "#ACECBA"]
+      },
+      "instagram-magenta": {
+        "role": "secondary",
+        "displayName": "Instagram Magenta",
+        "canonical": "#E1306C",
+        "tonalRamp": ["#2E0614", "#5C0C28", "#8A123C", "#B81850", "#E1306C", "#E85C8A", "#EF88A8", "#F5B3C6"]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Section headlines and hero H1. Always uppercase, always font-black. The compressed leading (0.9) makes type read as a visual block."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Section paragraphs. Max line length 65ch. Color varies by scene: gray-300 on dark, gray-800 on concrete."
+      },
+      "label": {
+        "displayName": "Label / Overline",
+        "purpose": "Section eyebrow labels above headlines. Always uppercase, always muted. Color is scene-tinted, not globally consistent."
+      }
+    },
+    "shadows": [
+      {
+        "name": "card-concrete",
+        "value": "0 8px 32px rgba(0,0,0,0.15)",
+        "purpose": "Card ambient shadow on Thermal Concrete scenes (Story, WhatsApp sections)."
+      },
+      {
+        "name": "card-dark",
+        "value": "0 8px 32px rgba(0,0,0,0.30)",
+        "purpose": "Card ambient shadow on dark scenes (Boss, Jet sections). Heavier opacity to maintain contrast."
+      },
+      {
+        "name": "glass-hover-glow",
+        "value": "0 0 25px rgba(255,255,255,0.15), inset 0 1px 2px rgba(255,255,255,0.3)",
+        "purpose": "Active hover state for all .glass-hover elements. The component glows from within."
+      },
+      {
+        "name": "glass-inset-resting",
+        "value": "inset 0 1px 1px rgba(255,255,255,0.1)",
+        "purpose": "Passive resting state of .liquid-glass surfaces. Faint top-edge shimmer."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-standard",
+        "value": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "purpose": "Default easing for all state transitions — glass-hover lift, button color changes, nav link opacity."
+      },
+      {
+        "name": "duration-glass-hover",
+        "value": "400ms",
+        "purpose": "Duration for .glass-hover state transitions (background, shadow, transform)."
+      },
+      {
+        "name": "duration-standard",
+        "value": "200ms",
+        "purpose": "Duration for button color, nav link opacity, and other quick UI feedback."
+      },
+      {
+        "name": "duration-entrance",
+        "value": "600ms–1000ms (staggered)",
+        "purpose": "FadeIn entrance animations on section load. Staggered in 100–200ms increments per element."
+      }
+    ],
+    "breakpoints": [
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "High-contrast CTA. Cloud white against jet or glass backgrounds. Used for primary conversion actions.",
+      "html": "<button class=\"ds-btn-primary\">Agenda una Asesoría</button>",
+      "css": ".ds-btn-primary { background: #F8F9FA; color: #0A0B0E; padding: 10px 24px; font-size: 0.875rem; font-weight: 500; border: none; border-radius: 8px; cursor: pointer; transition: background 200ms cubic-bezier(0.4, 0, 0.2, 1); font-family: inherit; } .ds-btn-primary:hover { background: #E8E9EA; } .ds-btn-primary:focus-visible { outline: 2px solid #F8F9FA; outline-offset: 3px; }"
+    },
+    {
+      "name": "Ghost / Glass Button",
+      "kind": "button",
+      "refersTo": "button-glass",
+      "description": "Secondary CTA on dark backgrounds. Liquid glass surface, white border, responds with glow on hover.",
+      "html": "<button class=\"ds-btn-glass\">Descubre Más</button>",
+      "css": ".ds-btn-glass { background: rgba(255,255,255,0.01); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); color: #F8F9FA; padding: 10px 24px; font-size: 0.875rem; font-weight: 500; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; cursor: pointer; position: relative; overflow: hidden; transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1); font-family: inherit; } .ds-btn-glass:hover { background: rgba(255,255,255,0.08); box-shadow: 0 0 25px rgba(255,255,255,0.15), inset 0 1px 2px rgba(255,255,255,0.3); border-color: rgba(255,255,255,0.3); transform: translateY(-4px); } .ds-btn-glass:focus-visible { outline: 1px solid rgba(255,255,255,0.5); outline-offset: 3px; }"
+    },
+    {
+      "name": "Navbar",
+      "kind": "nav",
+      "refersTo": null,
+      "description": "Fixed glass navbar floating over hero video. Pill shape, cloud-white CTA in top-right corner.",
+      "html": "<nav class=\"ds-navbar\"><span class=\"ds-navbar-logo\">AUTOMATIZA</span><div class=\"ds-navbar-links\"><a href=\"#\" class=\"ds-navbar-link\">Construye</a><a href=\"#\" class=\"ds-navbar-link\">Planifica</a><a href=\"#\" class=\"ds-navbar-link\">Asesorate</a></div><button class=\"ds-navbar-cta\">Hablemos</button></nav>",
+      "css": ".ds-navbar { display: flex; align-items: center; justify-content: space-between; padding: 12px 24px; background: rgba(255,255,255,0.01); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.2); border-radius: 12px; box-shadow: inset 0 1px 1px rgba(255,255,255,0.1); } .ds-navbar-logo { font-size: 1.25rem; font-weight: 500; color: #F8F9FA; cursor: pointer; transition: color 300ms; font-family: inherit; } .ds-navbar-logo:hover { color: rgba(248,249,250,0.8); } .ds-navbar-links { display: flex; gap: 32px; } .ds-navbar-link { font-size: 0.75rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.7); text-decoration: none; transition: color 200ms; } .ds-navbar-link:hover { color: #F8F9FA; } .ds-navbar-cta { background: #F8F9FA; color: #0A0B0E; padding: 8px 24px; font-size: 0.75rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; border: none; border-radius: 8px; cursor: pointer; transition: background 200ms; font-family: inherit; } .ds-navbar-cta:hover { background: #E8E9EA; }"
+    },
+    {
+      "name": "Liquid Glass Card",
+      "kind": "card",
+      "refersTo": null,
+      "description": "Signature surface component. Contains feature content across all sections. Background opacity and shadow adjust to match scene darkness.",
+      "html": "<div class=\"ds-glass-card\"><h3 class=\"ds-glass-card-title\">Clasificación Inteligente</h3><p class=\"ds-glass-card-body\">Analiza el contexto de cada correo para priorizar y delegar sin intervención manual.</p></div>",
+      "css": ".ds-glass-card { background: rgba(255,255,255,0.05); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; box-shadow: inset 0 1px 1px rgba(255,255,255,0.1), 0 8px 32px rgba(0,0,0,0.3); padding: 32px; position: relative; overflow: hidden; transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; } .ds-glass-card::before { content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1.4px; background: linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%, rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; } .ds-glass-card:hover { background: rgba(255,255,255,0.08); box-shadow: 0 0 25px rgba(255,255,255,0.15), inset 0 1px 2px rgba(255,255,255,0.3); border-color: rgba(255,255,255,0.3); transform: translateY(-4px); } .ds-glass-card-title { font-size: 1.25rem; font-weight: 500; color: #F8F9FA; margin: 0 0 16px 0; font-family: inherit; } .ds-glass-card-body { font-size: 0.875rem; color: rgba(209,213,219,1); line-height: 1.625; margin: 0; font-family: inherit; }"
+    },
+    {
+      "name": "Section Overline Label",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Text label above each section headline. Always uppercase, always muted. Color varies by scene.",
+      "html": "<span class=\"ds-overline\">Especialistas en Automatización</span>",
+      "css": ".ds-overline { display: block; font-size: 0.75rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(255,255,255,0.6); margin-bottom: 16px; font-family: inherit; }"
+    },
+    {
+      "name": "Tagline Pill",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Ambient label pill. Hero corner element for brand statements. No interaction, no fill — pure glass.",
+      "html": "<div class=\"ds-tagline-pill\"><p class=\"ds-tagline-text\">Menos gestión, más visión.</p></div>",
+      "css": ".ds-tagline-pill { background: rgba(255,255,255,0.01); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 8px 24px; display: inline-block; box-shadow: inset 0 1px 1px rgba(255,255,255,0.1); } .ds-tagline-text { font-size: 0.625rem; font-weight: 300; text-transform: uppercase; letter-spacing: 0.2em; color: rgba(248,249,250,0.7); margin: 0; font-family: inherit; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Autonomous Night",
+    "overview": "The AI works while the client sleeps. This design system is built around that promise: premium darkness as the product's ambient state, and light as a signal — not decoration. The base canvas is near-black jet. Every section that follows introduces its own environment: thermal concrete for the workhorse email agents, warm sepia for social commerce, a cold command slate for the orchestrating intelligence. The visitor scrolls through scenes, not a scroll.\n\nTypography dominates. Display type is compressed to 0.9 line-height, uppercased, tracked tight — it fills the frame like a title card. There is no clutter around it. The agents in the videos are the product; the design creates the stage they perform on.\n\nGlass surfaces (.liquid-glass) serve as interface architecture: they float over scene backgrounds without rupturing them. They are the technology made visible — transparent, reflective, containing depth. They glow when touched. They never decorate.",
+    "keyCharacteristics": [
+      "Dark is the default; light enters only as scene-specific context or direct CTA signal",
+      "Every scroll section changes color environment — each is a distinct, named scene",
+      "Typography-first hierarchy: scale and weight do the work, not color or decoration",
+      "Liquid glass is structural, never cosmetic",
+      "The AI avatar videos are primary content; the UI frames and amplifies them, never competes"
+    ],
+    "rules": [
+      {
+        "name": "The Scene Change Rule",
+        "body": "Each section owns its color environment. Thermal concrete, warm sepia, and command slate are scene-specific backgrounds — never mix them. The hero and closing sections return to jet.",
+        "section": "colors"
+      },
+      {
+        "name": "The Channel Color Rule",
+        "body": "WhatsApp green and Instagram magenta are channel signals, not brand colors. They appear only inside their own sections, at low opacity tints (10–35%). A green button outside the WhatsApp section is forbidden.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Weight Rule",
+        "body": "Display type is exclusively font-black (900). Everything else is 400–700. The jump from body to display is violent on purpose — that contrast IS the hierarchy.",
+        "section": "typography"
+      },
+      {
+        "name": "The Uppercase Compression Rule",
+        "body": "Display type is always uppercased and tracking-tighter. This makes the type block read as a single graphic unit at hero scale. Body copy is never uppercased.",
+        "section": "typography"
+      },
+      {
+        "name": "The Stage Lighting Rule",
+        "body": "Shadows serve scene logic, not element hierarchy. A card in a dark scene gets a heavier drop shadow than the same card in a light scene — not because it's more important, but because the stage demands it.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Glass Hover Invariant",
+        "body": "Every .glass-hover element responds to pointer interaction with the white glow pulse plus a −4px translateY lift. A glass surface that doesn't respond to touch breaks the luminous and contained promise.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do use uppercase and tracking-tighter for all display headlines (0.9 line-height, −0.05em tracking).",
+      "Do change the color environment between sections. Each section earns its own background.",
+      "Do apply .glass-hover (glow + translateY(−4px)) to every interactive glass surface.",
+      "Do respect the scene when choosing card fill opacity: bg-white/20 on light concrete scenes, bg-white/5 on dark scenes.",
+      "Do keep WhatsApp green (#25D366) and Instagram magenta (#E1306C) contained to their own sections.",
+      "Do use max-w-lg or max-w-xl on body paragraphs to enforce the 65ch line-length limit.",
+      "Do let the AI agent videos be primary content. Design frames them; never overlap or compete.",
+      "Do use linear gradient masks on video containers so agents fade into the scene."
+    ],
+    "donts": [
+      "Don't use chatbot-bubble iconography — floating green chat bubbles, WhatsApp-green everywhere, call-center aesthetic.",
+      "Don't use corporate stock imagery, handshake photos, or flat blue-gray palettes.",
+      "Don't use gradient text (background-clip: text). Single solid color for all text.",
+      "Don't use decorative glassmorphism — glass surfaces must contain content or define structure.",
+      "Don't use side-stripe borders (border-left > 1px as an accent).",
+      "Don't use bounce or elastic easing. All motion uses ease-out curves.",
+      "Don't apply the same background to consecutive sections.",
+      "Don't use WhatsApp green or Instagram magenta as global brand accent colors.",
+      "Don't use pure #000000 or #FFFFFF — use Jet (#0A0B0E) and Cloud White (#F8F9FA).",
+      "Don't use identical card grids — same size, icon, heading, text repeated without variation."
+    ]
+  }
+}
