@@ -17,28 +17,30 @@ const ACCENT = 'oklch(62% 0.18 245)';
 
 const STARTER_FEATURES = [
   'IA Comercial activa 24/7 en un canal',
+  'Landing page + 2-3 páginas web incluidas',
+  'SEO básico: metas, sitemap y Google indexado',
   'Captación y calificación automática de leads',
   'Respuestas inteligentes sin intervención humana',
-  'Visibilidad total de tu embudo en tiempo real',
   'Activación guiada en 48 horas',
 ];
 
 const GROWTH_FEATURES = [
   'IA Comercial 24/7 en todos los canales',
-  'WhatsApp, Instagram y email unificados',
+  'Web multipágina + SEO local y sectorial',
+  'Google Analytics y conversiones integradas',
   'Cierre automático de ventas y seguimiento',
   'Reportes semanales de conversión y retorno',
-  'Soporte prioritario con acceso directo al equipo',
-  'Optimización mensual del agente',
+  'Soporte prioritario y optimización mensual',
 ];
 
 const AUTOPILOT_FEATURES = [
   'Todo lo incluido en Growth',
   'Agentes ilimitados por canal',
+  'Web personalizada + SEO técnico avanzado',
+  'Estrategia de contenidos y posicionamiento',
   'Integraciones CRM y ERP a medida',
   'Gestor de cuenta dedicado',
-  'Auditoría mensual de conversión',
-  'SLA garantizado 99.9%',
+  'Auditoría mensual de conversión + SLA 99.9%',
 ];
 
 const STARTER_NOT_INCLUDED = [
@@ -119,8 +121,8 @@ export default function Precios() {
                 <div className="liquid-glass p-7 rounded-[15px] border border-white/10 flex flex-col h-full w-full" style={{ background: 'rgba(255,255,255,0.13)' }}>
                   <div className="text-center mb-5">
                     <p className="text-[10px] font-medium tracking-[0.28em] uppercase text-white/50 mb-3">Starter</p>
-                    <h3 className="text-lg font-semibold text-white leading-snug mb-2">Contrata tu primer<br />agente inteligente</h3>
-                    <p className="text-sm text-white/40 leading-relaxed">Un agente que responde y califica leads 24/7 en tu canal principal. En 48 h.</p>
+                    <h3 className="text-lg font-semibold text-white leading-snug mb-2">Deja de perder<br />leads al instante</h3>
+                    <p className="text-sm text-white/40 leading-relaxed">Un agente activo 24/7 y una web que capta desde el primer día. Sin esperas, sin fricción.</p>
                   </div>
                   <div className="text-center mb-5">
                     <p className="text-4xl font-bold text-white tabular-nums">399<span className="text-2xl font-medium text-white/50">€</span></p>
@@ -168,8 +170,8 @@ export default function Precios() {
                 <div className="liquid-glass p-7 rounded-[15px] border border-white/15 flex flex-col h-full w-full" style={{ background: 'rgba(255,255,255,0.13)' }}>
                   <div className="text-center mb-5 mt-1">
                     <p className="text-[10px] font-medium tracking-[0.28em] uppercase text-white/50 mb-3">Growth</p>
-                    <h3 className="text-lg font-semibold text-white leading-snug mb-2">Omnipresente en<br />todos tus canales</h3>
-                    <p className="text-sm text-white/40 leading-relaxed">WhatsApp, Instagram y email como uno. Cada lead captado, seguido y cerrado solo.</p>
+                    <h3 className="text-lg font-semibold text-white leading-snug mb-2">Todos tus canales,<br />un solo motor</h3>
+                    <p className="text-sm text-white/40 leading-relaxed">WhatsApp, Instagram y email unificados. Tu web optimizada para convertir. Cada lead seguido y cerrado solo.</p>
                   </div>
                   <div className="text-center mb-5">
                     <p className="text-4xl font-bold text-white tabular-nums">699<span className="text-2xl font-medium text-white/50">€</span></p>
@@ -212,8 +214,8 @@ export default function Precios() {
                 <div className="liquid-glass p-7 rounded-[15px] border border-white/10 flex flex-col h-full w-full" style={{ background: 'rgba(255,255,255,0.13)' }}>
                   <div className="text-center mb-5">
                     <p className="text-[10px] font-medium tracking-[0.28em] uppercase text-white/50 mb-3">Autopilot</p>
-                    <h3 className="text-lg font-semibold text-white leading-snug mb-2">Tu empresa opera<br />completamente sola</h3>
-                    <p className="text-sm text-white/40 leading-relaxed">Agentes ilimitados, CRM integrado y gestor dedicado. Escala sin fricción.</p>
+                    <h3 className="text-lg font-semibold text-white leading-snug mb-2">Tu negocio<br />funciona. Sin ti.</h3>
+                    <p className="text-sm text-white/40 leading-relaxed">Agentes ilimitados, CRM integrado y web personalizada con SEO técnico avanzado. Escala sin fricción, factura sin tocar nada.</p>
                   </div>
                   <div className="text-center mb-5">
                     <p className="text-4xl font-bold text-white tabular-nums">1.200<span className="text-2xl font-medium text-white/50">€</span></p>
@@ -293,10 +295,10 @@ export default function Precios() {
                     letterSpacing: '-0.04em',
                   }}
                 >
-                  IA<br />Transformation
+                  Arquitectura<br />sin techo
                 </h3>
                 <p className="text-sm leading-relaxed max-w-sm" style={{ color: 'oklch(80% 0.01 265 / 0.38)' }}>
-                  Para operaciones que exigen escala absoluta. Arquitectura a medida, acompañamiento dedicado.
+                  Para operaciones que exigen escala absoluta. Web enterprise, SEO de autoridad y acompañamiento dedicado.
                 </p>
               </div>
 
