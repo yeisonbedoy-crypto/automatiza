@@ -69,7 +69,7 @@ export default function Precios() {
     <main className="relative w-full min-h-screen overflow-x-hidden flex flex-col font-sans selection:bg-white/20 selection:text-white">
 
       {/* Fixed video base */}
-      <div className="fixed top-0 left-0 w-screen h-lvh z-0" style={{ transform: 'translate3d(0,0,0)', backfaceVisibility: 'hidden' }}>
+      <div className="fixed inset-0 z-0">
         <SeamlessVideo
           src="https://d8j0ntlcm91z4.cloudfront.net/user_32bReXqxPyXQZz4TWBrBwLmVgCp/hf_20260506_204312_b409e85b-c9ad-4e16-9875-10bdc8d63bcb.mp4"
           containerClassName="absolute inset-0 h-full w-full overflow-hidden"
