@@ -27,7 +27,7 @@ export default function App() {
       <Navbar />
 
       {/* Hero Content */}
-      <div className="relative z-10 w-full flex flex-col justify-end px-6 md:px-12 lg:px-16 pb-10 lg:pb-14 min-h-screen">
+      <div className="relative z-10 w-full flex flex-col justify-end px-6 md:px-12 lg:px-16 min-h-[100dvh]" style={{ paddingBottom: 'max(2.5rem, calc(1.5rem + env(safe-area-inset-bottom)))', paddingTop: 'env(safe-area-inset-top)' }}>
         <div className="w-full max-w-7xl mx-auto flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 lg:gap-0">
 
           {/* Text block — bottom left */}
