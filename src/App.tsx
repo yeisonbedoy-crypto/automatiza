@@ -13,9 +13,9 @@ export default function App() {
   const videoUrl = "https://d8j0ntlcm91z4.cloudfront.net/user_32bReXqxPyXQZz4TWBrBwLmVgCp/hf_20260505_203452_a0ca140a-f02c-4ce5-bb97-f7259e5f37ef.mp4";
 
   return (
-    <main className="relative w-full min-h-[115vh] overflow-x-hidden flex flex-col items-center font-sans selection:bg-white/20 selection:text-white bg-black scroll-smooth">
+    <main className="relative w-full overflow-x-hidden flex flex-col items-center font-sans selection:bg-white/20 selection:text-white bg-black scroll-smooth">
       {/* Background Video - Fixed Position for Parallax Effect */}
-      <div className="fixed inset-0 z-[0]">
+      <div className="fixed inset-0 z-[0]" style={{ transform: 'translate3d(0,0,0)', willChange: 'transform', backfaceVisibility: 'hidden' }}>
         <SeamlessVideo
           src="https://d8j0ntlcm91z4.cloudfront.net/user_32bReXqxPyXQZz4TWBrBwLmVgCp/hf_20260506_204312_b409e85b-c9ad-4e16-9875-10bdc8d63bcb.mp4"
           containerClassName="absolute inset-0 h-full w-full overflow-hidden"
