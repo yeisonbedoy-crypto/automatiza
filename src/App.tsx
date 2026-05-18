@@ -35,7 +35,7 @@ export default function App() {
             <h1 className="sr-only">Negocios autónomos con agentes de IA 24/7</h1>
             <FadeIn immediate duration={500}>
               <div
-                className="text-[22px] md:text-[clamp(1.1rem,2.76vw_+_0.28rem,2.48rem)] font-black uppercase tracking-tight mb-0 pb-3 leading-[0.95]"
+                className="text-[25px] md:text-[clamp(1.1rem,2.76vw_+_0.28rem,2.48rem)] font-black uppercase tracking-[0.04em] md:tracking-tight mb-0 pb-3 leading-[1.15] md:leading-[0.95]"
                 style={{ filter: 'drop-shadow(0 2px 18px rgba(0,0,0,0.95))' }}
               >
                 <ShinyText
