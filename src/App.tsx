@@ -35,7 +35,7 @@ export default function App() {
             <h1 className="sr-only">Negocios autónomos con agentes de IA 24/7</h1>
             <FadeIn immediate duration={500}>
               <div
-                className="text-[clamp(2rem,5vw_+_0.5rem,4.5rem)] font-black uppercase tracking-tight mb-0 pb-3 leading-[0.95]"
+                className="text-[clamp(1.1rem,2.76vw_+_0.28rem,2.48rem)] font-black uppercase tracking-tight mb-0 pb-3 leading-[0.95]"
                 style={{ filter: 'drop-shadow(0 2px 18px rgba(0,0,0,0.95))' }}
               >
                 <ShinyText
@@ -61,25 +61,25 @@ export default function App() {
             </FadeIn>
 
             <FadeIn immediate delay={300} duration={500}>
-              <p className="text-xs md:text-sm text-gray-300/80 mb-5 max-w-xs leading-relaxed"
+              <p className="text-[0.79rem] md:text-[0.9rem] text-gray-300/80 mb-5 max-w-xs leading-relaxed"
                 style={{ textShadow: '0 1px 8px rgba(0,0,0,0.9)' }}>
                 Agentes de IA para WhatsApp, correo e Instagram. Responden, clasifican y cierran por ti — 24/7.
               </p>
             </FadeIn>
 
             <FadeIn immediate delay={500} duration={500} className="flex flex-wrap gap-2.5">
-              <button
-                type="button"
-                className="bg-white text-black px-5 py-2 rounded-lg text-xs font-medium transition-colors duration-200 hover:bg-gray-100"
+              <a
+                href="/precios"
+                className="bg-white text-black px-6 py-2.5 rounded-lg text-sm font-medium transition-colors duration-200 hover:bg-gray-100"
               >
-                Agenda una Asesoría
-              </button>
-              <button
-                type="button"
-                className="liquid-glass glass-hover border border-white/20 text-white px-5 py-2 rounded-lg text-xs font-medium"
+                Asesoría Gratuita
+              </a>
+              <a
+                href="/precios#planes"
+                className="liquid-glass glass-hover border border-white/20 text-white px-6 py-2.5 rounded-lg text-sm font-medium"
               >
-                Descubre Más
-              </button>
+                Nuestros planes
+              </a>
             </FadeIn>
           </div>
         </div>

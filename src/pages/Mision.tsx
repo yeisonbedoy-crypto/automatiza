@@ -73,14 +73,14 @@ export default function Mision() {
           containerClassName="absolute inset-0 h-full w-full overflow-hidden"
           videoClassName="absolute inset-0 h-full w-full object-cover opacity-35"
         />
-        <div className="absolute inset-0 bg-[#0A0B0E]/55" />
+        <div className="absolute inset-0 bg-[#0A0B0E]/35" />
       </div>
 
       <Navbar navItems={MISION_NAV_ITEMS} logoHref="/" />
 
       {/* ── Hero + Manifiesto ─────────────────────────────────── */}
       <section id="manifiesto" className="relative z-10 w-full px-6 md:px-12 lg:px-16 pt-28 md:pt-32 pb-14 md:pb-20">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row lg:items-start gap-10 lg:gap-16">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row lg:items-center gap-10 lg:gap-16">
 
           {/* Left — título */}
           <div className="lg:w-[42%] shrink-0 flex flex-col justify-start">
@@ -124,9 +124,6 @@ export default function Mision() {
               <p className="text-base md:text-lg text-gray-300 leading-[1.7] mb-5">
                 Automatiza nace para eliminar esa fricción. No con herramientas que añaden complejidad, sino con agentes que piensan, clasifican y ejecutan como parte de tu equipo. WhatsApp, Instagram, Email — tres canales que nunca duermen, coordinados por{" "}
                 <span className="text-white font-medium">El Jefe</span>.
-              </p>
-              <p className="text-base md:text-lg text-gray-300 leading-[1.7]">
-                La empresa del futuro no crece contratando más personas. Crece desplegando inteligencia que opera en paralelo, 24/7, sin fricción ni fatiga. Eso es un ecosistema líquido.
               </p>
             </div>
           </FadeIn>
@@ -254,7 +251,8 @@ export default function Mision() {
           <FadeIn delay={200}>
             <HoverBorderGradient
               containerClassName="rounded-full"
-              as="button"
+              as="a"
+              href="/precios"
               className="text-white font-semibold text-xs uppercase tracking-widest bg-white/10"
             >
               UNIRSE A LA EVOLUCIÓN

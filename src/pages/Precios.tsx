@@ -7,40 +7,35 @@ import TiltedCard from '../components/TiltedCard';
 
 const NAV_ITEMS = [
   { name: "INICIO",        href: "/" },
-  { name: "ECOSISTEMA",    href: "/#story" },
+  { name: "ECOSISTEMA",    href: "/#email" },
   { name: "EL CEREBRO",   href: "/#boss", highlight: true as const },
-  { name: "ASESORAMIENTO", href: "/#asesoramiento" },
   { name: "BLOG",          href: "/blog" },
 ];
 
 const ACCENT = 'oklch(62% 0.18 245)';
 
 const STARTER_FEATURES = [
-  'IA Comercial activa 24/7 en un canal',
-  'Landing page + 2-3 páginas web incluidas',
-  'SEO básico: metas, sitemap y Google indexado',
-  'Captación y calificación automática de leads',
-  'Respuestas inteligentes sin intervención humana',
-  'Activación guiada en 48 horas',
+  'Cada cliente recibe respuesta inmediata sin contratar personal',
+  'Los mensajes repetitivos desaparecen de tu dia a dia',
+  'Captas contactos incluso cuando el negocio está cerrado',
+  'Empiezas a generar oportunidades sin invertir en publicidad',
+  'Tu web deja de ser informativa y empieza a generar ingresos',
 ];
 
 const GROWTH_FEATURES = [
-  'IA Comercial 24/7 en todos los canales',
-  'Web multipágina + SEO local y sectorial',
-  'Google Analytics y conversiones integradas',
-  'Cierre automático de ventas y seguimiento',
-  'Reportes semanales de conversión y retorno',
-  'Soporte prioritario y optimización mensual',
+  'Ningun cliente queda sin respuesta, incluso fuera de horario',
+  'Seguimiento automatico que aumenta cierres sin esfuerzo humano',
+  'Menos tiempo gestionando mensajes, más tiempo facturando',
+  'Sabes exactamente que canal gana dinero',
+  'Reduces tareas administrativas cada semana',
 ];
 
 const AUTOPILOT_FEATURES = [
-  'Todo lo incluido en Growth',
-  'Agentes ilimitados por canal',
-  'Web personalizada + SEO técnico avanzado',
-  'Estrategia de contenidos y posicionamiento',
-  'Integraciones CRM y ERP a medida',
-  'Gestor de cuenta dedicado',
-  'Auditoría mensual de conversión + SLA 99.9%',
+  'El negocio sigue generando ingresos aunque no estes presente',
+  'Eliminación real de tareas operativas diarias',
+  'Menos necesidad de personal administrativo',
+  'Escalas clientes sin aumentar estructura',
+  'Decisiones basadas en datos reales, no en intuición',
 ];
 
 const STARTER_NOT_INCLUDED = [
@@ -56,17 +51,17 @@ const GROWTH_NOT_INCLUDED = [
 ];
 
 const WITHOUT = [
-  'Leads que no responden a tiempo se van con la competencia',
-  'Horas perdidas en mensajes repetitivos cada semana',
-  'Sin métricas claras: no sabes qué canal convierte',
-  'Vacaciones imposibles — el negocio depende de ti',
+  'Clientes que escriben y no reciben respuesta a tiempo',
+  'Horas semanales perdidas en tareas repetitivas',
+  'Clientes olvidados que terminan en la competencia',
+  'El negocio depende 100% de ti',
 ];
 
 const WITH = [
+  'Clientes atendidos en segundos',
   'Captación automática activa las 24h, los 7 días',
-  'Cero tiempo en tareas repetitivas, cero leads perdidos',
-  'Dashboard con métricas de conversión en tiempo real',
-  'El negocio funciona aunque estés desconectado',
+  'Seguimiento automatico que aumenta cierres sin esfuerzo humano',
+  'El negocio funciona incluso cuando no trabajas',
 ];
 
 export default function Precios() {
@@ -85,30 +80,133 @@ export default function Precios() {
 
       <Navbar navItems={NAV_ITEMS} logoHref="/" />
 
-      {/* ── 1. RESULTADO ──────────────────────────────────────── */}
-      <section className="relative z-10 w-full flex flex-col items-center text-center px-4 pt-32 pb-10 md:pt-44 md:pb-14">
-        <FadeIn immediate>
-          <p className="text-[11px] font-medium tracking-[0.28em] uppercase text-white/30 mb-7">
-            Planes y Precios
-          </p>
-          <h1
-            className="font-black uppercase text-[#F8F9FA] mb-7 max-w-4xl mx-auto"
-            style={{
-              fontSize: 'clamp(2.25rem, 6vw, 4.5rem)',
-              lineHeight: 0.9,
-              letterSpacing: '-0.05em',
-            }}
-          >
-            Tu negocio,<br />funcionando mientras duermes
-          </h1>
-          <p className="text-base text-white/40 max-w-md mx-auto leading-relaxed">
-            Sin letra pequeña, sin sorpresas.
-          </p>
-        </FadeIn>
+      {/* ── 1. HERO — AUDITORÍA GRATUITA ─────────────────────── */}
+      <section className="relative z-10 w-full px-4 md:px-8 lg:px-16 pt-28 pb-6 md:pt-36 md:pb-8">
+        <div className="max-w-6xl mx-auto">
+          <FadeIn immediate>
+            <div className="relative rounded-2xl p-[1px]">
+              <ShineBorder borderWidth={1} duration={8} />
+            <div
+              className="relative rounded-[15px] overflow-hidden px-7 py-8 md:px-12 md:py-10 flex flex-col md:flex-row items-center gap-7 md:gap-16"
+              style={{
+                background: 'linear-gradient(130deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.03) 100%)',
+              }}
+            >
+              {/* Glow */}
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{ background: 'radial-gradient(ellipse at 8% 50%, oklch(62% 0.18 245 / 0.10) 0%, transparent 55%)' }}
+              />
+
+              {/* Left — text */}
+              <div className="flex-1 min-w-0 relative text-center md:text-left">
+                <p className="text-[10px] font-medium tracking-[0.32em] uppercase text-white/30 mb-3">
+                  Sin coste · Sin compromiso
+                </p>
+                <h1
+                  className="font-black uppercase text-[#F8F9FA] mb-3"
+                  style={{
+                    fontSize: 'clamp(1.52rem, 3.6vw, 2.56rem)',
+                    lineHeight: 0.92,
+                    letterSpacing: '-0.05em',
+                  }}
+                >
+                  ¿No sabes<br />por dónde empezar?
+                </h1>
+                <ul className="flex flex-col gap-2 text-sm text-white/60 leading-relaxed max-w-sm mx-auto md:mx-0 font-medium">
+                  <li className="flex items-start gap-2">
+                    <span className="text-white/50 mt-0.5 font-bold">•</span>
+                    <span>Detectamos dónde estás perdiendo dinero hoy</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-white/50 mt-0.5 font-bold">•</span>
+                    <span>Activamos los canales que más clientes generan</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-white/50 mt-0.5 font-bold">•</span>
+                    <span>Diseñamos el plan exacto para automatizar tu empresa</span>
+                  </li>
+                </ul>
+
+                {/* Puntos clave */}
+                <ul className="mt-4 flex flex-col sm:flex-row gap-3 text-sm text-white/50 justify-center md:justify-start">
+                  {[
+                    'Sin coste',
+                    'Sin compromiso',
+                    'Diagnóstico en 30 minutos',
+                  ].map(item => (
+                    <li key={item} className="flex items-center gap-2">
+                      <svg className="w-3.5 h-3.5 shrink-0 text-white/40" viewBox="0 0 14 14" fill="none">
+                        <path d="M2.5 7.5l3 3 6-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Right — CTA */}
+              <div className="shrink-0 relative flex flex-col items-center gap-3 text-center">
+                <p className="text-[11px] text-white/40 tracking-wide uppercase font-medium">Plazas limitadas cada semana</p>
+                <a
+                  href="https://wa.me/34696859840"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-10 py-4 rounded-xl font-black text-base text-black bg-white whitespace-nowrap transition-all duration-300 hover:scale-105 hover:bg-gray-100 shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] inline-block text-center"
+                >
+                  Auditoría Gratis
+                </a>
+                <p className="text-[10px] text-white/40 tracking-wide">Sin tarjeta · Respuesta en 24 h</p>
+              </div>
+
+            </div>
+            </div>
+          </FadeIn>
+
+          {/* Hook hacia los planes */}
+          <FadeIn immediate delay={120}>
+            <div className="relative mt-14 mb-4 max-w-3xl mx-auto rounded-2xl p-[1px]">
+              <ShineBorder borderWidth={1.5} duration={5} />
+              <div
+                className="relative rounded-[15px] overflow-hidden px-6 py-8 flex flex-col items-center justify-center text-center"
+                style={{
+                  background: 'linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.01) 100%)',
+                  boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.1)'
+                }}
+              >
+                {/* Resplandor interior */}
+                <div
+                  className="absolute inset-0 pointer-events-none"
+                  style={{ background: 'radial-gradient(ellipse at 50% 0%, oklch(62% 0.18 245 / 0.25) 0%, transparent 60%)' }}
+                />
+                
+                <p className="relative z-10 text-[10px] font-bold tracking-[0.3em] uppercase text-white/30 mb-3">
+                  Siguiente paso
+                </p>
+                <h2
+                  className="relative z-10 font-black uppercase text-white drop-shadow-md"
+                  style={{
+                    fontSize: 'clamp(1.3rem, 2.8vw, 2.2rem)',
+                    lineHeight: 1.05,
+                    letterSpacing: '-0.03em',
+                  }}
+                >
+                  Elige el nivel de crecimiento<br className="hidden sm:block" /> que buscas
+                </h2>
+              </div>
+            </div>
+            
+            <div className="flex items-center justify-center mt-6 mb-2">
+              <svg className="w-5 h-5 text-white/20 animate-bounce" viewBox="0 0 16 16" fill="none">
+                <path d="M8 2v12M4 10l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </div>
+          </FadeIn>
+        </div>
       </section>
 
       {/* ── 3. PLANES ────────────────────────────────────────── */}
-      <section className="relative z-10 w-full px-4 md:px-8 lg:px-16 pb-28 md:pb-36">
+      <section id="planes" className="relative z-10 w-full px-4 md:px-8 lg:px-16 pb-28 md:pb-36">
         <div className="max-w-6xl mx-auto">
 
           {/* Row: Starter / Growth / Autopilot */}
@@ -120,40 +218,32 @@ export default function Precios() {
                 <ShineBorder borderWidth={1} duration={6} />
                 <div className="liquid-glass p-7 rounded-[15px] border border-white/10 flex flex-col h-full w-full" style={{ background: 'rgba(255,255,255,0.13)' }}>
                   <div className="text-center mb-5">
-                    <p className="text-[10px] font-medium tracking-[0.28em] uppercase text-white/50 mb-3">Starter</p>
-                    <h3 className="text-lg font-semibold text-white leading-snug mb-2">Deja de perder<br />leads al instante</h3>
-                    <p className="text-sm text-white/40 leading-relaxed">Un agente activo 24/7 y una web que capta desde el primer día. Sin esperas, sin fricción.</p>
+                    <p className="text-[10px] font-bold tracking-[0.28em] uppercase text-white/70 mb-3">Starter</p>
+                    <h3 className="text-lg font-bold text-white leading-snug mb-2">Clientes al instante</h3>
+                    <p className="text-sm text-white/70 leading-relaxed font-medium">Un agente activo 24/7 y una web que capta desde el primer día. Sin esperas, sin fricción.</p>
                   </div>
                   <div className="text-center mb-5">
-                    <p className="text-4xl font-bold text-white tabular-nums">399<span className="text-2xl font-medium text-white/50">€</span></p>
-                    <p className="text-[11px] text-white/30 mt-1 tracking-wide">al mes, sin permanencia</p>
+                    <p className="text-4xl font-bold text-white tabular-nums"><span className="text-[11px] font-normal text-white/50 mr-1 tracking-wide">desde</span>399<span className="text-2xl font-medium text-white/70">€</span></p>
+                    <p className="text-[11px] text-white/50 mt-1 tracking-wide font-medium">al mes, sin permanencia</p>
                   </div>
-                  <div className="h-px bg-white/10 mb-5" />
+                  <div className="h-px bg-white/15 mb-5" />
                   <ul className="flex flex-col gap-2.5 mb-4">
                     {STARTER_FEATURES.map(f => (
-                      <li key={f} className="flex items-start gap-2.5 text-sm text-white/65 leading-snug">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-3.5 h-3.5 shrink-0 mt-0.5 text-white/70">
+                      <li key={f} className="flex items-start gap-2.5 text-sm text-white/80 leading-snug font-medium">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-3.5 h-3.5 shrink-0 mt-0.5 text-white">
                           <path fillRule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" clipRule="evenodd" />
                         </svg>
                         {f}
                       </li>
                     ))}
                   </ul>
-                  <div className="h-px bg-white/6 mb-4" />
-                  <p className="text-[10px] font-medium tracking-[0.2em] uppercase text-white/30 mb-3">No incluye</p>
-                  <ul className="flex flex-col gap-2 flex-1 mb-6">
-                    {STARTER_NOT_INCLUDED.map(f => (
-                      <li key={f} className="flex items-start gap-2.5 text-sm text-white/25 leading-snug">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-3.5 h-3.5 shrink-0 mt-0.5 text-white/20">
-                          <path d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.75.75 0 1 1 1.06 1.06L9.06 8l3.22 3.22a.75.75 0 1 1-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 0 1-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06Z" />
-                        </svg>
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
-                  <button type="button" className="liquid-glass border border-white/15 text-white/80 px-6 py-2.5 rounded-lg font-medium text-sm w-full transition-all duration-300 hover:border-white/30 hover:text-white">
+                  <div className="h-px bg-white/10 mb-4" />
+                  <p className="text-[13px] text-white/60 italic leading-snug flex-1 mb-6 mt-1 text-center md:text-left">
+                    "Negocios que reciben consultas regularmente y quieren dejar de perder clientes por falta de tiempo."
+                  </p>
+                  <a href="https://pay.sumup.com/b2c/QUYFNGXA" target="_blank" rel="noopener noreferrer" className="liquid-glass border border-white/25 text-white px-6 py-2.5 rounded-lg font-semibold text-sm w-full transition-all duration-300 hover:border-white/40 hover:bg-white/5 block text-center">
                     Empezar ahora
-                  </button>
+                  </a>
                 </div>
               </div>
             </FadeIn>
@@ -162,47 +252,39 @@ export default function Precios() {
             <FadeIn immediate delay={200} className="h-full">
               <div className="relative rounded-2xl h-full w-full card-static cursor-pointer p-[1px]">
                 <ShineBorder borderWidth={1} duration={5} />
-                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 z-20">
-                  <span className="text-[10px] font-semibold tracking-[0.18em] uppercase px-3 py-1 rounded-full bg-gray-900 text-white whitespace-nowrap">
-                    Más Elegido
+                <div className="absolute -top-5 left-1/2 -translate-x-1/2 z-20">
+                  <span className="text-xs font-bold tracking-[0.2em] uppercase px-5 py-1.5 rounded-full bg-white text-black whitespace-nowrap shadow-lg">
+                    ★ Más Elegido
                   </span>
                 </div>
                 <div className="liquid-glass p-7 rounded-[15px] border border-white/15 flex flex-col h-full w-full" style={{ background: 'rgba(255,255,255,0.13)' }}>
                   <div className="text-center mb-5 mt-1">
-                    <p className="text-[10px] font-medium tracking-[0.28em] uppercase text-white/50 mb-3">Growth</p>
-                    <h3 className="text-lg font-semibold text-white leading-snug mb-2">Todos tus canales,<br />un solo motor</h3>
-                    <p className="text-sm text-white/40 leading-relaxed">WhatsApp, Instagram y email unificados. Tu web optimizada para convertir. Cada lead seguido y cerrado solo.</p>
+                    <p className="text-[10px] font-bold tracking-[0.28em] uppercase text-white/70 mb-3">Growth</p>
+                    <h3 className="text-lg font-bold text-white leading-snug mb-2">Tres mentes,<br />un solo agente</h3>
+                    <p className="text-sm text-white/70 leading-relaxed font-medium">Todos tus clientes atendidos automaticamente. Tu web optimizada para convertir. Cada lead seguido y cerrado solo.</p>
                   </div>
                   <div className="text-center mb-5">
-                    <p className="text-4xl font-bold text-white tabular-nums">699<span className="text-2xl font-medium text-white/50">€</span></p>
-                    <p className="text-[11px] text-white/30 mt-1 tracking-wide">al mes, sin permanencia</p>
+                    <p className="text-4xl font-bold text-white tabular-nums"><span className="text-[11px] font-normal text-white/50 mr-1 tracking-wide">desde</span>699<span className="text-2xl font-medium text-white/70">€</span></p>
+                    <p className="text-[11px] text-white/50 mt-1 tracking-wide font-medium">al mes, sin permanencia</p>
                   </div>
-                  <div className="h-px bg-white/10 mb-5" />
+                  <div className="h-px bg-white/15 mb-5" />
                   <ul className="flex flex-col gap-2.5 mb-4">
                     {GROWTH_FEATURES.map(f => (
-                      <li key={f} className="flex items-start gap-2.5 text-sm text-white/70 leading-snug">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-3.5 h-3.5 shrink-0 mt-0.5 text-white/80">
+                      <li key={f} className="flex items-start gap-2.5 text-sm text-white/90 leading-snug font-medium">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-3.5 h-3.5 shrink-0 mt-0.5 text-white">
                           <path fillRule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" clipRule="evenodd" />
                         </svg>
                         {f}
                       </li>
                     ))}
                   </ul>
-                  <div className="h-px bg-white/6 mb-4" />
-                  <p className="text-[10px] font-medium tracking-[0.2em] uppercase text-white/30 mb-3">No incluye</p>
-                  <ul className="flex flex-col gap-2 flex-1 mb-6">
-                    {GROWTH_NOT_INCLUDED.map(f => (
-                      <li key={f} className="flex items-start gap-2.5 text-sm text-white/25 leading-snug">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-3.5 h-3.5 shrink-0 mt-0.5 text-white/20">
-                          <path d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.75.75 0 1 1 1.06 1.06L9.06 8l3.22 3.22a.75.75 0 1 1-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 0 1-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06Z" />
-                        </svg>
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
-                  <button type="button" className="bg-white text-black px-6 py-2.5 rounded-lg font-semibold text-sm w-full transition-colors duration-200 hover:bg-gray-100">
+                  <div className="h-px bg-white/10 mb-4" />
+                  <p className="text-[13px] text-white/60 italic leading-snug flex-1 mb-6 mt-1 text-center md:text-left">
+                    "Aquí es donde la mayoría de empresas empieza a notar menos trabajo y más ingresos."
+                  </p>
+                  <a href="https://pay.sumup.com/b2c/QCDSIGGL" target="_blank" rel="noopener noreferrer" className="bg-white text-black px-6 py-2.5 rounded-lg font-semibold text-sm w-full transition-colors duration-200 hover:bg-gray-100 block text-center">
                     Automatizar mi negocio
-                  </button>
+                  </a>
                 </div>
               </div>
             </FadeIn>
@@ -213,28 +295,32 @@ export default function Precios() {
                 <ShineBorder borderWidth={1} duration={7} />
                 <div className="liquid-glass p-7 rounded-[15px] border border-white/10 flex flex-col h-full w-full" style={{ background: 'rgba(255,255,255,0.13)' }}>
                   <div className="text-center mb-5">
-                    <p className="text-[10px] font-medium tracking-[0.28em] uppercase text-white/50 mb-3">Autopilot</p>
-                    <h3 className="text-lg font-semibold text-white leading-snug mb-2">Tu negocio<br />funciona. Sin ti.</h3>
-                    <p className="text-sm text-white/40 leading-relaxed">Agentes ilimitados, CRM integrado y web personalizada con SEO técnico avanzado. Escala sin fricción, factura sin tocar nada.</p>
+                    <p className="text-[10px] font-bold tracking-[0.28em] uppercase text-white/70 mb-3">Autopilot</p>
+                    <h3 className="text-lg font-bold text-white leading-snug mb-2">Tu negocio<br />en Automatico.</h3>
+                    <p className="text-sm text-white/70 leading-relaxed font-medium">Agentes ilimitados, CRM integrado y web personalizada con SEO técnico avanzado. Escala sin fricción, factura sin tocar nada.</p>
                   </div>
                   <div className="text-center mb-5">
-                    <p className="text-4xl font-bold text-white tabular-nums">1.200<span className="text-2xl font-medium text-white/50">€</span></p>
-                    <p className="text-[11px] text-white/30 mt-1 tracking-wide">al mes, sin permanencia</p>
+                    <p className="text-4xl font-bold text-white tabular-nums"><span className="text-[11px] font-normal text-white/50 mr-1 tracking-wide">desde</span>1.200<span className="text-2xl font-medium text-white/70">€</span></p>
+                    <p className="text-[11px] text-white/50 mt-1 tracking-wide font-medium">al mes, sin permanencia</p>
                   </div>
-                  <div className="h-px bg-white/10 mb-5" />
-                  <ul className="flex flex-col gap-2.5 flex-1 mb-6">
+                  <div className="h-px bg-white/15 mb-5" />
+                  <ul className="flex flex-col gap-2.5 mb-4">
                     {AUTOPILOT_FEATURES.map(f => (
-                      <li key={f} className="flex items-start gap-2.5 text-sm text-white/65 leading-snug">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-3.5 h-3.5 shrink-0 mt-0.5 text-white/70">
+                      <li key={f} className="flex items-start gap-2.5 text-sm text-white/80 leading-snug font-medium">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-3.5 h-3.5 shrink-0 mt-0.5 text-white">
                           <path fillRule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" clipRule="evenodd" />
                         </svg>
                         {f}
                       </li>
                     ))}
                   </ul>
-                  <button type="button" className="liquid-glass border border-white/15 text-white/80 px-6 py-2.5 rounded-lg font-medium text-sm w-full transition-all duration-300 hover:border-white/30 hover:text-white">
+                  <div className="h-px bg-white/10 mb-4" />
+                  <p className="text-[13px] text-white/60 italic leading-snug flex-1 mb-6 mt-1 text-center md:text-left">
+                    "Para empresas que quieren dejar de ser autoempleo y convertirse en sistema empresarial."
+                  </p>
+                  <a href="https://pay.sumup.com/b2c/Q3VB3VJZ" target="_blank" rel="noopener noreferrer" className="liquid-glass border border-white/25 text-white px-6 py-2.5 rounded-lg font-semibold text-sm w-full transition-all duration-300 hover:border-white/40 hover:bg-white/5 block text-center">
                     Escalar mi negocio
-                  </button>
+                  </a>
                 </div>
               </div>
             </FadeIn>
@@ -243,12 +329,21 @@ export default function Precios() {
 
           {/* Enterprise — premium full-width */}
           <FadeIn immediate delay={420}>
-            <div
-              className="relative rounded-2xl overflow-hidden p-8 md:p-12 flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-20"
+            <a
+              href="mailto:automatizagc@gmail.com"
+              className="block relative rounded-2xl overflow-hidden p-8 md:p-12 flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-20 cursor-pointer transition-all duration-300 group"
               style={{
                 background: 'linear-gradient(125deg, oklch(7% 0.012 265 / 0.97) 0%, oklch(9% 0.022 50 / 0.92) 100%)',
-                border: '1px solid oklch(78% 0.07 65 / 0.14)',
-                boxShadow: '0 0 60px oklch(55% 0.08 50 / 0.07), inset 0 1px 0 oklch(78% 0.07 65 / 0.12)',
+                border: '1.5px solid oklch(75% 0.14 75 / 0.55)',
+                boxShadow: '0 0 0 1px oklch(75% 0.14 75 / 0.12), 0 0 40px oklch(65% 0.12 75 / 0.18), inset 0 1px 0 oklch(78% 0.09 65 / 0.20)',
+              }}
+              onMouseEnter={e => {
+                (e.currentTarget as HTMLAnchorElement).style.border = '1.5px solid oklch(75% 0.14 75 / 0.85)';
+                (e.currentTarget as HTMLAnchorElement).style.boxShadow = '0 0 0 1px oklch(75% 0.14 75 / 0.2), 0 0 60px oklch(65% 0.12 75 / 0.32), inset 0 1px 0 oklch(78% 0.09 65 / 0.25)';
+              }}
+              onMouseLeave={e => {
+                (e.currentTarget as HTMLAnchorElement).style.border = '1.5px solid oklch(75% 0.14 75 / 0.55)';
+                (e.currentTarget as HTMLAnchorElement).style.boxShadow = '0 0 0 1px oklch(75% 0.14 75 / 0.12), 0 0 40px oklch(65% 0.12 75 / 0.18), inset 0 1px 0 oklch(78% 0.09 65 / 0.20)';
               }}
             >
               {/* Warm glow — right edge */}
@@ -282,8 +377,8 @@ export default function Precios() {
               {/* Content */}
               <div className="flex-1 min-w-0 relative">
                 <p
-                  className="text-[10px] font-medium tracking-[0.32em] uppercase mb-3"
-                  style={{ color: 'oklch(75% 0.07 60 / 0.7)' }}
+                  className="text-[10px] font-bold tracking-[0.32em] uppercase mb-3"
+                  style={{ color: 'oklch(85% 0.07 60 / 0.9)' }}
                 >
                   Enterprise
                 </p>
@@ -297,7 +392,7 @@ export default function Precios() {
                 >
                   Arquitectura<br />sin techo
                 </h3>
-                <p className="text-sm leading-relaxed max-w-sm" style={{ color: 'oklch(80% 0.01 265 / 0.38)' }}>
+                <p className="text-sm leading-relaxed max-w-sm font-medium" style={{ color: 'oklch(95% 0.01 265 / 0.75)' }}>
                   Para operaciones que exigen escala absoluta. Web enterprise, SEO de autoridad y acompañamiento dedicado.
                 </p>
               </div>
@@ -313,27 +408,29 @@ export default function Precios() {
                     Precio bajo consulta
                   </span>
                 </div>
-                <button
-                  type="button"
-                  className="relative px-7 py-2.5 rounded-lg font-medium text-sm whitespace-nowrap transition-all duration-300"
+                <a
+                  href="mailto:automatizagc@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative px-7 py-2.5 rounded-lg font-medium text-sm whitespace-nowrap transition-all duration-300 inline-block text-center"
                   style={{
                     background: 'oklch(78% 0.07 60 / 0.1)',
                     border: '1px solid oklch(78% 0.07 60 / 0.3)',
                     color: 'oklch(85% 0.05 55)',
                   }}
                   onMouseEnter={e => {
-                    (e.currentTarget as HTMLButtonElement).style.background = 'oklch(78% 0.07 60 / 0.18)';
-                    (e.currentTarget as HTMLButtonElement).style.borderColor = 'oklch(78% 0.07 60 / 0.5)';
+                    (e.currentTarget as HTMLAnchorElement).style.background = 'oklch(78% 0.07 60 / 0.18)';
+                    (e.currentTarget as HTMLAnchorElement).style.borderColor = 'oklch(78% 0.07 60 / 0.5)';
                   }}
                   onMouseLeave={e => {
-                    (e.currentTarget as HTMLButtonElement).style.background = 'oklch(78% 0.07 60 / 0.1)';
-                    (e.currentTarget as HTMLButtonElement).style.borderColor = 'oklch(78% 0.07 60 / 0.3)';
+                    (e.currentTarget as HTMLAnchorElement).style.background = 'oklch(78% 0.07 60 / 0.1)';
+                    (e.currentTarget as HTMLAnchorElement).style.borderColor = 'oklch(78% 0.07 60 / 0.3)';
                   }}
                 >
                   Solicitar acceso
-                </button>
+                </a>
               </div>
-            </div>
+            </a>
           </FadeIn>
 
         </div>
@@ -404,13 +501,13 @@ export default function Precios() {
                       <line x1="25" y1="11" x2="11" y2="25" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
                     </svg>
                   </div>
-                  <p className="text-[10px] font-semibold tracking-[0.28em] uppercase text-white mb-4">
+                  <p className="text-[10px] font-bold tracking-[0.28em] uppercase text-white mb-4">
                     Sin nuestro sistema
                   </p>
                   <ul className="space-y-3.5 flex-1">
                     {WITHOUT.map(item => (
-                      <li key={item} className="flex items-start gap-3 text-sm text-white/40 leading-snug">
-                        <span className="mt-0.5 text-white/20 font-light shrink-0 leading-none text-base">—</span>
+                      <li key={item} className="flex items-start gap-3 text-sm text-white/70 leading-snug font-medium">
+                        <span className="mt-0.5 text-white/40 font-bold shrink-0 leading-none text-base">•</span>
                         {item}
                       </li>
                     ))}
@@ -452,13 +549,13 @@ export default function Precios() {
                       <path d="M11 18 L16 23 L25 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </div>
-                  <p className="text-[10px] font-semibold tracking-[0.28em] uppercase text-white mb-4">
+                  <p className="text-[10px] font-bold tracking-[0.28em] uppercase text-white mb-4">
                     Con nuestro sistema
                   </p>
                   <ul className="space-y-3.5 flex-1">
                     {WITH.map(item => (
-                      <li key={item} className="flex items-start gap-3 text-sm text-white/65 leading-snug">
-                        <svg className="mt-0.5 w-3.5 h-3.5 shrink-0 text-white/70" viewBox="0 0 14 14" fill="none">
+                      <li key={item} className="flex items-start gap-3 text-sm text-white/90 leading-snug font-medium">
+                        <svg className="mt-0.5 w-3.5 h-3.5 shrink-0 text-white" viewBox="0 0 14 14" fill="none">
                           <path d="M2.5 7.5l3 3 6-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>
                         {item}
@@ -471,13 +568,45 @@ export default function Precios() {
 
           </div>
 
-          {/* Math note */}
+          {/* Math note / Impacto Económico */}
           <FadeIn immediate delay={280}>
-            <p className="text-sm text-white/35 leading-relaxed text-center mb-5 max-w-2xl mx-auto">
-              Si pierdes 3 clientes por semana a 120€ cada uno, estás perdiendo{' '}
-              <span className="text-white/65 font-medium">1.440€ al mes</span>{' '}
-              solo en leads sin respuesta. El sistema se paga solo en el primer mes.
-            </p>
+            <div className="relative mt-8 mb-10 max-w-4xl mx-auto rounded-2xl p-[1px]">
+              <ShineBorder borderWidth={1.5} duration={5} />
+              <div
+                className="relative rounded-[15px] overflow-hidden px-8 py-8 flex flex-col md:flex-row items-center justify-between gap-8"
+                style={{
+                  background: 'linear-gradient(130deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%)',
+                  boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.05)'
+                }}
+              >
+                {/* Glow */}
+                <div
+                  className="absolute inset-0 pointer-events-none"
+                  style={{ background: 'radial-gradient(circle at 0% 50%, oklch(62% 0.18 245 / 0.12) 0%, transparent 60%)' }}
+                />
+
+                <div className="flex-1 relative z-10 text-center md:text-left">
+                  
+                  <h3 className="text-xl md:text-2xl font-bold text-white leading-tight mb-3">
+                    Un solo empleado gestionando mensajes cuesta más de 1.600€/mes.
+                  </h3>
+                  
+                  <p className="text-sm text-white/50 leading-relaxed mb-5 max-w-2xl">
+                    El sistema automatizado trabaja 24/7 sin vacaciones, bajas ni errores humanos.
+                  </p>
+                  
+                  <div className="inline-flex items-center justify-center md:justify-start gap-2 bg-white/5 border border-white/10 rounded-lg px-4 py-2">
+                    <svg className="w-4 h-4 text-white/60" viewBox="0 0 16 16" fill="currentColor">
+                      <path fillRule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14Zm3.844-8.791a.75.75 0 0 0-1.188-.918l-3.7 4.79-1.649-1.833a.75.75 0 1 0-1.114 1.004l2.25 2.5a.75.75 0 0 0 1.15-.043l4.25-5.5Z" clipRule="evenodd" />
+                    </svg>
+                    <p className="text-[13px] font-medium text-white/80">
+                      En la mayoría de empresas se paga solo durante el primer mes.
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
           </FadeIn>
 
           {/* Garantía — tarjeta propia */}

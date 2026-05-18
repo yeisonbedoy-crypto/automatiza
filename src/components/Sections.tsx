@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { Target, Cpu, TrendingUp, Lightbulb, Users, Globe, Shield, Zap, Music2, Facebook, Twitter, Youtube, Instagram, MessageCircle, Sparkles } from 'lucide-react';
+import { LogoIcon } from './LogoIcon';
 import AnimatedHeading from './AnimatedHeading';
 import FadeIn from './FadeIn';
 import SeamlessVideo from './SeamlessVideo';
@@ -9,7 +10,7 @@ import { HoverBorderGradient } from './ui/hover-border-gradient';
 export function StorySection() {
   return (
     <section 
-      id="story"
+      id="email"
       className="relative z-10 w-full py-16 px-6 md:px-12 lg:px-16 min-h-screen flex flex-col justify-center overflow-x-hidden"
     >
       {/* Fondo Absoluto Vertical con Degradado robot-gray para fundir con la imagen */}
@@ -22,7 +23,7 @@ export function StorySection() {
       
       <div className="relative z-10 max-w-7xl mx-auto w-full">
         {/* Layout de dos columnas */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center mb-16 md:mb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           
           {/* Parte Izquierda: Agente IA */}
           <div className="relative flex justify-center w-full">
@@ -81,33 +82,46 @@ export function StorySection() {
               </HoverBorderGradient>
               <HoverBorderGradient
                 containerClassName="rounded-full"
-                as="button"
+                as="a"
+                href="https://wa.me/34696859840"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-900 font-semibold text-sm flex items-center gap-2 bg-[#25D366]/10 hover:bg-[#25D366]/20"
               >
                 <MessageCircle className="w-4 h-4 text-[#25D366]" />
                 <span>Hablar con un experto</span>
               </HoverBorderGradient>
             </FadeIn>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-12 w-full max-w-lg">
+              <FadeIn delay={600} className="h-full">
+                <TiltedCard>
+                  <div className="liquid-glass glass-hover p-6 lg:p-7 rounded-3xl text-left bg-white/20 border border-white/40 shadow-[0_4px_24px_rgba(0,0,0,0.08)] backdrop-blur-md w-full sm:aspect-square flex flex-col justify-start gap-6 group">
+                    <div className="w-10 h-10 rounded-full bg-white/40 border border-white/50 flex items-center justify-center text-gray-800 shadow-sm group-hover:scale-110 group-hover:bg-white/60 transition-all duration-300">
+                      <Target className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <h3 className="text-[15px] font-bold tracking-tight text-gray-900 mb-2 leading-tight">Clasificación Inteligente</h3>
+                      <p className="text-[13px] text-gray-700 leading-relaxed font-medium">Analiza el contexto de cada correo para priorizar y delegar sin intervención manual.</p>
+                    </div>
+                  </div>
+                </TiltedCard>
+              </FadeIn>
+              <FadeIn delay={700} className="h-full">
+                <TiltedCard>
+                  <div className="liquid-glass glass-hover p-6 lg:p-7 rounded-3xl text-left bg-white/20 border border-white/40 shadow-[0_4px_24px_rgba(0,0,0,0.08)] backdrop-blur-md w-full sm:aspect-square flex flex-col justify-start gap-6 group">
+                    <div className="w-10 h-10 rounded-full bg-white/40 border border-white/50 flex items-center justify-center text-gray-800 shadow-sm group-hover:scale-110 group-hover:bg-white/60 transition-all duration-300">
+                      <Zap className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <h3 className="text-[15px] font-bold tracking-tight text-gray-900 mb-2 leading-tight">Respuestas Autónomas</h3>
+                      <p className="text-[13px] text-gray-700 leading-relaxed font-medium">Redacta respuestas precisas y empáticas al instante, garantizando atención continua 24/7.</p>
+                    </div>
+                  </div>
+                </TiltedCard>
+              </FadeIn>
+            </div>
           </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          <FadeIn delay={200} className="h-full">
-            <TiltedCard>
-              <div className="liquid-glass glass-hover p-5 rounded-xl text-left bg-white/20 border border-white/40 shadow-[0_4px_16px_rgba(0,0,0,0.12)] backdrop-blur-md h-full w-full">
-                <h3 className="text-sm font-semibold mb-2 text-gray-900">Clasificación Inteligente</h3>
-                <p className="text-sm text-gray-800">Analiza el contexto de cada correo para priorizar y delegar sin intervención manual.</p>
-              </div>
-            </TiltedCard>
-          </FadeIn>
-          <FadeIn delay={300} className="h-full">
-            <TiltedCard>
-              <div className="liquid-glass glass-hover p-5 rounded-xl text-left bg-white/20 border border-white/40 shadow-[0_4px_16px_rgba(0,0,0,0.12)] backdrop-blur-md h-full w-full">
-                <h3 className="text-sm font-semibold mb-2 text-gray-900">Respuestas Autónomas</h3>
-                <p className="text-sm text-gray-800">Redacta respuestas precisas y empáticas al instante, garantizando atención continua 24/7.</p>
-              </div>
-            </TiltedCard>
-          </FadeIn>
         </div>
       </div>
     </section>
@@ -129,7 +143,7 @@ export function WhatsappSection() {
       />
       <div className="relative z-10 max-w-7xl mx-auto w-full">
         {/* Layout de dos columnas invertido */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center mb-16 md:mb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           
           {/* Parte Izquierda: Contenido (Alineado a la izquierda) */}
           <div className="flex flex-col items-start text-left px-4 md:px-0 order-2 lg:order-1">
@@ -140,7 +154,7 @@ export function WhatsappSection() {
             </FadeIn>
             <AnimatedHeading
               as="h2"
-              text="VENTAS SIN SUEÑO."
+              text="VENTAS SIN LIMITES."
               variant="blur"
               className="text-[clamp(2.25rem,6vw,6rem)] font-black uppercase tracking-tight mb-5 pb-3 leading-[0.95] bg-gradient-to-b from-gray-900 to-gray-700 bg-clip-text text-transparent"
               highlights={{ "VENTAS": "#25D366" }}
@@ -161,13 +175,45 @@ export function WhatsappSection() {
               </HoverBorderGradient>
               <HoverBorderGradient
                 containerClassName="rounded-full"
-                as="button"
+                as="a"
+                href="https://wa.me/34696859840"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-900 font-semibold text-sm flex items-center gap-2 bg-[#25D366]/10 hover:bg-[#25D366]/20"
               >
                 <MessageCircle className="w-4 h-4 text-[#25D366]" />
                 <span>Implementar en mi negocio</span>
               </HoverBorderGradient>
             </FadeIn>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-12 w-full max-w-lg">
+              <FadeIn delay={600} className="h-full">
+                <TiltedCard>
+                  <div className="liquid-glass glass-hover p-6 lg:p-7 rounded-3xl text-left bg-white/20 border border-white/40 shadow-[0_4px_24px_rgba(0,0,0,0.08)] backdrop-blur-md w-full sm:aspect-square flex flex-col justify-start gap-6 group">
+                    <div className="w-10 h-10 rounded-full bg-white/40 border border-white/50 flex items-center justify-center text-gray-800 shadow-sm group-hover:scale-110 group-hover:bg-white/60 transition-all duration-300">
+                      <TrendingUp className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <h3 className="text-[15px] font-bold tracking-tight text-gray-900 mb-2 leading-tight">Ventas en Caliente</h3>
+                      <p className="text-[13px] text-gray-700 leading-relaxed font-medium">Transforma simples consultas en ventas cerradas, aprovechando el canal de mayor conversión.</p>
+                    </div>
+                  </div>
+                </TiltedCard>
+              </FadeIn>
+              <FadeIn delay={700} className="h-full">
+                <TiltedCard>
+                  <div className="liquid-glass glass-hover p-6 lg:p-7 rounded-3xl text-left bg-white/20 border border-white/40 shadow-[0_4px_24px_rgba(0,0,0,0.08)] backdrop-blur-md w-full sm:aspect-square flex flex-col justify-start gap-6 group">
+                    <div className="w-10 h-10 rounded-full bg-white/40 border border-white/50 flex items-center justify-center text-gray-800 shadow-sm group-hover:scale-110 group-hover:bg-white/60 transition-all duration-300">
+                      <Shield className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <h3 className="text-[15px] font-bold tracking-tight text-gray-900 mb-2 leading-tight">Soporte Inteligente</h3>
+                      <p className="text-[13px] text-gray-700 leading-relaxed font-medium">Resuelve consultas habituales al instante y escala automáticamente los casos complejos al equipo.</p>
+                    </div>
+                  </div>
+                </TiltedCard>
+              </FadeIn>
+            </div>
           </div>
 
           {/* Parte Derecha: Agente IA */}
@@ -196,25 +242,6 @@ export function WhatsappSection() {
           </div>
           
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          <FadeIn delay={200} className="h-full">
-            <TiltedCard>
-              <div className="liquid-glass glass-hover p-5 rounded-xl text-left bg-white/20 border border-white/40 shadow-[0_4px_16px_rgba(0,0,0,0.12)] backdrop-blur-md h-full w-full">
-                <h3 className="text-sm font-semibold mb-2 text-gray-900">Ventas en Caliente</h3>
-                <p className="text-sm text-gray-800">Transforma simples consultas en ventas cerradas, aprovechando el canal con mayor tasa de conversión.</p>
-              </div>
-            </TiltedCard>
-          </FadeIn>
-          <FadeIn delay={300} className="h-full">
-            <TiltedCard>
-              <div className="liquid-glass glass-hover p-5 rounded-xl text-left bg-white/20 border border-white/40 shadow-[0_4px_16px_rgba(0,0,0,0.12)] backdrop-blur-md h-full w-full">
-                <h3 className="text-sm font-semibold mb-2 text-gray-900">Soporte Inteligente</h3>
-                <p className="text-sm text-gray-800">Resuelve consultas habituales al instante y escala automáticamente los casos complejos a tu equipo humano.</p>
-              </div>
-            </TiltedCard>
-          </FadeIn>
-        </div>
       </div>
     </section>
   );
@@ -236,7 +263,7 @@ export function InstagramSection() {
       
       <div className="relative z-10 max-w-7xl mx-auto w-full">
         {/* Layout de dos columnas (Video Izquierda, Texto Derecha) */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center mb-16 md:mb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           
           {/* Parte Izquierda: Agente IA */}
           <div className="relative flex justify-center w-full order-1">
@@ -279,7 +306,7 @@ export function InstagramSection() {
               highlights={{ "MONETIZAN.": "oklch(78% 0.20 25)" }}
             />
             <FadeIn delay={400}>
-              <p className="text-base md:text-lg lg:text-xl text-gray-300 leading-relaxed max-w-lg md:max-w-xl">
+              <p className="text-base md:text-lg lg:text-xl text-white/90 leading-relaxed max-w-lg md:max-w-xl" style={{ textShadow: '0 1px 8px rgba(32,26,21,0.55)' }}>
                 Tu agente convierte conversaciones en ventas, 24/7. Desde el primer mensaje hasta el enlace de pago, todo automatizado.
               </p>
             </FadeIn>
@@ -294,34 +321,47 @@ export function InstagramSection() {
               </HoverBorderGradient>
               <HoverBorderGradient
                 containerClassName="rounded-full"
-                as="button"
+                as="a"
+                href="https://wa.me/34696859840"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-white font-semibold text-sm flex items-center gap-2 bg-[#25D366]/15 hover:bg-[#25D366]/25"
               >
                 <MessageCircle className="w-4 h-4 text-[#43E67A]" />
                 <span>Asesoría por WhatsApp</span>
               </HoverBorderGradient>
             </FadeIn>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-12 w-full max-w-lg">
+              <FadeIn delay={600} className="h-full">
+                <TiltedCard>
+                  <div className="liquid-glass glass-hover p-6 lg:p-7 rounded-3xl text-left border border-white/10 shadow-[0_4px_24px_rgba(0,0,0,0.2)] backdrop-blur-md w-full sm:aspect-square flex flex-col justify-start gap-6 group">
+                    <div className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white shadow-sm group-hover:scale-110 group-hover:bg-white/20 transition-all duration-300">
+                      <Users className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <h3 className="text-[15px] font-bold tracking-tight text-white mb-2 leading-tight">Engagement Activo</h3>
+                      <p className="text-[13px] text-gray-300 leading-relaxed font-medium">Responde historias y comentarios 24/7, cultivando una comunidad fiel sin esfuerzo.</p>
+                    </div>
+                  </div>
+                </TiltedCard>
+              </FadeIn>
+              <FadeIn delay={700} className="h-full">
+                <TiltedCard>
+                  <div className="liquid-glass glass-hover p-6 lg:p-7 rounded-3xl text-left border border-white/10 shadow-[0_4px_24px_rgba(0,0,0,0.2)] backdrop-blur-md w-full sm:aspect-square flex flex-col justify-start gap-6 group">
+                    <div className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white shadow-sm group-hover:scale-110 group-hover:bg-white/20 transition-all duration-300">
+                      <MessageCircle className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <h3 className="text-[15px] font-bold tracking-tight text-white mb-2 leading-tight">Ventas por MD</h3>
+                      <p className="text-[13px] text-gray-300 leading-relaxed font-medium">Convierte tus DMs en un embudo de ventas fluido, desde la duda hasta el pago.</p>
+                    </div>
+                  </div>
+                </TiltedCard>
+              </FadeIn>
+            </div>
           </div>
           
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          <FadeIn delay={200} className="h-full">
-            <TiltedCard>
-              <div className="liquid-glass glass-hover p-5 rounded-xl text-left h-full w-full">
-                <h3 className="text-sm font-semibold mb-2 text-white">Engagement Activo</h3>
-                <p className="text-sm text-gray-300">Responde historias y comentarios 24/7, cultivando una comunidad fiel sin que inviertas tu tiempo.</p>
-              </div>
-            </TiltedCard>
-          </FadeIn>
-          <FadeIn delay={300} className="h-full">
-            <TiltedCard>
-              <div className="liquid-glass glass-hover p-5 rounded-xl text-left h-full w-full">
-                <h3 className="text-sm font-semibold mb-2 text-white">Ventas por MD</h3>
-                <p className="text-sm text-gray-300">Convierte tus mensajes directos en un embudo de conversión fluido, desde la duda hasta el enlace de pago.</p>
-              </div>
-            </TiltedCard>
-          </FadeIn>
         </div>
       </div>
     </section>
@@ -344,7 +384,7 @@ export function BossSection() {
       
       <div className="relative z-10 max-w-7xl mx-auto w-full">
         {/* Layout de dos columnas (Texto Izquierda, Video Derecha) */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center mb-16 md:mb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           
           {/* Parte Izquierda: Contenido (Alineado a la izquierda) */}
           <div className="flex flex-col items-start text-left px-4 md:px-0 order-2 lg:order-1">
@@ -376,13 +416,45 @@ export function BossSection() {
               </HoverBorderGradient>
               <HoverBorderGradient
                 containerClassName="rounded-full"
-                as="button"
+                as="a"
+                href="https://wa.me/34696859840"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-white font-semibold text-sm flex items-center gap-2 bg-[#25D366]/15 hover:bg-[#25D366]/25"
               >
                 <MessageCircle className="w-4 h-4 text-[#43E67A]" />
                 <span>Contratar al Jefe</span>
               </HoverBorderGradient>
             </FadeIn>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-12 w-full max-w-lg">
+              <FadeIn delay={600} className="h-full">
+                <TiltedCard>
+                  <div className="liquid-glass glass-hover p-6 lg:p-7 rounded-3xl text-left bg-white/5 border border-white/10 shadow-[0_4px_24px_rgba(0,0,0,0.25)] backdrop-blur-md w-full sm:aspect-square flex flex-col justify-start gap-6 group">
+                    <div className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white shadow-sm group-hover:scale-110 group-hover:bg-white/20 transition-all duration-300">
+                      <Cpu className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <h3 className="text-[15px] font-bold tracking-tight text-white mb-2 leading-tight">Operaciones Centralizadas</h3>
+                      <p className="text-[13px] text-gray-300 leading-relaxed font-medium">Unifica áreas bajo un cerebro digital único que toma decisiones basadas en datos reales.</p>
+                    </div>
+                  </div>
+                </TiltedCard>
+              </FadeIn>
+              <FadeIn delay={700} className="h-full">
+                <TiltedCard>
+                  <div className="liquid-glass glass-hover p-6 lg:p-7 rounded-3xl text-left bg-white/5 border border-white/10 shadow-[0_4px_24px_rgba(0,0,0,0.25)] backdrop-blur-md w-full sm:aspect-square flex flex-col justify-start gap-6 group">
+                    <div className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white shadow-sm group-hover:scale-110 group-hover:bg-white/20 transition-all duration-300">
+                      <Lightbulb className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <h3 className="text-[15px] font-bold tracking-tight text-white mb-2 leading-tight">Autogestión Escalable</h3>
+                      <p className="text-[13px] text-gray-300 leading-relaxed font-medium">Audita procesos, optimiza la conversión y lidera la operativa sin requerir tu intervención manual.</p>
+                    </div>
+                  </div>
+                </TiltedCard>
+              </FadeIn>
+            </div>
           </div>
 
           {/* Parte Derecha: Agente IA Jefe */}
@@ -409,25 +481,6 @@ export function BossSection() {
             </FadeIn>
           </div>
           
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          <FadeIn delay={200} className="h-full">
-            <TiltedCard>
-              <div className="liquid-glass glass-hover p-5 rounded-xl text-left bg-white/5 border border-white/10 shadow-[0_4px_16px_rgba(0,0,0,0.25)] backdrop-blur-md h-full w-full">
-                <h3 className="text-sm font-semibold mb-2 text-white">Operaciones Centralizadas</h3>
-                <p className="text-sm text-gray-300">Unifica todas las áreas de tu negocio bajo un cerebro digital único que toma decisiones eficientes basadas en datos en tiempo real.</p>
-              </div>
-            </TiltedCard>
-          </FadeIn>
-          <FadeIn delay={300} className="h-full">
-            <TiltedCard>
-              <div className="liquid-glass glass-hover p-5 rounded-xl text-left bg-white/5 border border-white/10 shadow-[0_4px_16px_rgba(0,0,0,0.25)] backdrop-blur-md h-full w-full">
-                <h3 className="text-sm font-semibold mb-2 text-white">Autogestión Escalable</h3>
-                <p className="text-sm text-gray-300">Delega la supervisión. "El Jefe" audita los procesos, optimiza las conversiones y lidera la operativa sin requerir tu intervención manual.</p>
-              </div>
-            </TiltedCard>
-          </FadeIn>
         </div>
       </div>
     </section>
@@ -498,10 +551,10 @@ export function InvestingSection() {
 
 export function AdvisorySection() {
   const services = [
-    { title: "Automatización en WhatsApp", icon: <Users className="w-5 h-5" />, desc: "Agentes que cierran ventas por ti." },
-    { title: "Gestión de Correos", icon: <Cpu className="w-5 h-5" />, desc: "Clasificación inteligente." },
-    { title: "Interacción en Redes", icon: <Globe className="w-5 h-5" />, desc: "Monetiza tus DMs y comentarios." },
-    { title: "Flujos Inteligentes", icon: <Lightbulb className="w-5 h-5" />, desc: "Lógica avanzada para tu negocio." }
+    { title: "Automatización en WhatsApp", icon: <Users className="w-5 h-5" />, desc: "Agentes que cierran ventas por ti.", href: "#whatsapp" },
+    { title: "Gestión de Correos", icon: <Cpu className="w-5 h-5" />, desc: "Clasificación inteligente.", href: "#email" },
+    { title: "Interacción en Redes", icon: <Globe className="w-5 h-5" />, desc: "Monetiza tus DMs y comentarios.", href: "#instagram" },
+    { title: "Flujos Inteligentes", icon: <Lightbulb className="w-5 h-5" />, desc: "Lógica avanzada para tu negocio.", href: "#boss" },
   ];
 
   return (
@@ -530,12 +583,17 @@ export function AdvisorySection() {
               Brindamos servicios de asesoría y ejecución para empresas que buscan liderar su sector integrando servicios avanzados de IA y automatización.
             </p>
             <div className="flex flex-wrap gap-4">
-              <button type="button" className="bg-white text-black px-8 py-3 rounded-lg font-medium transition-colors duration-200 hover:bg-gray-100">
+              <a
+                href="https://wa.me/34696859840"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white text-black px-8 py-3 rounded-lg font-medium transition-colors duration-200 hover:bg-gray-100"
+              >
                 Agenda una Consultoría
-              </button>
-              <button type="button" className="liquid-glass glass-hover border border-white/20 text-white px-8 py-3 rounded-lg font-medium">
+              </a>
+              <a href="mailto:automatizagc@gmail.com" className="liquid-glass glass-hover border border-white/20 text-white px-8 py-3 rounded-lg font-medium inline-block text-center">
                 Formulario de Contacto
-              </button>
+              </a>
             </div>
           </FadeIn>
         </div>
@@ -548,7 +606,10 @@ export function AdvisorySection() {
               className="h-full"
             >
               <TiltedCard>
-                <div className="liquid-glass glass-hover p-6 rounded-2xl border border-white/10 flex flex-col justify-between group min-h-[160px] h-full w-full">
+                <a
+                  href={s.href}
+                  className="liquid-glass glass-hover p-6 rounded-2xl border border-white/10 flex flex-col justify-between group min-h-[160px] h-full w-full block"
+                >
                   <div className="mb-4 text-white/40 group-hover:text-white transition-colors duration-300">
                     {s.icon}
                   </div>
@@ -556,7 +617,7 @@ export function AdvisorySection() {
                     <h3 className="text-xl font-semibold text-white mb-2">{s.title}</h3>
                     <p className="text-sm text-gray-400">{s.desc}</p>
                   </div>
-                </div>
+                </a>
               </TiltedCard>
             </FadeIn>
           ))}
@@ -579,7 +640,7 @@ export function Footer() {
         {/* Brand */}
         <div className="md:col-span-5">
           <div className="flex items-center gap-2.5 mb-5">
-            <span className="text-xl font-black tracking-tighter text-white">AUTOMATIZA</span>
+            <LogoIcon className="h-10 w-auto text-white" />
           </div>
           <p className="text-sm leading-relaxed max-w-xs text-white/50">
             Agentes de IA que gestionan WhatsApp, Instagram y email de forma autónoma — captando, calificando y cerrando ventas 24/7 mientras tú descansas.
@@ -594,7 +655,7 @@ export function Footer() {
               <h4 className="text-[10px] uppercase tracking-[0.2em] text-white font-semibold mb-4">Plataforma</h4>
               <ul className="text-xs space-y-2.5">
                 <li><a href="/" className="hover:text-white transition-colors block">Inicio</a></li>
-                <li><a href="/#story" className="hover:text-white transition-colors block">Ecosistema</a></li>
+                <li><a href="/#email" className="hover:text-white transition-colors block">Ecosistema</a></li>
                 <li><a href="/#boss" className="hover:text-white transition-colors block">El Cerebro</a></li>
                 <li><a href="/#asesoramiento" className="hover:text-white transition-colors block">Asesoramiento</a></li>
                 <li><a href="/precios" className="hover:text-white transition-colors block">Precios</a></li>
@@ -606,18 +667,17 @@ export function Footer() {
               <ul className="text-xs space-y-2.5">
                 <li><a href="/mision" className="hover:text-white transition-colors block">Misión</a></li>
                 <li><a href="/blog" className="hover:text-white transition-colors block">Blog</a></li>
-                <li><a href="#" className="hover:text-white transition-colors block">Sobre nosotros</a></li>
-                <li><a href="#" className="hover:text-white transition-colors block">Trabaja con nosotros</a></li>
+                <li><a href="/sobre-nosotros" className="hover:text-white transition-colors block">Sobre nosotros</a></li>
               </ul>
             </div>
 
             <div>
               <h4 className="text-[10px] uppercase tracking-[0.2em] text-white font-semibold mb-4">Contacto</h4>
               <ul className="text-xs space-y-2.5">
-                <li><a href="#" className="hover:text-white transition-colors block">Agenda una llamada</a></li>
-                <li><a href="#" className="hover:text-white transition-colors block">WhatsApp directo</a></li>
-                <li><a href="#" className="hover:text-white transition-colors block">hola@automatiza.ai</a></li>
-                <li><a href="#" className="hover:text-white transition-colors block">Política de privacidad</a></li>
+                <li><a href="https://wa.me/34696859840?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20llamada" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors block">Agenda una llamada</a></li>
+                <li><a href="https://wa.me/34696859840" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors block">WhatsApp directo</a></li>
+                <li><a href="mailto:automatizagc@gmail.com" className="hover:text-white transition-colors block">automatizagc@gmail.com</a></li>
+                <li><a href="/politica-de-privacidad" className="hover:text-white transition-colors block">Política de privacidad</a></li>
               </ul>
             </div>
 

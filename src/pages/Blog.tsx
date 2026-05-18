@@ -5,6 +5,7 @@ import FadeIn from '../components/FadeIn';
 import AnimatedHeading from '../components/AnimatedHeading';
 import SeamlessVideo from '../components/SeamlessVideo';
 import TiltedCard from '../components/TiltedCard';
+import { LogoIcon } from '../components/LogoIcon';
 
 interface NavItem {
   name: string;
@@ -30,9 +31,9 @@ function BlogNavbar() {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="liquid-glass pointer-events-auto rounded-xl px-5 py-3 border border-white/20 backdrop-blur-md text-xl font-black tracking-tighter text-white hover:text-white/80 transition-colors duration-300"
+          className="liquid-glass pointer-events-auto rounded-xl px-4 py-2.5 border border-white/20 backdrop-blur-md text-white hover:text-white/80 transition-colors duration-300"
         >
-          AUTOMATIZA
+          <LogoIcon className="h-9 w-auto" />
         </motion.a>
 
         {/* Right pill — links + CTA (desktop) */}
@@ -333,7 +334,7 @@ export default function Blog() {
 
       {/* Footer minimal */}
       <footer className="border-t border-white/8 py-10 px-6 md:px-12 lg:px-16 max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-        <span className="text-xl font-black tracking-tighter text-white">AUTOMATIZA</span>
+        <LogoIcon className="h-8 w-auto text-white" />
         <p className="text-[11px] text-white/30 uppercase tracking-widest">
           © {new Date().getFullYear()} Todos los derechos reservados
         </p>

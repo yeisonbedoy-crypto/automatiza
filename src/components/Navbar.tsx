@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { HoverBorderGradient } from './ui/hover-border-gradient';
+import { LogoIcon } from './LogoIcon';
 
 interface NavItem {
   name: string;
@@ -9,9 +10,9 @@ interface NavItem {
 }
 
 const LANDING_NAV_ITEMS: NavItem[] = [
-  { name: "ECOSISTEMA",  href: "#story" },
+  { name: "ECOSISTEMA",  href: "#email" },
   { name: "EL CEREBRO", href: "#boss", highlight: true },
-  { name: "EL MÉTODO",  href: "#asesoramiento" },
+  { name: "MÉTODO",  href: "#asesoramiento" },
   { name: "PRECIOS",    href: "/precios" },
   { name: "BLOG",       href: "/blog" },
 ];
@@ -47,9 +48,9 @@ export function Navbar({ navItems = LANDING_NAV_ITEMS, logoHref }: NavbarProps) 
         <button
           type="button"
           onClick={handleLogoClick}
-          className="text-xl font-black tracking-tighter text-white cursor-pointer hover:text-white/80 transition-colors duration-300 shrink-0"
+          className="text-white cursor-pointer hover:text-white/80 transition-colors duration-300 shrink-0"
         >
-          AUTOMATIZA
+          <LogoIcon className="h-9 w-auto" />
         </button>
 
         {/* Nav links — desktop only */}
@@ -74,9 +75,10 @@ export function Navbar({ navItems = LANDING_NAV_ITEMS, logoHref }: NavbarProps) 
         <div className="flex items-center gap-2.5">
           <div className="hidden sm:block">
             <HoverBorderGradient
-              containerClassName="rounded-full"
+              containerClassName="rounded-full cursor-pointer"
               as="button"
-              className="text-white font-semibold text-[11px] uppercase tracking-widest bg-white/10"
+              onClick={() => window.open('https://wa.me/34696859840', '_blank', 'noopener,noreferrer')}
+              className="text-white font-semibold text-[11px] uppercase tracking-widest bg-white/10 cursor-pointer"
             >
               ACTIVA TU IA
             </HoverBorderGradient>
@@ -118,7 +120,8 @@ export function Navbar({ navItems = LANDING_NAV_ITEMS, logoHref }: NavbarProps) 
             exit={{ opacity: 0, y: -8, scaleY: 0.95 }}
             transition={{ duration: 0.22, ease: "easeOut" }}
             style={{ originY: 0 }}
-            className="pointer-events-auto mt-2 liquid-glass rounded-xl border border-white/20 overflow-hidden max-w-7xl mx-auto md:hidden"
+            className="pointer-events-auto mt-2 liquid-glass rounded-xl border border-white/20 overflow-hidden max-w-7xl mx-auto md:hidden backdrop-blur-md"
+            style={{ background: 'rgba(10,11,14,0.50)' }}
           >
             <div className="px-6 pt-2 pb-4">
               {navItems.map((item, i) => (
@@ -149,9 +152,10 @@ export function Navbar({ navItems = LANDING_NAV_ITEMS, logoHref }: NavbarProps) 
                 className="mt-4 sm:hidden"
               >
                 <HoverBorderGradient
-                  containerClassName="rounded-full w-full"
+                  containerClassName="rounded-full w-full cursor-pointer"
                   as="button"
-                  className="text-white font-semibold text-[11px] uppercase tracking-widest bg-white/10 w-full justify-center"
+                  onClick={() => window.open('https://wa.me/34696859840', '_blank', 'noopener,noreferrer')}
+                  className="text-white font-semibold text-[11px] uppercase tracking-widest bg-white/10 w-full justify-center cursor-pointer"
                 >
                   ACTIVA TU IA
                 </HoverBorderGradient>
