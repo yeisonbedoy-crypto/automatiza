@@ -26,7 +26,32 @@
       "Bash(git init *)",
       "Bash(git add *)",
       "Bash(git commit -m ' *)",
-      "Bash(git config *)"
+      "Bash(git config *)",
+      "Bash(git remote *)",
+      "Bash(git branch *)",
+      "Bash(git push *)",
+      "Skill(superpowers:brainstorming)",
+      "Skill(superpowers:writing-plans)",
+      "Skill(superpowers:executing-plans)",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\Usuario\\\\Pictures\\\\Screenshots\\\\\" | Sort-Object LastWriteTime -Descending | Select-Object -First 3 | ForEach-Object { $_.FullName })",
+      "Bash(Select-Object -First 5)",
+      "Bash(Get-Content *)",
+      "Bash(npm run *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5174)",
+      "Bash(Format-Table Name, LastWriteTime)",
+      "Skill(ui-ux-pro-max)",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\Usuario\\\\Pictures\\\\Screenshots\" | Sort-Object LastWriteTime -Descending | Select-Object -First 5 | ForEach-Object { $_.FullName })",
+      "Bash(git commit -m 'fix\\(hero\\): increase H1 font size for better mobile visual impact *)",
+      "Bash(git commit -m 'fix\\(hero\\): set H1 to 22px on mobile only, restore original desktop size *)",
+      "Bash(git commit -m 'fix\\(hero\\): mobile H1 25px, letter-spacing 0.04em, line-height 1.15 *)",
+      "Bash(git commit -m 'fix\\(hero\\): mobile H1 24px, letter-spacing 0.03em, line-height 1.05 *)",
+      "Bash(git commit -m 'fix\\(safari\\): use 100dvh + safe-area-inset to prevent content hidden behind iOS browser bar *)",
+      "Bash(git commit -m 'fix\\(safari\\): eliminate scroll zoom and section peeking on iOS *)",
+      "Bash(git commit -m 'fix\\(safari\\): use h-lvh on fixed video to prevent zoom on scroll *)",
+      "Bash(git commit -m 'revert: restore fixed inset-0 video background, remove GPU hacks causing blur *)",
+      "Bash(Get-ChildItem -Path \"D:\\\\TrabajosWeb\\\\automatiza\" -Force)",
+      "Bash(npm uninstall *)",
+      "Bash(git commit -m 'chore: project cleanup - remove unused components, section and dependencies *)"
     ]
   }
 }

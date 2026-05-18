@@ -119,9 +119,8 @@ export function Navbar({ navItems = LANDING_NAV_ITEMS, logoHref }: NavbarProps) 
             animate={{ opacity: 1, y: 0, scaleY: 1 }}
             exit={{ opacity: 0, y: -8, scaleY: 0.95 }}
             transition={{ duration: 0.22, ease: "easeOut" }}
-            style={{ originY: 0 }}
+            style={{ originY: 0, background: 'rgba(10,11,14,0.50)' }}
             className="pointer-events-auto mt-2 liquid-glass rounded-xl border border-white/20 overflow-hidden max-w-7xl mx-auto md:hidden backdrop-blur-md"
-            style={{ background: 'rgba(10,11,14,0.50)' }}
           >
             <div className="px-6 pt-2 pb-4">
               {navItems.map((item, i) => (

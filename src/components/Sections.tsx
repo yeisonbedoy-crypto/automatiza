@@ -487,68 +487,6 @@ export function BossSection() {
   );
 }
 
-export function InvestingSection() {
-  const values = [
-    { icon: <Target className="w-6 h-6" />, title: "Precisión", desc: "Automatización perfecta respaldada por una lógica inteligente." },
-    { icon: <TrendingUp className="w-6 h-6" />, title: "Escalabilidad", desc: "Sistemas diseñados para crecer contigo sin importar el volumen." },
-    { icon: <Shield className="w-6 h-6" />, title: "Confiabilidad", desc: "Garantizamos tiempos de respuesta óptimos las 24 horas del día." },
-    { icon: <Globe className="w-6 h-6" />, title: "Omnicanal", desc: "Integración total en WhatsApp, correo, y redes sociales." }
-  ];
-
-  return (
-    <section id="plan" className="relative z-10 w-full py-24 px-6 md:px-12 lg:px-16 min-h-screen flex flex-col justify-center">
-      <div 
-        className="absolute inset-0 pointer-events-none z-0"
-        style={{
-          background: 'rgba(0,0,0,0.4)'
-        }}
-      />
-      <div className="max-w-6xl w-full mx-auto relative z-10">
-        <FadeIn>
-          <span className="text-sm font-medium tracking-widest uppercase text-white/60 mb-4 block">Plan</span>
-        </FadeIn>
-        <div className="flex flex-col lg:flex-row justify-between items-start mb-16 gap-8">
-          <AnimatedHeading
-            text="Respaldando tu crecimiento."
-            className="text-[clamp(2.25rem,4.5vw_+_0.5rem,4.25rem)] font-bold leading-tight tracking-tight"
-            highlights={{
-              "crecimiento.": "oklch(80% 0.15 68)"
-            }}
-          />
-          <FadeIn delay={300} className="max-w-md">
-            <p className="text-gray-300 text-lg">
-              Implementamos sistemas de Inteligencia Artificial que trabajan por ti en todas tus plataformas digitales clave.
-            </p>
-          </FadeIn>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {values.map((v, i) => (
-            <FadeIn key={i} delay={100 + i * 100} className="h-full">
-              <TiltedCard>
-                <div className="liquid-glass glass-hover p-8 rounded-2xl border border-white/10 flex flex-col items-start h-full w-full">
-                  <div className="p-3 bg-white/5 rounded-lg mb-6 text-white group-hover:scale-110 transition-transform">
-                    {v.icon}
-                  </div>
-                  <h3 className="text-xl font-semibold mb-3">{v.title}</h3>
-                  <p className="text-gray-400 text-sm">{v.desc}</p>
-                </div>
-              </TiltedCard>
-            </FadeIn>
-          ))}
-        </div>
-
-        <FadeIn delay={900} className="mt-16 text-center">
-          <button type="button" className="liquid-glass glass-hover border border-white/20 px-8 py-3 rounded-lg font-medium text-white">
-            Ver Nuestros Planes
-          </button>
-        </FadeIn>
-      </div>
-    </section>
-  );
-}
-
-
 export function AdvisorySection() {
   const services = [
     { title: "Automatización en WhatsApp", icon: <Users className="w-5 h-5" />, desc: "Agentes que cierran ventas por ti.", href: "#whatsapp" },
