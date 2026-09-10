@@ -21,7 +21,7 @@ import Nfc from './pages/Nfc.tsx';
 import StickyAssistant from './components/StickyAssistant.tsx';
 import './index.css';
 
-const path = window.location.pathname;
+const path = window.location.pathname.replace(/\/+$/, '') || '/';
 const Page =
   path === '/mision'                  ? Mision             :
   path === '/precios'                 ? Precios            :

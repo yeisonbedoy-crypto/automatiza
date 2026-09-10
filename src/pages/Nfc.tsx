@@ -79,55 +79,55 @@ function OrderForm() {
     <form onSubmit={handleSubmit} className="flex flex-col gap-5 rounded-2xl p-7 md:p-8 border" style={{ borderColor: 'var(--nfc-line)', background: 'var(--nfc-paper)', boxShadow: '5px 5px 0 var(--nfc-accent)' }}>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label className={NFC_LABEL_CLASS} style={{ color: 'var(--nfc-ink3)' }}>Nombre</label>
-          <input name="nombre" type="text" required value={form.nombre} onChange={handleChange} placeholder="Tu nombre" className={NFC_INPUT_CLASS} style={NFC_INPUT_STYLE} />
+          <label htmlFor="nfc-nombre" className={NFC_LABEL_CLASS} style={{ color: 'var(--nfc-ink3)' }}>Nombre</label>
+          <input id="nfc-nombre" name="nombre" type="text" required value={form.nombre} onChange={handleChange} placeholder="Tu nombre" className={NFC_INPUT_CLASS} style={NFC_INPUT_STYLE} />
         </div>
         <div>
-          <label className={NFC_LABEL_CLASS} style={{ color: 'var(--nfc-ink3)' }}>Negocio</label>
-          <input name="negocio" type="text" value={form.negocio} onChange={handleChange} placeholder="Nombre de tu negocio" className={NFC_INPUT_CLASS} style={NFC_INPUT_STYLE} />
+          <label htmlFor="nfc-negocio" className={NFC_LABEL_CLASS} style={{ color: 'var(--nfc-ink3)' }}>Negocio</label>
+          <input id="nfc-negocio" name="negocio" type="text" value={form.negocio} onChange={handleChange} placeholder="Nombre de tu negocio" className={NFC_INPUT_CLASS} style={NFC_INPUT_STYLE} />
         </div>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label className={NFC_LABEL_CLASS} style={{ color: 'var(--nfc-ink3)' }}>Isla / ubicación</label>
-          <select name="isla" value={form.isla} onChange={handleChange} className={NFC_INPUT_CLASS} style={NFC_INPUT_STYLE}>
+          <label htmlFor="nfc-isla" className={NFC_LABEL_CLASS} style={{ color: 'var(--nfc-ink3)' }}>Isla / ubicación</label>
+          <select id="nfc-isla" name="isla" value={form.isla} onChange={handleChange} className={NFC_INPUT_CLASS} style={NFC_INPUT_STYLE}>
             {ISLAS.map(i => <option key={i} value={i}>{i}</option>)}
           </select>
         </div>
         <div>
-          <label className={NFC_LABEL_CLASS} style={{ color: 'var(--nfc-ink3)' }}>WhatsApp</label>
-          <input name="whatsapp" type="tel" value={form.whatsapp} onChange={handleChange} placeholder="+34 000 000 000" className={NFC_INPUT_CLASS} style={NFC_INPUT_STYLE} />
+          <label htmlFor="nfc-whatsapp" className={NFC_LABEL_CLASS} style={{ color: 'var(--nfc-ink3)' }}>WhatsApp</label>
+          <input id="nfc-whatsapp" name="whatsapp" type="tel" value={form.whatsapp} onChange={handleChange} placeholder="+34 000 000 000" className={NFC_INPUT_CLASS} style={NFC_INPUT_STYLE} />
         </div>
       </div>
       <div>
-        <label className={NFC_LABEL_CLASS} style={{ color: 'var(--nfc-ink3)' }}>Producto de interés</label>
-        <select name="producto" value={form.producto} onChange={handleChange} className={NFC_INPUT_CLASS} style={NFC_INPUT_STYLE}>
+        <label htmlFor="nfc-producto" className={NFC_LABEL_CLASS} style={{ color: 'var(--nfc-ink3)' }}>Producto de interés</label>
+        <select id="nfc-producto" name="producto" value={form.producto} onChange={handleChange} className={NFC_INPUT_CLASS} style={NFC_INPUT_STYLE}>
           {PRODUCTS.map(p => <option key={p.name} value={p.name}>{p.name} — {p.price}</option>)}
           <option value="No lo sé todavía">No lo sé todavía</option>
         </select>
       </div>
       <div>
-        <label className={NFC_LABEL_CLASS} style={{ color: 'var(--nfc-ink3)' }}>
+        <label htmlFor="nfc-mensaje" className={NFC_LABEL_CLASS} style={{ color: 'var(--nfc-ink3)' }}>
           Mensaje <span className="normal-case font-sans" style={{ color: 'var(--nfc-ink3)' }}>(opcional)</span>
         </label>
-        <textarea name="mensaje" rows={3} value={form.mensaje} onChange={handleChange} placeholder="Cuéntanos algo más sobre tu negocio o pedido" className={`${NFC_INPUT_CLASS} resize-none`} style={NFC_INPUT_STYLE} />
+        <textarea id="nfc-mensaje" name="mensaje" rows={3} value={form.mensaje} onChange={handleChange} placeholder="Cuéntanos algo más sobre tu negocio o pedido" className={`${NFC_INPUT_CLASS} resize-none`} style={NFC_INPUT_STYLE} />
       </div>
       <NfcButton type="submit" className="w-full justify-center">Enviar pedido</NfcButton>
     </form>
   );
 }
 
-function FaqItem({ q, a, isOpen, onToggle }: { q: string; a: string; isOpen: boolean; onToggle: () => void }) {
+function FaqItem({ q, a, isOpen, onToggle, id }: { q: string; a: string; isOpen: boolean; onToggle: () => void; id: string }) {
   return (
     <div className="border-b" style={{ borderColor: 'var(--nfc-line)' }}>
-      <button type="button" onClick={onToggle} aria-expanded={isOpen} className="w-full flex items-center justify-between gap-4 py-5 text-left">
+      <button type="button" onClick={onToggle} aria-expanded={isOpen} aria-controls={id} className="w-full flex items-center justify-between gap-4 py-5 text-left">
         <span className="text-[14px] md:text-[15px] font-bold" style={{ color: 'var(--nfc-ink)' }}>{q}</span>
         <ChevronDown
           className="w-4 h-4 shrink-0 transition-transform duration-200"
           style={{ color: 'var(--nfc-accent)', transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}
         />
       </button>
-      {isOpen && <p className="text-[13px] leading-relaxed pb-5 pr-8" style={{ color: 'var(--nfc-ink2)' }}>{a}</p>}
+      {isOpen && <p id={id} className="text-[13px] leading-relaxed pb-5 pr-8" style={{ color: 'var(--nfc-ink2)' }}>{a}</p>}
     </div>
   );
 }
@@ -395,7 +395,7 @@ export default function Nfc() {
           </div>
           <div>
             {FAQS.map((f, i) => (
-              <FaqItem key={f.q} q={f.q} a={f.a} isOpen={openFaq === i} onToggle={() => setOpenFaq(openFaq === i ? null : i)} />
+              <FaqItem key={f.q} q={f.q} a={f.a} isOpen={openFaq === i} onToggle={() => setOpenFaq(openFaq === i ? null : i)} id={`faq-answer-${i}`} />
             ))}
           </div>
         </div>
@@ -414,7 +414,10 @@ export default function Nfc() {
         </div>
       </section>
 
-      <div className="relative z-10 max-w-7xl w-full px-6 md:px-12 lg:px-16 pb-12 mt-auto mx-auto">
+      <div
+        className="relative z-10 max-w-7xl w-full px-6 md:px-12 lg:px-16 pb-12 mt-auto mx-auto rounded-3xl overflow-hidden pt-10"
+        style={{ background: 'var(--nfc-ink)' }}
+      >
         <Footer />
       </div>
     </main>

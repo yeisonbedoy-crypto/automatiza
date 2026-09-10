@@ -16,8 +16,8 @@ export const NFC_LINE = 'rgba(27,26,23,0.12)';
 /** Fondo sólido color papel + textura de grano muy sutil (reutiliza .noise-overlay). */
 export function NfcBackground() {
   return (
-    <div className="fixed inset-0 z-0" style={{ background: 'var(--nfc-paper)' }}>
-      <div className="absolute inset-0 noise-overlay opacity-[0.035]" />
+    <div className="fixed inset-0 z-0" style={{ background: `var(--nfc-paper, ${NFC_PAPER})` }}>
+      <div className="absolute inset-0 noise-overlay opacity-[0.035] h-full w-full" />
     </div>
   );
 }
@@ -53,9 +53,9 @@ export function NfcButton({
   const cls =
     `inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-bold text-sm transition-transform duration-200 hover:-translate-y-0.5 ${className}`;
   const style: CSSProperties = {
-    background: 'var(--nfc-accent)',
-    color: 'var(--nfc-paper)',
-    boxShadow: '3px 3px 0 var(--nfc-ink)',
+    background: `var(--nfc-accent, ${NFC_ACCENT})`,
+    color: `var(--nfc-paper, ${NFC_PAPER})`,
+    boxShadow: `3px 3px 0 var(--nfc-ink, ${NFC_INK})`,
   };
   if (href) {
     return (
@@ -77,7 +77,7 @@ export function NfcGhostButton({ children, href, className = '' }: { children: R
     <a
       href={href}
       className={`inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-sm border transition-colors duration-200 ${className}`}
-      style={{ borderColor: 'var(--nfc-ink)', color: 'var(--nfc-ink)' }}
+      style={{ borderColor: `var(--nfc-ink, ${NFC_INK})`, color: `var(--nfc-ink, ${NFC_INK})` }}
     >
       {children}
     </a>
@@ -99,7 +99,7 @@ export function NfcIconTile({
       className={`${dims} rounded-xl flex items-center justify-center shrink-0`}
       style={{ background: 'rgba(217,143,43,0.10)', border: '1px solid rgba(217,143,43,0.35)' }}
     >
-      <Icon className={icon} style={{ color: 'var(--nfc-accent)' } as CSSProperties} />
+      <Icon className={icon} style={{ color: `var(--nfc-accent, ${NFC_ACCENT})` } as CSSProperties} />
     </div>
   );
 }
