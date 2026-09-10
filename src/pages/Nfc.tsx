@@ -1,11 +1,36 @@
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Sections';
 import FadeIn from '../components/FadeIn';
+import { useState } from 'react';
 import { NfcBackground, NfcEyebrow, NfcButton, NfcGhostButton, NfcIconTile } from '../components/nfc';
 import {
   Wifi, Check, CircleDollarSign, Smartphone, Truck,
-  Star, IdCard, UtensilsCrossed, Instagram, MessageCircle, MapPin, Cpu,
+  Star, IdCard, UtensilsCrossed, Instagram, MessageCircle, MapPin, Cpu, ChevronDown,
 } from 'lucide-react';
+
+const FAQS = [
+  { q: "¿Funciona con cualquier móvil?", a: "Sí. Funciona con iPhone 7 o superior y con prácticamente cualquier Android de los últimos años. No hace falta instalar ninguna app para usarlo, solo para configurarlo." },
+  { q: "¿Necesita batería o cargarse?", a: "No. La tecnología NFC es pasiva: no lleva batería ni necesita cargarse nunca." },
+  { q: "¿Puedo cambiar el enlace después?", a: "Sí, cuando quieras y gratis, desde la app gratuita NFC Tools, sin volver a comprar nada." },
+  { q: "¿Cuánto tarda el envío?", a: "3-5 días laborales en Gran Canaria. Al resto de Canarias y a la península, entre 4 y 7 días." },
+  { q: "¿Necesita que el negocio tenga wifi o conexión?", a: "No. El teléfono del cliente necesita conexión para abrir el enlace, pero la tarjeta o placa no necesita electricidad ni wifi propio." },
+  { q: "¿Tiene garantía?", a: "Sí, 12 meses de garantía por defectos de fabricación. Si el chip falla, lo reponemos sin coste." },
+];
+
+function FaqItem({ q, a, isOpen, onToggle }: { q: string; a: string; isOpen: boolean; onToggle: () => void }) {
+  return (
+    <div className="border-b" style={{ borderColor: 'var(--nfc-line)' }}>
+      <button type="button" onClick={onToggle} aria-expanded={isOpen} className="w-full flex items-center justify-between gap-4 py-5 text-left">
+        <span className="text-[14px] md:text-[15px] font-bold" style={{ color: 'var(--nfc-ink)' }}>{q}</span>
+        <ChevronDown
+          className="w-4 h-4 shrink-0 transition-transform duration-200"
+          style={{ color: 'var(--nfc-accent)', transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}
+        />
+      </button>
+      {isOpen && <p className="text-[13px] leading-relaxed pb-5 pr-8" style={{ color: 'var(--nfc-ink2)' }}>{a}</p>}
+    </div>
+  );
+}
 
 const USE_CASES = [
   { Icon: Star,             title: "Reseñas de Google",         desc: "Un toque lleva directo a dejar una reseña en Google, sin buscar ni escribir el nombre del negocio." },
@@ -69,6 +94,8 @@ const NAV_ITEMS = [
 ];
 
 export default function Nfc() {
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
+
   return (
     <main className="relative w-full min-h-screen overflow-x-hidden flex flex-col font-sans">
       <NfcBackground />
@@ -235,6 +262,40 @@ export default function Nfc() {
                 <h3 className="text-[14px] font-bold" style={{ color: 'var(--nfc-ink)' }}>{title}</h3>
                 <p className="text-[12px] leading-relaxed" style={{ color: 'var(--nfc-ink2)' }}>{desc}</p>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Cobertura */}
+      <section className="relative z-10 w-full px-4 md:px-8 lg:px-16 py-16">
+        <div className="max-w-4xl mx-auto text-center">
+          <NfcEyebrow className="mb-3">Dónde estamos</NfcEyebrow>
+          <h2 className="italic mb-5" style={{ fontFamily: 'var(--nfc-serif)', color: 'var(--nfc-ink)', fontSize: 'clamp(1.8rem,3.4vw,2.8rem)' }}>
+            De Gran Canaria a toda España.
+          </h2>
+          <p className="text-[14px] md:text-base leading-relaxed" style={{ color: 'var(--nfc-ink2)' }}>
+            Diseñamos y preparamos cada pedido en Gran Canaria, y damos servicio a negocios de
+            Las Palmas de Gran Canaria, Telde, Santa Lucía de Tirajana, San Bartolomé de
+            Tirajana, Maspalomas, Arucas y el resto de la isla. Enviamos también al resto de
+            Canarias (Tenerife, Lanzarote, Fuerteventura, La Palma, La Gomera, El Hierro) y a
+            toda España peninsular.
+          </p>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="relative z-10 w-full px-4 md:px-8 lg:px-16 py-16" style={{ background: 'var(--nfc-warm)' }}>
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-10">
+            <NfcEyebrow className="mb-3">Preguntas frecuentes</NfcEyebrow>
+            <h2 className="italic" style={{ fontFamily: 'var(--nfc-serif)', color: 'var(--nfc-ink)', fontSize: 'clamp(1.8rem,3.4vw,2.8rem)' }}>
+              Resolvemos tus dudas.
+            </h2>
+          </div>
+          <div>
+            {FAQS.map((f, i) => (
+              <FaqItem key={f.q} q={f.q} a={f.a} isOpen={openFaq === i} onToggle={() => setOpenFaq(openFaq === i ? null : i)} />
             ))}
           </div>
         </div>
