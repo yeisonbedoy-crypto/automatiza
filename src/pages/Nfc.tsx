@@ -1,8 +1,33 @@
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Sections';
 import FadeIn from '../components/FadeIn';
-import { NfcBackground, NfcEyebrow, NfcButton, NfcGhostButton } from '../components/nfc';
-import { Wifi, Check, CircleDollarSign, Smartphone, Truck } from 'lucide-react';
+import { NfcBackground, NfcEyebrow, NfcButton, NfcGhostButton, NfcIconTile } from '../components/nfc';
+import {
+  Wifi, Check, CircleDollarSign, Smartphone, Truck,
+  Star, IdCard, UtensilsCrossed, Instagram, MessageCircle, MapPin, Cpu,
+} from 'lucide-react';
+
+const USE_CASES = [
+  { Icon: Star,             title: "Reseñas de Google",         desc: "Un toque lleva directo a dejar una reseña en Google, sin buscar ni escribir el nombre del negocio." },
+  { Icon: IdCard,           title: "Tarjeta de visita digital", desc: "Comparte tu contacto, cargo y redes al instante, sin quedarte sin tarjetas de papel." },
+  { Icon: UtensilsCrossed,  title: "Carta o menú digital",      desc: "Perfecto para bares y restaurantes: la carta siempre actualizada, sin reimprimir." },
+  { Icon: Instagram,        title: "Redes sociales",            desc: "Lleva a tu Instagram, Facebook o TikTok en un toque, sin que el cliente tenga que buscarte." },
+  { Icon: Wifi,             title: "WiFi del local",            desc: "Comparte la contraseña del WiFi sin que nadie tenga que preguntarla ni teclearla." },
+  { Icon: MessageCircle,    title: "Contacto directo",          desc: "Abre WhatsApp o una ficha de contacto lista para guardar, sin pedir el número." },
+];
+
+const STEPS = [
+  { num: "01", title: "Acercas el móvil",       desc: "Sin apps ni cámara: solo acercar el teléfono a la tarjeta o placa." },
+  { num: "02", title: "Se abre tu enlace",      desc: "El destino que hayas elegido se abre al instante — reseña, redes, carta o contacto." },
+  { num: "03", title: "Cambias cuando quieras", desc: "Actualiza el destino desde tu móvil, gratis, cuando lo necesites." },
+];
+
+const WHY = [
+  { Icon: CircleDollarSign, title: "Pago único",           desc: "Sin suscripción ni cuotas mensuales: pagas una vez y es tuyo." },
+  { Icon: MapPin,           title: "Hecho en Gran Canaria", desc: "Diseñamos, configuramos y enviamos desde aquí, con soporte cercano en español." },
+  { Icon: Truck,            title: "Envío rápido",          desc: "3-5 días en Gran Canaria, y a todas las islas y la península." },
+  { Icon: Cpu,              title: "Integrable con IA",     desc: "Conecta tu NFC con los agentes de IA de AutomatizaGC para automatizar lo que pasa después de cada toque." },
+];
 
 const PRODUCTS = [
   {
@@ -146,6 +171,69 @@ export default function Nfc() {
                   ))}
                 </ul>
                 <p className="text-[10px] font-mono uppercase tracking-wide" style={{ color: 'var(--nfc-ink3)' }}>Precio orientativo, a confirmar</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Derivaciones de uso */}
+      <section className="relative z-10 w-full px-4 md:px-8 lg:px-16 py-16" style={{ background: 'var(--nfc-warm)' }}>
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <NfcEyebrow className="mb-3">Un solo toque, muchos destinos</NfcEyebrow>
+            <h2 className="italic" style={{ fontFamily: 'var(--nfc-serif)', color: 'var(--nfc-ink)', fontSize: 'clamp(1.8rem,3.4vw,2.8rem)' }}>
+              Todo lo que puede hacer tu NFC.
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {USE_CASES.map(({ Icon, title, desc }) => (
+              <div key={title} className="rounded-2xl p-6 flex flex-col gap-3 border" style={{ borderColor: 'var(--nfc-line)', background: 'var(--nfc-paper)' }}>
+                <NfcIconTile Icon={Icon} />
+                <h3 className="text-[15px] font-bold" style={{ color: 'var(--nfc-ink)' }}>{title}</h3>
+                <p className="text-[12.5px] leading-relaxed" style={{ color: 'var(--nfc-ink2)' }}>{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Cómo funciona */}
+      <section className="relative z-10 w-full px-4 md:px-8 lg:px-16 py-16" id="como-funciona">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <NfcEyebrow className="mb-3">Sin apps, sin complicaciones</NfcEyebrow>
+            <h2 className="italic" style={{ fontFamily: 'var(--nfc-serif)', color: 'var(--nfc-ink)', fontSize: 'clamp(1.8rem,3.4vw,2.8rem)' }}>
+              Cómo funciona.
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {STEPS.map((s) => (
+              <div key={s.num} className="rounded-2xl p-7 border flex flex-col gap-3" style={{ borderColor: 'var(--nfc-line)', background: 'var(--nfc-paper)' }}>
+                <span className="font-mono text-4xl" style={{ color: 'var(--nfc-accent)' }}>{s.num}</span>
+                <h3 className="text-lg font-bold" style={{ color: 'var(--nfc-ink)' }}>{s.title}</h3>
+                <p className="text-[13px] leading-relaxed" style={{ color: 'var(--nfc-ink2)' }}>{s.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Por qué NFC Canarias */}
+      <section className="relative z-10 w-full px-4 md:px-8 lg:px-16 py-16" style={{ background: 'var(--nfc-warm)' }}>
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <NfcEyebrow className="mb-3">Por qué NFC Canarias</NfcEyebrow>
+            <h2 className="italic" style={{ fontFamily: 'var(--nfc-serif)', color: 'var(--nfc-ink)', fontSize: 'clamp(1.8rem,3.4vw,2.8rem)' }}>
+              Hecho aquí. Pensado para negocios reales.
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {WHY.map(({ Icon, title, desc }) => (
+              <div key={title} className="rounded-2xl p-6 flex flex-col gap-3 border" style={{ borderColor: 'var(--nfc-line)', background: 'var(--nfc-paper)' }}>
+                <NfcIconTile Icon={Icon} size="sm" />
+                <h3 className="text-[14px] font-bold" style={{ color: 'var(--nfc-ink)' }}>{title}</h3>
+                <p className="text-[12px] leading-relaxed" style={{ color: 'var(--nfc-ink2)' }}>{desc}</p>
               </div>
             ))}
           </div>
