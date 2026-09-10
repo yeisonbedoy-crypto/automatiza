@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/api/chat", "destination": "https://ggenccaztvpmcnqqzlpw.supabase.co/functions/v1/chat" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
