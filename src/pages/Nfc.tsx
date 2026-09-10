@@ -2,6 +2,7 @@ import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Sections';
 import FadeIn from '../components/FadeIn';
 import { useState } from 'react';
+import type { ChangeEvent, FormEvent } from 'react';
 import { NfcBackground, NfcEyebrow, NfcButton, NfcGhostButton, NfcIconTile } from '../components/nfc';
 import {
   Wifi, Check, CircleDollarSign, Smartphone, Truck,
@@ -16,6 +17,105 @@ const FAQS = [
   { q: "¿Necesita que el negocio tenga wifi o conexión?", a: "No. El teléfono del cliente necesita conexión para abrir el enlace, pero la tarjeta o placa no necesita electricidad ni wifi propio." },
   { q: "¿Tiene garantía?", a: "Sí, 12 meses de garantía por defectos de fabricación. Si el chip falla, lo reponemos sin coste." },
 ];
+
+type NfcFormState = { nombre: string; negocio: string; isla: string; whatsapp: string; producto: string; mensaje: string };
+
+const ISLAS = ["Gran Canaria", "Tenerife", "Lanzarote", "Fuerteventura", "La Palma", "La Gomera", "El Hierro", "Península / resto de España"];
+
+const NFC_INPUT_CLASS = "w-full rounded-lg px-4 py-3 text-sm border focus:outline-none";
+const NFC_INPUT_STYLE = { borderColor: 'var(--nfc-line)', background: 'var(--nfc-paper)', color: 'var(--nfc-ink)' };
+const NFC_LABEL_CLASS = "block font-mono text-[10px] tracking-[0.15em] uppercase mb-2";
+
+function OrderForm() {
+  const [form, setForm] = useState<NfcFormState>({ nombre: '', negocio: '', isla: 'Gran Canaria', whatsapp: '', producto: PRODUCTS[0].name, mensaje: '' });
+  const [sent, setSent] = useState(false);
+  const LEAD_EMAIL = 'automatizagc@gmail.com';
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
+    setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+
+    fetch(`https://formsubmit.co/ajax/${LEAD_EMAIL}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify({
+        _subject: `Nuevo pedido NFC Canarias — ${form.nombre || 'sin nombre'}`,
+        _template: 'table',
+        Nombre: form.nombre,
+        Negocio: form.negocio || '—',
+        Isla: form.isla,
+        WhatsApp: form.whatsapp || '—',
+        'Producto de interés': form.producto,
+        Mensaje: form.mensaje || '—',
+      }),
+    }).catch(() => {});
+
+    const lines = [
+      `*Nuevo pedido NFC Canarias*`, ``,
+      `👤 *Nombre:* ${form.nombre}`,
+      form.negocio ? `🏪 *Negocio:* ${form.negocio}` : '',
+      `📍 *Isla:* ${form.isla}`,
+      form.whatsapp ? `📱 *WhatsApp:* ${form.whatsapp}` : '', ``,
+      `🎯 *Producto:* ${form.producto}`, ``,
+      form.mensaje ? `📝 *Mensaje:*\n${form.mensaje}` : '',
+    ].filter(Boolean);
+    window.open(`https://wa.me/34696859840?text=${encodeURIComponent(lines.join('\n'))}`, '_blank', 'noopener,noreferrer');
+
+    setSent(true);
+  };
+
+  if (sent) {
+    return (
+      <div className="rounded-2xl p-8 text-center border" style={{ borderColor: 'var(--nfc-accent)', background: 'var(--nfc-paper)' }}>
+        <p className="text-lg font-bold mb-2" style={{ color: 'var(--nfc-ink)' }}>¡Pedido recibido!</p>
+        <p className="text-[13px]" style={{ color: 'var(--nfc-ink2)' }}>Te escribimos por WhatsApp en menos de 24h para confirmar los detalles.</p>
+      </div>
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="flex flex-col gap-5 rounded-2xl p-7 md:p-8 border" style={{ borderColor: 'var(--nfc-line)', background: 'var(--nfc-paper)', boxShadow: '5px 5px 0 var(--nfc-accent)' }}>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label className={NFC_LABEL_CLASS} style={{ color: 'var(--nfc-ink3)' }}>Nombre</label>
+          <input name="nombre" type="text" required value={form.nombre} onChange={handleChange} placeholder="Tu nombre" className={NFC_INPUT_CLASS} style={NFC_INPUT_STYLE} />
+        </div>
+        <div>
+          <label className={NFC_LABEL_CLASS} style={{ color: 'var(--nfc-ink3)' }}>Negocio</label>
+          <input name="negocio" type="text" value={form.negocio} onChange={handleChange} placeholder="Nombre de tu negocio" className={NFC_INPUT_CLASS} style={NFC_INPUT_STYLE} />
+        </div>
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label className={NFC_LABEL_CLASS} style={{ color: 'var(--nfc-ink3)' }}>Isla / ubicación</label>
+          <select name="isla" value={form.isla} onChange={handleChange} className={NFC_INPUT_CLASS} style={NFC_INPUT_STYLE}>
+            {ISLAS.map(i => <option key={i} value={i}>{i}</option>)}
+          </select>
+        </div>
+        <div>
+          <label className={NFC_LABEL_CLASS} style={{ color: 'var(--nfc-ink3)' }}>WhatsApp</label>
+          <input name="whatsapp" type="tel" value={form.whatsapp} onChange={handleChange} placeholder="+34 000 000 000" className={NFC_INPUT_CLASS} style={NFC_INPUT_STYLE} />
+        </div>
+      </div>
+      <div>
+        <label className={NFC_LABEL_CLASS} style={{ color: 'var(--nfc-ink3)' }}>Producto de interés</label>
+        <select name="producto" value={form.producto} onChange={handleChange} className={NFC_INPUT_CLASS} style={NFC_INPUT_STYLE}>
+          {PRODUCTS.map(p => <option key={p.name} value={p.name}>{p.name} — {p.price}</option>)}
+          <option value="No lo sé todavía">No lo sé todavía</option>
+        </select>
+      </div>
+      <div>
+        <label className={NFC_LABEL_CLASS} style={{ color: 'var(--nfc-ink3)' }}>
+          Mensaje <span className="normal-case font-sans" style={{ color: 'var(--nfc-ink3)' }}>(opcional)</span>
+        </label>
+        <textarea name="mensaje" rows={3} value={form.mensaje} onChange={handleChange} placeholder="Cuéntanos algo más sobre tu negocio o pedido" className={`${NFC_INPUT_CLASS} resize-none`} style={NFC_INPUT_STYLE} />
+      </div>
+      <NfcButton type="submit" className="w-full justify-center">Enviar pedido</NfcButton>
+    </form>
+  );
+}
 
 function FaqItem({ q, a, isOpen, onToggle }: { q: string; a: string; isOpen: boolean; onToggle: () => void }) {
   return (
@@ -298,6 +398,19 @@ export default function Nfc() {
               <FaqItem key={f.q} q={f.q} a={f.a} isOpen={openFaq === i} onToggle={() => setOpenFaq(openFaq === i ? null : i)} />
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Formulario de pedido */}
+      <section className="relative z-10 w-full px-4 md:px-8 lg:px-16 py-16" id="pedido">
+        <div className="max-w-xl mx-auto">
+          <div className="text-center mb-10">
+            <NfcEyebrow className="mb-3">Pide la tuya</NfcEyebrow>
+            <h2 className="italic" style={{ fontFamily: 'var(--nfc-serif)', color: 'var(--nfc-ink)', fontSize: 'clamp(1.8rem,3.4vw,2.8rem)' }}>
+              Cuéntanos sobre tu negocio.
+            </h2>
+          </div>
+          <OrderForm />
         </div>
       </section>
 
