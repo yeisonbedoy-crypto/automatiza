@@ -17,6 +17,7 @@ import Proyectos from './pages/Proyectos.tsx';
 import Ecosistema from './pages/Ecosistema.tsx';
 import Presupuesto from './pages/Presupuesto.tsx';
 import Contacto from './pages/Contacto.tsx';
+import Nfc from './pages/Nfc.tsx';
 import StickyAssistant from './components/StickyAssistant.tsx';
 import './index.css';
 
@@ -38,6 +39,7 @@ const Page =
   path === '/ecosistema'              ? Ecosistema         :
   path === '/presupuesto'             ? Presupuesto        :
   path === '/contacto'                ? Contacto           :
+  path === '/nfc'                     ? Nfc                :
   App;
 
 createRoot(document.getElementById('root')!).render(

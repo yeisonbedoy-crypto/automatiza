@@ -1,6 +1,7 @@
 {
   "rewrites": [
     { "source": "/api/chat", "destination": "https://ggenccaztvpmcnqqzlpw.supabase.co/functions/v1/chat" },
+    { "source": "/nfc(/)?", "destination": "/nfc/index.html" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
