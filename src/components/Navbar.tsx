@@ -12,6 +12,7 @@ interface NavItem {
 const LANDING_NAV_ITEMS: NavItem[] = [
   { name: "INICIO",     href: "/" },
   { name: "SERVICIOS",  href: "/servicios" },
+  { name: "NFC",        href: "/nfc" },
   { name: "PROYECTOS",  href: "/proyectos" },
   { name: "ECOSISTEMA", href: "/ecosistema" },
   { name: "PRECIOS",    href: "/precios" },

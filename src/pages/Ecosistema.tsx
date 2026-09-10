@@ -12,6 +12,7 @@ import { Check, ArrowUpRight } from 'lucide-react';
 const NAV_ITEMS = [
   { name: "INICIO",     href: "/" },
   { name: "SERVICIOS",  href: "/servicios" },
+  { name: "NFC",        href: "/nfc" },
   { name: "PROYECTOS",  href: "/proyectos" },
   { name: "ECOSISTEMA", href: "/ecosistema" },
   { name: "PRECIOS",    href: "/precios" },

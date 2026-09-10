@@ -10,6 +10,7 @@ const NAV_ITEMS = [
   { name: "INICIO",        href: "/" },
   { name: "ECOSISTEMA",    href: "/#email" },
   { name: "EL CEREBRO",   href: "/#boss", highlight: true as const },
+  { name: "NFC",           href: "/nfc" },
   { name: "PRECIOS",       href: "/precios" },
   { name: "BLOG",          href: "/blog" },
 ];

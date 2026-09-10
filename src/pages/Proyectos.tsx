@@ -11,6 +11,7 @@ import { ArrowRight, ExternalLink, Target, Sparkles, Gauge, Rocket } from 'lucid
 const NAV_ITEMS = [
   { name: "INICIO",     href: "/" },
   { name: "SERVICIOS",  href: "/servicios" },
+  { name: "NFC",        href: "/nfc" },
   { name: "PROYECTOS",  href: "/proyectos" },
   { name: "ECOSISTEMA", href: "/ecosistema" },
   { name: "PRECIOS",    href: "/precios" },
