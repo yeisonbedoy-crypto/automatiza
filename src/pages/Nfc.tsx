@@ -235,19 +235,19 @@ export default function Nfc() {
           src="/nfc/hero/hand-tap.webp"
           alt=""
           aria-hidden="true"
-          className="hidden lg:block absolute z-20 top-0 pointer-events-none select-none left-1/2 -translate-x-1/2 w-[680px] xl:w-[820px]"
+          className="hidden lg:block absolute z-20 top-[50px] pointer-events-none select-none left-1/2 -translate-x-1/2 w-[680px] xl:w-[820px]"
         />
 
-        <div className="relative z-30 max-w-3xl mx-auto text-center">
+        <div className="relative z-30 max-w-lg lg:text-left text-center mx-auto lg:mx-0">
           <FadeIn immediate><NfcEyebrow className="mb-5">NFC Canarias</NfcEyebrow></FadeIn>
           <FadeIn immediate delay={100}>
-            <h1 className="uppercase leading-[0.98] mb-5" style={{ ...HEADING_STYLE, fontSize: 'clamp(2rem,5.2vw,3.6rem)' }}>
+            <h1 className="uppercase leading-[0.98] mb-5" style={{ ...HEADING_STYLE, fontSize: 'clamp(2rem,4.6vw,3.2rem)' }}>
               Tu tarjeta NFC{' '}
               <span className="inline-block px-1.5 rounded-md" style={{ background: 'var(--nfc-yellow)' }}>todo-en-uno</span>.
             </h1>
           </FadeIn>
           <FadeIn immediate delay={200}>
-            <p className="text-base md:text-lg leading-relaxed max-w-xl mx-auto mb-5" style={{ color: 'var(--nfc-ink2)' }}>
+            <p className="text-base md:text-lg leading-relaxed mb-5" style={{ color: 'var(--nfc-ink2)' }}>
               Reseñas de Google, redes sociales, carta digital y contacto — todo en un solo
               toque del móvil. Sin apps para tu cliente, sin suscripción.
             </p>
