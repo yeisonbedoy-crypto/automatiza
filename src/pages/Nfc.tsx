@@ -7,7 +7,7 @@ import { NfcBackground, NfcEyebrow, NfcButton, NfcGhostButton, NfcIconTile, NfcC
 import {
   Wifi, Check, CircleDollarSign, Smartphone, Truck,
   Star, IdCard, UtensilsCrossed, Instagram, MessageCircle, MapPin, Cpu, ChevronDown,
-  CreditCard, MonitorSmartphone, Layers, Tag, LayoutGrid,
+  CreditCard, MonitorSmartphone, Layers, Tag, LayoutGrid, Link2, RefreshCw,
 } from 'lucide-react';
 
 const FAQS = [
@@ -149,9 +149,9 @@ const USE_CASES = [
 ];
 
 const STEPS = [
-  { num: "01", title: "Acercas el móvil",       desc: "Sin apps ni cámara: solo acercar el teléfono a la tarjeta o placa." },
-  { num: "02", title: "Se abre tu enlace",      desc: "El destino que hayas elegido se abre al instante — reseña, redes, carta o contacto." },
-  { num: "03", title: "Cambias cuando quieras", desc: "Actualiza el destino desde tu móvil, gratis, cuando lo necesites." },
+  { num: "01", title: "Acercas el móvil",       desc: "Sin apps ni cámara: solo acercar el teléfono a la tarjeta o placa.", Icon: Smartphone },
+  { num: "02", title: "Se abre tu enlace",      desc: "El destino que hayas elegido se abre al instante — reseña, redes, carta o contacto.", Icon: Link2 },
+  { num: "03", title: "Cambias cuando quieras", desc: "Actualiza el destino desde tu móvil, gratis, cuando lo necesites.", Icon: RefreshCw },
 ];
 
 const WHY = [
@@ -374,23 +374,65 @@ export default function Nfc() {
         </div>
       </section>
 
-      {/* Cómo funciona */}
+      {/* Cómo funciona — diagrama de flujo en zigzag, tipo "plano técnico" */}
       <section className="relative z-10 w-full px-4 md:px-8 lg:px-16 py-16" id="como-funciona">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <NfcEyebrow className="mb-4">Sin apps, sin complicaciones</NfcEyebrow>
             <h2 style={{ ...HEADING_STYLE, fontSize: 'clamp(1.8rem,3.4vw,2.8rem)' }}>
               Cómo funciona.
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-3">
-            {STEPS.map((s, i) => (
-              <NfcCard key={s.num} tabColor={NFC_PALETTE[i % NFC_PALETTE.length]} className="p-7 flex flex-col gap-3">
-                <span className="font-mono text-4xl font-bold" style={{ color: 'var(--nfc-ink)' }}>{s.num}</span>
-                <h3 className="text-lg font-bold" style={{ color: 'var(--nfc-ink)' }}>{s.title}</h3>
-                <p className="text-[13px] leading-relaxed" style={{ color: 'var(--nfc-ink2)' }}>{s.desc}</p>
-              </NfcCard>
+
+          <div
+            className="relative rounded-[28px] border-[2.5px] overflow-hidden p-8 py-14 md:p-14"
+            style={{ borderColor: 'var(--nfc-border)', background: 'var(--nfc-warm)', boxShadow: '8px 8px 0 var(--nfc-border)' }}
+          >
+            {/* Cuadrícula tipo plano técnico */}
+            <div
+              className="absolute inset-0 opacity-[0.35] pointer-events-none"
+              style={{
+                backgroundImage: 'linear-gradient(var(--nfc-divider) 1px, transparent 1px), linear-gradient(90deg, var(--nfc-divider) 1px, transparent 1px)',
+                backgroundSize: '28px 28px',
+              }}
+            />
+            {/* Marcas de esquina tipo "plano" */}
+            {['top-4 left-4', 'top-4 right-4', 'bottom-4 left-4', 'bottom-4 right-4'].map(pos => (
+              <div key={pos} className={`absolute ${pos} w-3 h-3 rounded-full border-[2px]`} style={{ borderColor: 'var(--nfc-border)' }} />
             ))}
+
+            {/* Conectores curvos (decorativos, solo desktop) */}
+            <svg className="absolute inset-0 w-full h-full hidden md:block" viewBox="0 0 100 100" preserveAspectRatio="none">
+              <path d="M 74 20 C 74 32, 26 34, 26 46" fill="none" stroke="var(--nfc-border)" strokeWidth="0.5" />
+              <path d="M 26 56 C 26 68, 74 70, 74 82" fill="none" stroke="var(--nfc-border)" strokeWidth="0.5" />
+              <circle cx="74" cy="20" r="1" fill="var(--nfc-border)" />
+              <circle cx="26" cy="46" r="1" fill="var(--nfc-border)" />
+              <circle cx="26" cy="56" r="1" fill="var(--nfc-border)" />
+              <circle cx="74" cy="82" r="1" fill="var(--nfc-border)" />
+            </svg>
+
+            {/* Nodos en zigzag */}
+            <div className="relative flex flex-col gap-14 md:gap-20 max-w-md mx-auto">
+              {STEPS.map((s, i) => {
+                const color = NFC_PALETTE[i % NFC_PALETTE.length];
+                const rightAligned = i % 2 === 0;
+                return (
+                  <div key={s.num} className={`flex flex-col gap-2 w-[82%] sm:w-[75%] ${rightAligned ? 'self-end items-end text-right' : 'self-start items-start text-left'}`}>
+                    <div
+                      className="inline-flex items-center gap-3 rounded-full border-[2.5px] pl-2.5 pr-5 py-2.5"
+                      style={{ background: color, borderColor: 'var(--nfc-border)', boxShadow: '4px 4px 0 var(--nfc-border)' }}
+                    >
+                      <div className="w-9 h-9 rounded-full border-[2px] flex items-center justify-center shrink-0" style={{ background: 'var(--nfc-paper)', borderColor: 'var(--nfc-border)' }}>
+                        <s.Icon className="w-4 h-4" style={{ color: 'var(--nfc-ink)' }} />
+                      </div>
+                      <span className="font-mono text-[10px] font-bold" style={{ color: 'var(--nfc-ink)' }}>{s.num}</span>
+                      <span className="font-bold text-[14px] md:text-[15px]" style={{ color: 'var(--nfc-ink)' }}>{s.title}</span>
+                    </div>
+                    <p className="text-[12px] leading-relaxed px-1" style={{ color: 'var(--nfc-ink2)' }}>{s.desc}</p>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
