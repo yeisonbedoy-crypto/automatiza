@@ -1,12 +1,13 @@
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Sections';
 import FadeIn from '../components/FadeIn';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import type { ChangeEvent, FormEvent } from 'react';
 import { NfcBackground, NfcEyebrow, NfcButton, NfcGhostButton, NfcIconTile, NfcCard, NfcCtaBanner, NFC_PALETTE } from '../components/nfc';
 import {
   Wifi, Check, CircleDollarSign, Smartphone, Truck,
   Star, IdCard, UtensilsCrossed, Instagram, MessageCircle, MapPin, Cpu, ChevronDown,
+  CreditCard, MonitorSmartphone, Layers,
 } from 'lucide-react';
 
 const FAQS = [
@@ -26,10 +27,14 @@ const NFC_INPUT_CLASS = "w-full rounded-xl px-4 py-3 text-sm border-[2px] focus:
 const NFC_INPUT_STYLE = { borderColor: 'var(--nfc-border)', background: 'var(--nfc-paper)', color: 'var(--nfc-ink)' };
 const NFC_LABEL_CLASS = "block font-mono text-[10px] tracking-[0.15em] uppercase mb-2";
 
-function OrderForm() {
-  const [form, setForm] = useState<NfcFormState>({ nombre: '', negocio: '', isla: 'Gran Canaria', whatsapp: '', producto: PRODUCTS[0].name, mensaje: '' });
+function OrderForm({ preselected }: { preselected: string | null }) {
+  const [form, setForm] = useState<NfcFormState>({ nombre: '', negocio: '', isla: 'Gran Canaria', whatsapp: '', producto: preselected ?? PRODUCTS[0].name, mensaje: '' });
   const [sent, setSent] = useState(false);
   const LEAD_EMAIL = 'automatizagc@gmail.com';
+
+  useEffect(() => {
+    if (preselected) setForm(prev => ({ ...prev, producto: preselected }));
+  }, [preselected]);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
@@ -163,6 +168,7 @@ const PRODUCTS = [
     desc: "Tarjeta individual, tamaño de visita, para ti o cada miembro de tu equipo.",
     items: ["1 tarjeta NFC personalizada", "Enlace configurable (reseñas, redes, contacto)", "Envío en 3-5 días en Gran Canaria"],
     featured: false,
+    Icon: CreditCard,
   },
   {
     name: "Placa de Mostrador",
@@ -170,6 +176,7 @@ const PRODUCTS = [
     desc: "Placa de sobremesa para el mostrador, visible para cada cliente que pasa por caja.",
     items: ["1 placa NFC de mostrador", "Diseño a juego con tu marca", "Ideal para pedir reseñas en el momento del pago"],
     featured: true,
+    Icon: MonitorSmartphone,
   },
   {
     name: "Pack Negocio",
@@ -177,6 +184,7 @@ const PRODUCTS = [
     desc: "Todo lo que necesita tu negocio: placa de mostrador + 3 tarjetas para el equipo.",
     items: ["1 placa + 3 tarjetas NFC", "Todos los enlaces configurables desde el móvil", "Soporte prioritario por WhatsApp"],
     featured: false,
+    Icon: Layers,
   },
 ];
 
@@ -199,6 +207,7 @@ const HEADING_STYLE = { fontFamily: 'var(--nfc-display)', fontWeight: 700, color
 
 export default function Nfc() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const [selectedProduct, setSelectedProduct] = useState<string | null>(null);
 
   return (
     <main className="relative w-full min-h-screen overflow-x-hidden flex flex-col font-sans">
@@ -274,30 +283,45 @@ export default function Nfc() {
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-3">
-            {PRODUCTS.map((p, i) => (
-              <NfcCard key={p.name} tabColor={NFC_PALETTE[i % NFC_PALETTE.length]} shadow={p.featured ? 'lg' : 'md'} className="p-7 flex flex-col gap-4">
-                {p.featured && (
-                  <span
-                    className="font-mono text-[10px] tracking-[0.15em] uppercase self-start px-2.5 py-1 rounded-full border-[2px]"
-                    style={{ background: 'var(--nfc-salmon)', borderColor: 'var(--nfc-border)', color: 'var(--nfc-ink)' }}
-                  >
-                    Más pedido
-                  </span>
-                )}
-                <h3 className="text-xl font-bold" style={{ color: 'var(--nfc-ink)' }}>{p.name}</h3>
-                <p className="font-mono text-2xl font-bold" style={{ color: 'var(--nfc-ink)' }}>{p.price}</p>
-                <p className="text-[13px] leading-relaxed" style={{ color: 'var(--nfc-ink2)' }}>{p.desc}</p>
-                <ul className="mt-auto space-y-2 pt-4 border-t-[2px]" style={{ borderColor: 'var(--nfc-divider)' }}>
-                  {p.items.map(item => (
-                    <li key={item} className="flex items-start gap-2.5 text-[12px]" style={{ color: 'var(--nfc-ink2)' }}>
-                      <Check className="w-3.5 h-3.5 shrink-0 mt-0.5" style={{ color: 'var(--nfc-ink)' }} />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-                <p className="text-[10px] font-mono uppercase tracking-wide" style={{ color: 'var(--nfc-ink3)' }}>Precio orientativo, a confirmar</p>
-              </NfcCard>
-            ))}
+            {PRODUCTS.map((p, i) => {
+              const color = NFC_PALETTE[i % NFC_PALETTE.length];
+              return (
+                <NfcCard key={p.name} tabColor={color} shadow={p.featured ? 'lg' : 'md'} className="overflow-hidden flex flex-col">
+                  {/* Cabecera visual */}
+                  <div className="relative w-full aspect-[4/3] flex items-center justify-center shrink-0" style={{ background: color }}>
+                    {p.featured && (
+                      <span
+                        className="absolute top-3 right-3 font-mono text-[10px] tracking-[0.15em] uppercase px-2.5 py-1 rounded-full border-[2px]"
+                        style={{ background: 'var(--nfc-paper)', borderColor: 'var(--nfc-border)', color: 'var(--nfc-ink)' }}
+                      >
+                        Más pedido
+                      </span>
+                    )}
+                    <div className="w-20 h-20 rounded-2xl border-[2.5px] flex items-center justify-center" style={{ background: 'var(--nfc-paper)', borderColor: 'var(--nfc-border)' }}>
+                      <p.Icon className="w-9 h-9" style={{ color: 'var(--nfc-ink)' }} />
+                    </div>
+                  </div>
+                  {/* Contenido */}
+                  <div className="p-6 flex flex-col gap-3 flex-1">
+                    <h3 className="text-xl font-bold" style={{ color }}>{p.name}</h3>
+                    <p className="text-[13px] leading-relaxed" style={{ color: 'var(--nfc-ink2)' }}>{p.desc}</p>
+                    <ul className="space-y-2">
+                      {p.items.map(item => (
+                        <li key={item} className="flex items-start gap-2.5 text-[12px]" style={{ color: 'var(--nfc-ink2)' }}>
+                          <Check className="w-3.5 h-3.5 shrink-0 mt-0.5" style={{ color: 'var(--nfc-ink)' }} />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="mt-auto flex items-center justify-between gap-3 pt-4 border-t-[2px]" style={{ borderColor: 'var(--nfc-divider)' }}>
+                      <p className="font-mono text-2xl font-bold" style={{ color: 'var(--nfc-ink)' }}>{p.price}</p>
+                      <NfcButton href="#pedido" onClick={() => setSelectedProduct(p.name)} className="text-[13px] px-5 py-2.5">Elegir</NfcButton>
+                    </div>
+                    <p className="text-[10px] font-mono uppercase tracking-wide" style={{ color: 'var(--nfc-ink3)' }}>Precio orientativo, a confirmar</p>
+                  </div>
+                </NfcCard>
+              );
+            })}
           </div>
           <div className="mt-10">
             <NfcCtaBanner
@@ -422,7 +446,7 @@ export default function Nfc() {
               Cuéntanos sobre tu negocio.
             </h2>
           </div>
-          <OrderForm />
+          <OrderForm preselected={selectedProduct} />
         </div>
       </section>
 

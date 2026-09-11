@@ -70,7 +70,7 @@ export function NfcButton({
   };
   if (href) {
     return (
-      <a href={href} target={external ? '_blank' : undefined} rel={external ? 'noopener noreferrer' : undefined} className={cls} style={style}>
+      <a href={href} onClick={onClick} target={external ? '_blank' : undefined} rel={external ? 'noopener noreferrer' : undefined} className={cls} style={style}>
         {children}
       </a>
     );
