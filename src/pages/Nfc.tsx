@@ -238,30 +238,33 @@ export default function Nfc() {
           className="hidden lg:block absolute z-20 top-[90px] pointer-events-none select-none left-[calc(50%-60px)] -translate-x-1/2 w-[680px] xl:w-[820px]"
         />
 
-        <div className="relative z-30 max-w-3xl mx-auto text-center">
-          <FadeIn immediate><NfcEyebrow className="mb-5">NFC Canarias</NfcEyebrow></FadeIn>
-          <FadeIn immediate delay={100}>
-            <h1 className="uppercase text-left leading-[0.98] mb-5" style={{ ...HEADING_STYLE, fontSize: 'clamp(2rem,4.6vw,3.2rem)' }}>
-              Tu tarjeta NFC{' '}
-              <span className="inline-block px-1.5 rounded-md" style={{ background: 'var(--nfc-yellow)' }}>todo-en-uno</span>.
-            </h1>
-          </FadeIn>
-          <FadeIn immediate delay={200}>
-            <p className="text-base md:text-lg leading-relaxed mb-5" style={{ color: 'var(--nfc-ink2)' }}>
-              Reseñas de Google, redes sociales, carta digital y contacto — todo en un solo
-              toque del móvil. Sin apps para tu cliente, sin suscripción.
-            </p>
-          </FadeIn>
-          <FadeIn immediate delay={250}>
-            <a href="#como-funciona" className="inline-block font-bold text-sm underline underline-offset-4" style={{ color: 'var(--nfc-ink)' }}>
-              Ver cómo funciona
-            </a>
-          </FadeIn>
-        </div>
-
         {/* Composición visual */}
         <FadeIn immediate delay={300}>
           <div className="relative max-w-3xl mx-auto mt-12 mb-8 px-2 md:px-6">
+            {/* Bloque de titular — en xl+ vive en el hueco a la izquierda de la
+                composición, centrado verticalmente con las tarjetas; por debajo
+                de xl se queda en flujo normal, centrado, encima de las tarjetas */}
+            <div className="mb-10 text-center xl:mb-0 xl:absolute xl:z-30 xl:top-1/2 xl:-translate-y-1/2 xl:-left-[300px] xl:w-72 xl:text-left">
+              <FadeIn immediate><NfcEyebrow className="mb-5">NFC Canarias</NfcEyebrow></FadeIn>
+              <FadeIn immediate delay={100}>
+                <h1 className="uppercase leading-[0.98] mb-5" style={{ ...HEADING_STYLE, fontSize: 'clamp(1.8rem,2.6vw,2.6rem)' }}>
+                  Tu tarjeta NFC{' '}
+                  <span className="inline-block px-1.5 rounded-md" style={{ background: 'var(--nfc-yellow)' }}>todo-en-uno</span>.
+                </h1>
+              </FadeIn>
+              <FadeIn immediate delay={200}>
+                <p className="text-base leading-relaxed mb-5" style={{ color: 'var(--nfc-ink2)' }}>
+                  Reseñas de Google, redes sociales, carta digital y contacto — todo en un solo
+                  toque del móvil. Sin apps para tu cliente, sin suscripción.
+                </p>
+              </FadeIn>
+              <FadeIn immediate delay={250}>
+                <a href="#como-funciona" className="inline-block font-bold text-sm underline underline-offset-4" style={{ color: 'var(--nfc-ink)' }}>
+                  Ver cómo funciona
+                </a>
+              </FadeIn>
+            </div>
+
             {/* Tarjeta izquierda, asomando */}
             <div className="hidden lg:block absolute left-0 top-2 w-48 -rotate-6 z-20">
               <NfcCard tabColor="var(--nfc-lavender)" shadow="sm" className="p-5">
