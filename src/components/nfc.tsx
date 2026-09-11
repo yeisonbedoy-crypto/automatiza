@@ -4,8 +4,10 @@
  * Componentes reutilizables SOLO para la página /nfc (mismo patrón que agency.tsx
  * para Servicios/Proyectos/Ecosistema/Presupuesto). No toca el resto del sitio.
  */
+import { useState } from 'react';
 import type { ReactNode, ComponentType, CSSProperties } from 'react';
-import { Instagram } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
+import { Instagram, Menu, X } from 'lucide-react';
 import { LogoIcon } from './LogoIcon';
 
 /** Colores de marca en JS, para casos que no puedan usar var(--nfc-*) de nfc/index.html. */
@@ -275,5 +277,118 @@ export function NfcFooter() {
         </a>
       </div>
     </footer>
+  );
+}
+
+interface NfcNavItem {
+  name: string;
+  href: string;
+}
+
+/** Barra de navegación propia de /nfc, mismo lenguaje visual que el resto de la página. */
+export function NfcNavbar({ navItems, logoHref = '/' }: { navItems: NfcNavItem[]; logoHref?: string }) {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  return (
+    <nav className="fixed top-0 left-0 right-0 z-50 pt-6 px-4 md:px-8 lg:px-16 pointer-events-none">
+      <div
+        className="rounded-2xl border-[2.5px] px-5 py-3 flex items-center justify-between pointer-events-auto max-w-7xl mx-auto"
+        style={{
+          borderColor: `var(--nfc-border, ${NFC_BORDER})`,
+          background: `var(--nfc-paper, ${NFC_PAPER})`,
+          boxShadow: `5px 5px 0 var(--nfc-border, ${NFC_BORDER})`,
+        }}
+      >
+        <a href={logoHref} className="shrink-0" style={{ color: `var(--nfc-ink, ${NFC_INK})` }}>
+          <LogoIcon className="h-8 w-auto" />
+        </a>
+
+        <div className="hidden md:flex items-center gap-7">
+          {navItems.map(item => (
+            <a
+              key={item.name}
+              href={item.href}
+              className="font-mono text-[11px] font-bold uppercase tracking-widest transition-colors duration-200"
+              style={{ color: `var(--nfc-ink2, ${NFC_INK2})` }}
+            >
+              {item.name}
+            </a>
+          ))}
+        </div>
+
+        <div className="flex items-center gap-2.5">
+          <a
+            href="/presupuesto"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="nfc-press hidden sm:inline-flex items-center rounded-full border-[2px] px-4 py-2 font-mono text-[10px] font-bold uppercase tracking-widest"
+            style={{
+              background: `var(--nfc-accent, ${NFC_ACCENT})`,
+              color: `var(--nfc-ink, ${NFC_INK})`,
+              borderColor: `var(--nfc-border, ${NFC_BORDER})`,
+              boxShadow: `3px 3px 0 var(--nfc-border, ${NFC_BORDER})`,
+            }}
+          >
+            Activa tu IA
+          </a>
+
+          <button
+            type="button"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="md:hidden w-9 h-9 rounded-lg border-[2px] flex items-center justify-center"
+            style={{ borderColor: `var(--nfc-border, ${NFC_BORDER})` }}
+            aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
+            aria-expanded={isMenuOpen}
+          >
+            {isMenuOpen ? <X className="w-4 h-4" style={{ color: NFC_INK }} /> : <Menu className="w-4 h-4" style={{ color: NFC_INK }} />}
+          </button>
+        </div>
+      </div>
+
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -8, scaleY: 0.95 }}
+            animate={{ opacity: 1, y: 0, scaleY: 1 }}
+            exit={{ opacity: 0, y: -8, scaleY: 0.95 }}
+            transition={{ duration: 0.2, ease: 'easeOut' }}
+            style={{
+              originY: 0,
+              borderColor: `var(--nfc-border, ${NFC_BORDER})`,
+              background: `var(--nfc-paper, ${NFC_PAPER})`,
+              boxShadow: `5px 5px 0 var(--nfc-border, ${NFC_BORDER})`,
+            }}
+            className="pointer-events-auto mt-2 rounded-2xl border-[2.5px] overflow-hidden max-w-7xl mx-auto md:hidden"
+          >
+            <div className="px-5 pt-2 pb-4">
+              {navItems.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  onClick={() => setIsMenuOpen(false)}
+                  className="flex items-center py-3.5 font-mono text-[12px] font-bold uppercase tracking-widest border-b-[2px] last:border-b-0"
+                  style={{ color: `var(--nfc-ink2, ${NFC_INK2})`, borderColor: `var(--nfc-divider, rgba(17,17,17,0.15))` }}
+                >
+                  {item.name}
+                </a>
+              ))}
+              <a
+                href="/presupuesto"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 sm:hidden inline-flex items-center justify-center w-full rounded-full border-[2px] px-4 py-2.5 font-mono text-[11px] font-bold uppercase tracking-widest"
+                style={{
+                  background: `var(--nfc-accent, ${NFC_ACCENT})`,
+                  color: `var(--nfc-ink, ${NFC_INK})`,
+                  borderColor: `var(--nfc-border, ${NFC_BORDER})`,
+                }}
+              >
+                Activa tu IA
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </nav>
   );
 }
