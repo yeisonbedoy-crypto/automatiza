@@ -23,6 +23,9 @@ export const NFC_TAN = '#C9A876';
 /** Paleta rotativa usada para etiquetas y tiles de icono en tarjetas repetidas. */
 export const NFC_PALETTE = [NFC_YELLOW, NFC_GREEN, NFC_SALMON, NFC_LAVENDER, NFC_TAN];
 
+/** Colores claros → icono oscuro; colores saturados → icono blanco (como en la referencia). */
+const NFC_LIGHT_TONES = new Set([NFC_YELLOW, NFC_TAN]);
+
 /** Fondo sólido color papel, plano — sin textura, look limpio neo-brutalista. */
 export function NfcBackground() {
   return <div className="fixed inset-0 z-0" style={{ background: `var(--nfc-paper, ${NFC_PAPER})` }} />;
@@ -108,19 +111,21 @@ export function NfcIconTile({
 }) {
   const dims = size === 'lg' ? 'w-14 h-14' : size === 'sm' ? 'w-9 h-9' : 'w-12 h-12';
   const icon = size === 'lg' ? 'w-6 h-6' : size === 'sm' ? 'w-4 h-4' : 'w-5 h-5';
+  const iconColor = NFC_LIGHT_TONES.has(color) ? NFC_INK : '#FFFFFF';
   return (
     <div
       className={`${dims} rounded-xl border-[2.5px] flex items-center justify-center shrink-0`}
       style={{ background: color, borderColor: `var(--nfc-border, ${NFC_BORDER})` }}
     >
-      <Icon className={icon} style={{ color: NFC_INK } as CSSProperties} />
+      <Icon className={icon} style={{ color: iconColor } as CSSProperties} />
     </div>
   );
 }
 
 /**
- * Tarjeta neo-brutalista: borde negro, esquinas redondeadas, sombra dura desplazada
- * y una pestaña de color asomando en la esquina superior izquierda.
+ * Tarjeta neo-brutalista tipo "carpeta": una capa de color entera asoma detrás,
+ * desplazada arriba a la izquierda (como el lomo de una carpeta), y la tarjeta
+ * papel va delante con su propio borde negro y sombra dura hacia abajo-derecha.
  */
 export function NfcCard({
   children,
@@ -135,19 +140,25 @@ export function NfcCard({
 }) {
   const offset = shadow === 'lg' ? '7px 7px 0' : shadow === 'sm' ? '3px 3px 0' : '5px 5px 0';
   return (
-    <div
-      className={`relative rounded-[20px] border-[2.5px] ${className}`}
-      style={{
-        borderColor: `var(--nfc-border, ${NFC_BORDER})`,
-        background: `var(--nfc-paper, ${NFC_PAPER})`,
-        boxShadow: `${offset} var(--nfc-border, ${NFC_BORDER})`,
-      }}
-    >
+    <div className="relative h-full">
       <div
-        className="absolute -top-3 left-6 w-9 h-5 rounded-t-md border-[2.5px] border-b-0"
-        style={{ background: tabColor, borderColor: `var(--nfc-border, ${NFC_BORDER})` }}
+        className="absolute inset-0 rounded-[20px] border-[2.5px]"
+        style={{
+          background: tabColor,
+          borderColor: `var(--nfc-border, ${NFC_BORDER})`,
+          transform: 'translate(-7px, -7px)',
+        }}
       />
-      {children}
+      <div
+        className={`relative h-full rounded-[20px] border-[2.5px] ${className}`}
+        style={{
+          borderColor: `var(--nfc-border, ${NFC_BORDER})`,
+          background: `var(--nfc-paper, ${NFC_PAPER})`,
+          boxShadow: `${offset} var(--nfc-border, ${NFC_BORDER})`,
+        }}
+      >
+        {children}
+      </div>
     </div>
   );
 }
