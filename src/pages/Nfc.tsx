@@ -254,6 +254,15 @@ export default function Nfc() {
         {/* Composición visual */}
         <FadeIn immediate delay={300}>
           <div className="relative max-w-3xl mx-auto mt-12 mb-8 px-2 md:px-6">
+            {/* Mano tocando la tarjeta — asoma por encima, se superpone al mock */}
+            <img
+              src="/nfc/hero/hand-tap.webp"
+              alt=""
+              aria-hidden="true"
+              className="hidden sm:block absolute z-20 pointer-events-none select-none w-[300px] md:w-[380px] lg:w-[430px]"
+              style={{ left: '12%', top: '-88px' }}
+            />
+
             {/* Tarjeta izquierda, asomando */}
             <div className="hidden lg:block absolute left-0 top-12 w-48 -rotate-6 z-0">
               <NfcCard tabColor="var(--nfc-lavender)" shadow="sm" className="p-5">
