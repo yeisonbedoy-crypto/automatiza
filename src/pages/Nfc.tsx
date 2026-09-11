@@ -259,8 +259,7 @@ export default function Nfc() {
               src="/nfc/hero/hand-tap.webp"
               alt=""
               aria-hidden="true"
-              className="hidden sm:block absolute z-20 pointer-events-none select-none w-[300px] md:w-[380px] lg:w-[430px]"
-              style={{ left: '12%', top: '-88px' }}
+              className="hidden lg:block absolute z-20 pointer-events-none select-none left-1/2 -translate-x-1/2 w-[680px] -top-[139px] xl:w-[820px] xl:-top-[168px]"
             />
 
             {/* Tarjeta izquierda, asomando */}
