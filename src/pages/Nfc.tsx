@@ -235,7 +235,7 @@ export default function Nfc() {
           src="/nfc/hero/hand-tap.webp"
           alt=""
           aria-hidden="true"
-          className="hidden lg:block absolute z-20 top-[80px] pointer-events-none select-none left-1/2 -translate-x-1/2 w-[680px] xl:w-[820px]"
+          className="hidden lg:block absolute z-20 top-[95px] pointer-events-none select-none left-[calc(50%-30px)] -translate-x-1/2 w-[680px] xl:w-[820px]"
         />
 
         <div className="relative z-30 max-w-lg lg:text-left text-center mx-auto lg:mx-0">
