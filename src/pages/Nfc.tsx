@@ -240,12 +240,6 @@ export default function Nfc() {
 
         <div className="relative z-30 max-w-3xl mx-auto text-center">
           <FadeIn immediate><NfcEyebrow className="mb-5">NFC Canarias</NfcEyebrow></FadeIn>
-          <FadeIn immediate delay={100}>
-            <h1 className="uppercase text-left leading-[0.98] mb-5" style={{ ...HEADING_STYLE, fontSize: 'clamp(2rem,4.6vw,3.2rem)' }}>
-              Tu tarjeta NFC{' '}
-              <span className="inline-block px-1.5 rounded-md" style={{ background: 'var(--nfc-yellow)' }}>todo-en-uno</span>.
-            </h1>
-          </FadeIn>
           <FadeIn immediate delay={200}>
             <p className="text-base md:text-lg leading-relaxed mb-5" style={{ color: 'var(--nfc-ink2)' }}>
               Reseñas de Google, redes sociales, carta digital y contacto — todo en un solo
@@ -262,6 +256,19 @@ export default function Nfc() {
         {/* Composición visual */}
         <FadeIn immediate delay={300}>
           <div className="relative max-w-3xl mx-auto mt-12 mb-8 px-2 md:px-6">
+            {/* H1 — en pantallas xl+ vive en el hueco a la izquierda de la composición;
+                por debajo de xl se queda en flujo normal, centrado, encima de las tarjetas */}
+            <FadeIn
+              immediate
+              delay={100}
+              className="mb-8 text-center xl:mb-0 xl:absolute xl:z-30 xl:top-1/2 xl:-translate-y-1/2 xl:-left-[240px] xl:w-56 xl:text-left"
+            >
+              <h1 className="uppercase leading-[0.98]" style={{ ...HEADING_STYLE, fontSize: 'clamp(1.8rem,2.6vw,2.6rem)' }}>
+                Tu tarjeta NFC{' '}
+                <span className="inline-block px-1.5 rounded-md" style={{ background: 'var(--nfc-yellow)' }}>todo-en-uno</span>.
+              </h1>
+            </FadeIn>
+
             {/* Tarjeta izquierda, asomando */}
             <div className="hidden lg:block absolute left-0 top-2 w-48 -rotate-6 z-20">
               <NfcCard tabColor="var(--nfc-lavender)" shadow="sm" className="p-5">
