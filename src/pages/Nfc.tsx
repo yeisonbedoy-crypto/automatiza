@@ -263,7 +263,7 @@ export default function Nfc() {
         <FadeIn immediate delay={300}>
           <div className="relative max-w-3xl mx-auto mt-12 mb-8 px-2 md:px-6">
             {/* Tarjeta izquierda, asomando */}
-            <div className="hidden lg:block absolute left-0 -top-3 w-48 -rotate-6 z-0">
+            <div className="hidden lg:block absolute left-0 top-2 w-48 -rotate-6 z-0">
               <NfcCard tabColor="var(--nfc-lavender)" shadow="sm" className="p-5">
                 <div className="flex items-center gap-2 mb-2.5">
                   <div className="w-7 h-7 rounded-full border-[2px] flex items-center justify-center shrink-0" style={{ background: 'var(--nfc-yellow)', borderColor: 'var(--nfc-border)' }}>
@@ -301,7 +301,7 @@ export default function Nfc() {
             </div>
 
             {/* Tarjeta derecha, asomando */}
-            <div className="hidden lg:block absolute right-0 top-5 w-48 rotate-6 z-0">
+            <div className="hidden lg:block absolute right-0 top-10 w-48 rotate-6 z-0">
               <NfcCard tabColor="var(--nfc-green)" shadow="sm" className="p-5">
                 <p className="font-mono text-[9px] font-bold uppercase tracking-wide mb-2.5" style={{ color: 'var(--nfc-ink3)' }}>Todo en un toque</p>
                 <div className="flex flex-wrap gap-1.5">
@@ -319,7 +319,7 @@ export default function Nfc() {
         {/* Franja de confianza */}
         <FadeIn immediate delay={400}>
           <div
-            className="max-w-4xl mx-auto -mt-10 rounded-[24px] border-[2.5px] px-6 py-5 md:px-10 flex flex-col md:flex-row items-center justify-between gap-4"
+            className="max-w-4xl mx-auto mt-4 rounded-[24px] border-[2.5px] px-6 py-5 md:px-10 flex flex-col md:flex-row items-center justify-between gap-4"
             style={{ borderColor: 'var(--nfc-border)', background: 'var(--nfc-paper)', boxShadow: '5px 5px 0 var(--nfc-border)' }}
           >
             <p className="font-bold text-[15px] text-center md:text-left" style={{ color: 'var(--nfc-ink)' }}>
