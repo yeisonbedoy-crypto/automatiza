@@ -230,7 +230,15 @@ export default function Nfc() {
 
       {/* Hero */}
       <section className="relative z-10 w-full px-4 md:px-8 lg:px-16 pt-36 pb-16 md:pt-44">
-        <div className="max-w-3xl mx-auto text-center">
+        {/* Mano — asoma desde arriba del todo, detrás de la navbar fija */}
+        <img
+          src="/nfc/hero/hand-tap.webp"
+          alt=""
+          aria-hidden="true"
+          className="hidden lg:block absolute z-20 top-0 pointer-events-none select-none left-1/2 -translate-x-1/2 w-[680px] xl:w-[820px]"
+        />
+
+        <div className="relative z-30 max-w-3xl mx-auto text-center">
           <FadeIn immediate><NfcEyebrow className="mb-5">NFC Canarias</NfcEyebrow></FadeIn>
           <FadeIn immediate delay={100}>
             <h1 className="uppercase leading-[0.98] mb-5" style={{ ...HEADING_STYLE, fontSize: 'clamp(2rem,5.2vw,3.6rem)' }}>
@@ -254,14 +262,6 @@ export default function Nfc() {
         {/* Composición visual */}
         <FadeIn immediate delay={300}>
           <div className="relative max-w-3xl mx-auto mt-12 mb-8 px-2 md:px-6">
-            {/* Mano tocando la tarjeta — asoma por encima, se superpone al mock */}
-            <img
-              src="/nfc/hero/hand-tap.webp"
-              alt=""
-              aria-hidden="true"
-              className="hidden lg:block absolute z-20 pointer-events-none select-none left-1/2 -translate-x-1/2 w-[680px] -top-[139px] xl:w-[820px] xl:-top-[168px]"
-            />
-
             {/* Tarjeta izquierda, asomando */}
             <div className="hidden lg:block absolute left-0 top-12 w-48 -rotate-6 z-0">
               <NfcCard tabColor="var(--nfc-lavender)" shadow="sm" className="p-5">
