@@ -3,10 +3,33 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 import {defineConfig, loadEnv} from 'vite';
 
+/**
+ * Solo en dev: /nfc (sin barra final) recibe el index.html raíz vía el
+ * fallback SPA de Vite, sin las variables CSS de nfc/index.html. En
+ * producción vercel.json ya normaliza esto con una rewrite; aquí replicamos
+ * lo mismo para que /nfc y /nfc/ se comporten igual en local.
+ */
+function nfcTrailingSlashDevRedirect() {
+  return {
+    name: 'nfc-trailing-slash-dev-redirect',
+    configureServer(server: import('vite').ViteDevServer) {
+      server.middlewares.use((req, res, next) => {
+        if (req.url === '/nfc') {
+          res.statusCode = 302;
+          res.setHeader('Location', '/nfc/');
+          res.end();
+          return;
+        }
+        next();
+      });
+    },
+  };
+}
+
 export default defineConfig(({mode}) => {
   const env = loadEnv(mode, '.', '');
   return {
-    plugins: [react(), tailwindcss()],
+    plugins: [react(), tailwindcss(), nfcTrailingSlashDevRedirect()],
     define: {
       'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),
     },
