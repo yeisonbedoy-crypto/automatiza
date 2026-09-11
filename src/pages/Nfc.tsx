@@ -3,7 +3,7 @@ import { Footer } from '../components/Sections';
 import FadeIn from '../components/FadeIn';
 import { useState, useEffect } from 'react';
 import type { ChangeEvent, FormEvent } from 'react';
-import { NfcBackground, NfcEyebrow, NfcButton, NfcGhostButton, NfcIconTile, NfcCard, NfcCtaBanner, NFC_PALETTE } from '../components/nfc';
+import { NfcBackground, NfcEyebrow, NfcButton, NfcIconTile, NfcCard, NfcCtaBanner, NFC_PALETTE } from '../components/nfc';
 import {
   Wifi, Check, CircleDollarSign, Smartphone, Truck,
   Star, IdCard, UtensilsCrossed, Instagram, MessageCircle, MapPin, Cpu, ChevronDown,
@@ -232,35 +232,51 @@ export default function Nfc() {
 
       {/* Hero */}
       <section className="relative z-10 w-full px-4 md:px-8 lg:px-16 pt-36 pb-16 md:pt-44">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <FadeIn immediate><NfcEyebrow className="mb-5">NFC Canarias</NfcEyebrow></FadeIn>
-            <FadeIn immediate delay={100}>
-              <h1 className="leading-[0.98] mb-6" style={{ ...HEADING_STYLE, fontSize: 'clamp(2.4rem,5vw,4.4rem)' }}>
-                Tu tarjeta NFC{' '}
-                <span className="inline-block px-1.5 rounded-md" style={{ background: 'var(--nfc-yellow)' }}>todo-en-uno</span>.
-              </h1>
-            </FadeIn>
-            <FadeIn immediate delay={200}>
-              <p className="text-base md:text-lg leading-relaxed max-w-lg mb-8" style={{ color: 'var(--nfc-ink2)' }}>
-                Reseñas de Google, redes sociales, carta digital y contacto — todo en un solo
-                toque del móvil. Sin apps para tu cliente, sin suscripción. Hecha en Gran
-                Canaria, enviada a toda Canarias y España.
-              </p>
-            </FadeIn>
-            <FadeIn immediate delay={300} className="flex flex-wrap gap-3">
-              <NfcButton href="#pedido">Pide la tuya</NfcButton>
-              <NfcGhostButton href="#como-funciona">Cómo funciona</NfcGhostButton>
-            </FadeIn>
-          </div>
+        <div className="max-w-3xl mx-auto text-center">
+          <FadeIn immediate><NfcEyebrow className="mb-5">NFC Canarias</NfcEyebrow></FadeIn>
+          <FadeIn immediate delay={100}>
+            <h1 className="uppercase leading-[0.98] mb-5" style={{ ...HEADING_STYLE, fontSize: 'clamp(2rem,5.2vw,3.6rem)' }}>
+              Tu tarjeta NFC{' '}
+              <span className="inline-block px-1.5 rounded-md" style={{ background: 'var(--nfc-yellow)' }}>todo-en-uno</span>.
+            </h1>
+          </FadeIn>
           <FadeIn immediate delay={200}>
+            <p className="text-base md:text-lg leading-relaxed max-w-xl mx-auto mb-5" style={{ color: 'var(--nfc-ink2)' }}>
+              Reseñas de Google, redes sociales, carta digital y contacto — todo en un solo
+              toque del móvil. Sin apps para tu cliente, sin suscripción.
+            </p>
+          </FadeIn>
+          <FadeIn immediate delay={250}>
+            <a href="#como-funciona" className="inline-block font-bold text-sm underline underline-offset-4" style={{ color: 'var(--nfc-ink)' }}>
+              Ver cómo funciona
+            </a>
+          </FadeIn>
+        </div>
+
+        {/* Composición visual */}
+        <FadeIn immediate delay={300}>
+          <div className="relative max-w-3xl mx-auto mt-12 mb-8 px-2 md:px-6">
+            {/* Tarjeta izquierda, asomando */}
+            <div className="hidden lg:block absolute left-0 top-12 w-48 -rotate-6 z-0">
+              <NfcCard tabColor="var(--nfc-lavender)" shadow="sm" className="p-5">
+                <div className="flex items-center gap-2 mb-2.5">
+                  <div className="w-7 h-7 rounded-full border-[2px] flex items-center justify-center shrink-0" style={{ background: 'var(--nfc-yellow)', borderColor: 'var(--nfc-border)' }}>
+                    <Star className="w-3.5 h-3.5" style={{ color: 'var(--nfc-ink)' }} />
+                  </div>
+                  <span className="font-mono text-[9px] font-bold uppercase tracking-wide" style={{ color: 'var(--nfc-ink3)' }}>Un solo toque</span>
+                </div>
+                <p className="text-[13px] font-bold leading-snug" style={{ color: 'var(--nfc-ink)' }}>Reseñas de Google al instante</p>
+              </NfcCard>
+            </div>
+
+            {/* Tarjeta central */}
             <div
-              className="relative rounded-[24px] overflow-hidden border-[2.5px] aspect-[4/5] flex items-center justify-center p-10"
-              style={{ borderColor: 'var(--nfc-border)', background: 'var(--nfc-lavender)', boxShadow: '8px 8px 0 var(--nfc-border)' }}
+              className="relative z-10 max-w-sm mx-auto rounded-[28px] border-[2.5px] p-8 flex flex-col items-center gap-6"
+              style={{ borderColor: 'var(--nfc-border)', background: 'var(--nfc-yellow)', boxShadow: '9px 9px 0 var(--nfc-border)' }}
             >
               <div
-                className="w-full max-w-[260px] aspect-[16/10] rounded-[20px] border-[2.5px] flex flex-col justify-between p-6"
-                style={{ borderColor: 'var(--nfc-border)', background: 'var(--nfc-ink)', boxShadow: '5px 5px 0 var(--nfc-yellow)' }}
+                className="w-full max-w-[240px] aspect-[16/10] rounded-[20px] border-[2.5px] flex flex-col justify-between p-6"
+                style={{ borderColor: 'var(--nfc-border)', background: 'var(--nfc-ink)', boxShadow: '5px 5px 0 var(--nfc-border)' }}
               >
                 <div className="flex items-center justify-between">
                   <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-white/80">NFC Canarias</span>
@@ -268,25 +284,51 @@ export default function Nfc() {
                 </div>
                 <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-white/50">Toca aquí</span>
               </div>
+              <a
+                href="#pedido"
+                onClick={() => setSelectedProduct(null)}
+                className="nfc-press w-full text-center rounded-2xl font-bold text-sm border-[2.5px] px-7 py-3.5"
+                style={{ background: 'var(--nfc-paper)', color: 'var(--nfc-ink)', borderColor: 'var(--nfc-border)', boxShadow: '4px 4px 0 var(--nfc-border)' }}
+              >
+                Pide la tuya
+              </a>
             </div>
-          </FadeIn>
-        </div>
-      </section>
 
-      {/* Franja de confianza */}
-      <section className="relative z-10 w-full px-4 md:px-8 lg:px-16 pb-4">
-        <div className="max-w-4xl mx-auto flex flex-wrap justify-center gap-3">
-          {TRUST_BADGES.map(({ Icon, label }) => (
-            <div
-              key={label}
-              className="flex items-center gap-2.5 rounded-full border-[2px] px-4 py-2"
-              style={{ borderColor: 'var(--nfc-border)', background: 'var(--nfc-paper)' }}
-            >
-              <Icon className="w-4 h-4" style={{ color: 'var(--nfc-ink)' }} />
-              <span className="font-mono text-[11px] tracking-wide uppercase" style={{ color: 'var(--nfc-ink2)' }}>{label}</span>
+            {/* Tarjeta derecha, asomando */}
+            <div className="hidden lg:block absolute right-0 top-20 w-48 rotate-6 z-0">
+              <NfcCard tabColor="var(--nfc-green)" shadow="sm" className="p-5">
+                <p className="font-mono text-[9px] font-bold uppercase tracking-wide mb-2.5" style={{ color: 'var(--nfc-ink3)' }}>Todo en un toque</p>
+                <div className="flex flex-wrap gap-1.5">
+                  {[Star, Instagram, UtensilsCrossed, Wifi].map((Ic, idx) => (
+                    <div key={idx} className="w-7 h-7 rounded-lg border-[2px] flex items-center justify-center" style={{ background: 'var(--nfc-paper)', borderColor: 'var(--nfc-border)' }}>
+                      <Ic className="w-3.5 h-3.5" style={{ color: 'var(--nfc-ink)' }} />
+                    </div>
+                  ))}
+                </div>
+              </NfcCard>
             </div>
-          ))}
-        </div>
+          </div>
+        </FadeIn>
+
+        {/* Franja de confianza */}
+        <FadeIn immediate delay={400}>
+          <div
+            className="max-w-4xl mx-auto rounded-[24px] border-[2.5px] px-6 py-5 md:px-10 flex flex-col md:flex-row items-center justify-between gap-4"
+            style={{ borderColor: 'var(--nfc-border)', background: 'var(--nfc-paper)', boxShadow: '5px 5px 0 var(--nfc-border)' }}
+          >
+            <p className="font-bold text-[15px] text-center md:text-left" style={{ color: 'var(--nfc-ink)' }}>
+              Sin apps. Sin suscripción.
+            </p>
+            <div className="flex flex-wrap justify-center gap-3">
+              {TRUST_BADGES.map(({ Icon, label }) => (
+                <div key={label} className="flex items-center gap-2 rounded-full border-[2px] px-3 py-1.5" style={{ borderColor: 'var(--nfc-border)' }}>
+                  <Icon className="w-3.5 h-3.5" style={{ color: 'var(--nfc-ink)' }} />
+                  <span className="font-mono text-[10px] uppercase tracking-wide" style={{ color: 'var(--nfc-ink2)' }}>{label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </FadeIn>
       </section>
 
       {/* Selector de producto */}
