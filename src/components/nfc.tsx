@@ -5,6 +5,8 @@
  * para Servicios/Proyectos/Ecosistema/Presupuesto). No toca el resto del sitio.
  */
 import type { ReactNode, ComponentType, CSSProperties } from 'react';
+import { Instagram } from 'lucide-react';
+import { LogoIcon } from './LogoIcon';
 
 /** Colores de marca en JS, para casos que no puedan usar var(--nfc-*) de nfc/index.html. */
 export const NFC_PAPER = '#FFFDF8';
@@ -195,5 +197,83 @@ export function NfcCtaBanner({
       </div>
       <NfcButton href={buttonHref} className="whitespace-nowrap shrink-0">{buttonLabel}</NfcButton>
     </div>
+  );
+}
+
+const NFC_FOOTER_LINK_STYLE = { color: `var(--nfc-ink2, ${NFC_INK2})` };
+const NFC_FOOTER_HEADING_CLASS = "font-mono text-[10px] uppercase tracking-[0.2em] font-bold mb-4";
+
+/** Footer propio de /nfc, mismo lenguaje visual que el resto de la página. */
+export function NfcFooter() {
+  return (
+    <footer
+      className="w-full rounded-[28px] border-[2.5px] p-6 md:p-10 mt-16 md:mt-24"
+      style={{
+        borderColor: `var(--nfc-border, ${NFC_BORDER})`,
+        background: `var(--nfc-paper, ${NFC_PAPER})`,
+        boxShadow: `7px 7px 0 var(--nfc-border, ${NFC_BORDER})`,
+      }}
+    >
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 mb-10">
+        {/* Marca */}
+        <div className="md:col-span-5">
+          <div className="flex items-center gap-2.5 mb-4">
+            <span style={{ color: `var(--nfc-ink, ${NFC_INK})` }}>
+              <LogoIcon className="h-9 w-auto" />
+            </span>
+            <span className="font-mono text-[11px] font-bold uppercase tracking-[0.15em]" style={{ color: `var(--nfc-ink3, ${NFC_INK3})` }}>NFC Canarias</span>
+          </div>
+          <p className="text-sm leading-relaxed max-w-xs" style={NFC_FOOTER_LINK_STYLE}>
+            Un producto de AutomatizaGC — tarjetas y placas NFC hechas en Gran Canaria, enviadas a toda Canarias y España.
+          </p>
+        </div>
+
+        {/* Enlaces */}
+        <div className="md:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-8">
+          <div>
+            <h4 className={NFC_FOOTER_HEADING_CLASS} style={{ color: `var(--nfc-ink, ${NFC_INK})` }}>Sitio</h4>
+            <ul className="text-[13px] space-y-2.5">
+              <li><a href="/" className="hover:underline" style={NFC_FOOTER_LINK_STYLE}>Inicio</a></li>
+              <li><a href="/servicios" className="hover:underline" style={NFC_FOOTER_LINK_STYLE}>Servicios</a></li>
+              <li><a href="/precios" className="hover:underline" style={NFC_FOOTER_LINK_STYLE}>Precios</a></li>
+              <li><a href="/contacto" className="hover:underline" style={NFC_FOOTER_LINK_STYLE}>Contacto</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 className={NFC_FOOTER_HEADING_CLASS} style={{ color: `var(--nfc-ink, ${NFC_INK})` }}>NFC Canarias</h4>
+            <ul className="text-[13px] space-y-2.5">
+              <li><a href="#productos" className="hover:underline" style={NFC_FOOTER_LINK_STYLE}>Productos</a></li>
+              <li><a href="#como-funciona" className="hover:underline" style={NFC_FOOTER_LINK_STYLE}>Cómo funciona</a></li>
+              <li><a href="#pedido" className="hover:underline" style={NFC_FOOTER_LINK_STYLE}>Pide la tuya</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 className={NFC_FOOTER_HEADING_CLASS} style={{ color: `var(--nfc-ink, ${NFC_INK})` }}>Legal</h4>
+            <ul className="text-[13px] space-y-2.5">
+              <li><a href="mailto:automatizagc@gmail.com" className="hover:underline" style={NFC_FOOTER_LINK_STYLE}>automatizagc@gmail.com</a></li>
+              <li><a href="/politica-de-privacidad" className="hover:underline" style={NFC_FOOTER_LINK_STYLE}>Política de privacidad</a></li>
+              <li><a href="/terminos" className="hover:underline" style={NFC_FOOTER_LINK_STYLE}>Términos de servicio</a></li>
+              <li><a href="/eliminacion-datos" className="hover:underline" style={NFC_FOOTER_LINK_STYLE}>Eliminación de datos</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div className="pt-6 border-t-[2px] flex flex-col md:flex-row items-center justify-between gap-4" style={{ borderColor: `var(--nfc-divider, rgba(17,17,17,0.15))` }}>
+        <p className="font-mono text-[10px] uppercase tracking-widest" style={{ color: `var(--nfc-ink3, ${NFC_INK3})` }}>
+          © 2026 NFC Canarias · AutomatizaGC. Todos los derechos reservados.
+        </p>
+        <a
+          href="https://www.instagram.com/automatiza.gc"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram @automatiza.gc"
+          className="w-9 h-9 rounded-full border-[2px] flex items-center justify-center shrink-0"
+          style={{ borderColor: `var(--nfc-border, ${NFC_BORDER})`, color: `var(--nfc-ink, ${NFC_INK})` }}
+        >
+          <Instagram size={15} />
+        </a>
+      </div>
+    </footer>
   );
 }

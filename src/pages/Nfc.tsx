@@ -1,9 +1,8 @@
 import { Navbar } from '../components/Navbar';
-import { Footer } from '../components/Sections';
 import FadeIn from '../components/FadeIn';
 import { useState, useEffect } from 'react';
 import type { ChangeEvent, FormEvent } from 'react';
-import { NfcBackground, NfcEyebrow, NfcButton, NfcIconTile, NfcCard, NfcCtaBanner, NFC_PALETTE } from '../components/nfc';
+import { NfcBackground, NfcEyebrow, NfcButton, NfcIconTile, NfcCard, NfcCtaBanner, NfcFooter, NFC_PALETTE } from '../components/nfc';
 import {
   Wifi, Check, CircleDollarSign, Smartphone, Truck,
   Star, IdCard, UtensilsCrossed, Instagram, MessageCircle, MapPin, Cpu, ChevronDown,
@@ -550,11 +549,8 @@ export default function Nfc() {
         </div>
       </section>
 
-      <div
-        className="relative z-10 max-w-7xl w-full px-6 md:px-12 lg:px-16 pb-12 mt-auto mx-auto rounded-3xl overflow-hidden pt-10"
-        style={{ background: 'var(--nfc-ink)' }}
-      >
-        <Footer />
+      <div className="relative z-10 max-w-7xl w-full px-4 md:px-8 lg:px-16 pb-12 mt-auto mx-auto">
+        <NfcFooter />
       </div>
     </main>
   );
