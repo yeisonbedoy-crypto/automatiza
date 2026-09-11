@@ -277,7 +277,7 @@ export default function Nfc() {
 
             {/* Tarjeta central */}
             <div
-              className="relative z-10 max-w-sm mx-auto rounded-[28px] border-[2.5px] p-8 flex flex-col items-center gap-6"
+              className="relative z-10 max-w-sm mx-auto -mt-15 rounded-[28px] border-[2.5px] p-8 flex flex-col items-center gap-6"
               style={{ borderColor: 'var(--nfc-border)', background: 'var(--nfc-yellow)', boxShadow: '9px 9px 0 var(--nfc-border)' }}
             >
               <div
