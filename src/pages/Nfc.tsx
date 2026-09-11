@@ -7,7 +7,7 @@ import { NfcBackground, NfcEyebrow, NfcButton, NfcGhostButton, NfcIconTile, NfcC
 import {
   Wifi, Check, CircleDollarSign, Smartphone, Truck,
   Star, IdCard, UtensilsCrossed, Instagram, MessageCircle, MapPin, Cpu, ChevronDown,
-  CreditCard, MonitorSmartphone, Layers,
+  CreditCard, MonitorSmartphone, Layers, Tag, LayoutGrid,
 } from 'lucide-react';
 
 const FAQS = [
@@ -163,6 +163,14 @@ const WHY = [
 
 const PRODUCTS = [
   {
+    name: "Tag NFC",
+    price: "12€",
+    desc: "El punto de partida: una pegatina NFC discreta para pegar donde haga falta.",
+    items: ["1 tag NFC adhesivo", "Enlace configurable", "Ideal para probar antes de pedir más"],
+    featured: false,
+    Icon: Tag,
+  },
+  {
     name: "Tarjeta NFC",
     price: "19€",
     desc: "Tarjeta individual, tamaño de visita, para ti o cada miembro de tu equipo.",
@@ -177,6 +185,14 @@ const PRODUCTS = [
     items: ["1 placa NFC de mostrador", "Diseño a juego con tu marca", "Ideal para pedir reseñas en el momento del pago"],
     featured: true,
     Icon: MonitorSmartphone,
+  },
+  {
+    name: "Expositor Multi-Enlace",
+    price: "69€",
+    desc: "Expositor de sobremesa con varios puntos de toque a la vez, cada uno con su propio destino.",
+    items: ["1 expositor con 3 zonas de toque", "Reseñas, redes y contacto por separado", "Pensado para mostradores con mucho tráfico"],
+    featured: false,
+    Icon: LayoutGrid,
   },
   {
     name: "Pack Negocio",
