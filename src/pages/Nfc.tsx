@@ -291,14 +291,14 @@ export default function Nfc() {
 
       {/* Selector de producto */}
       <section className="relative z-10 w-full px-4 md:px-8 lg:px-16 py-16" id="productos">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <NfcEyebrow className="mb-4">Elige tu formato</NfcEyebrow>
             <h2 style={{ ...HEADING_STYLE, fontSize: 'clamp(1.8rem,3.4vw,2.8rem)' }}>
               Un pago único. Para siempre tuyo.
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 pt-3">
             {PRODUCTS.map((p, i) => {
               const color = NFC_PALETTE[i % NFC_PALETTE.length];
               return (
@@ -313,25 +313,25 @@ export default function Nfc() {
                         Más pedido
                       </span>
                     )}
-                    <div className="w-20 h-20 rounded-2xl border-[2.5px] flex items-center justify-center" style={{ background: 'var(--nfc-paper)', borderColor: 'var(--nfc-border)' }}>
-                      <p.Icon className="w-9 h-9" style={{ color: 'var(--nfc-ink)' }} />
+                    <div className="w-14 h-14 rounded-2xl border-[2.5px] flex items-center justify-center" style={{ background: 'var(--nfc-paper)', borderColor: 'var(--nfc-border)' }}>
+                      <p.Icon className="w-6 h-6" style={{ color: 'var(--nfc-ink)' }} />
                     </div>
                   </div>
                   {/* Contenido */}
-                  <div className="p-6 flex flex-col gap-3 flex-1">
-                    <h3 className="text-xl font-bold" style={{ color }}>{p.name}</h3>
-                    <p className="text-[13px] leading-relaxed" style={{ color: 'var(--nfc-ink2)' }}>{p.desc}</p>
-                    <ul className="space-y-2">
+                  <div className="p-4 flex flex-col gap-2.5 flex-1">
+                    <h3 className="text-base font-bold leading-tight" style={{ color }}>{p.name}</h3>
+                    <p className="text-[12px] leading-relaxed" style={{ color: 'var(--nfc-ink2)' }}>{p.desc}</p>
+                    <ul className="space-y-1.5">
                       {p.items.map(item => (
-                        <li key={item} className="flex items-start gap-2.5 text-[12px]" style={{ color: 'var(--nfc-ink2)' }}>
-                          <Check className="w-3.5 h-3.5 shrink-0 mt-0.5" style={{ color: 'var(--nfc-ink)' }} />
+                        <li key={item} className="flex items-start gap-2 text-[11px] leading-snug" style={{ color: 'var(--nfc-ink2)' }}>
+                          <Check className="w-3 h-3 shrink-0 mt-0.5" style={{ color: 'var(--nfc-ink)' }} />
                           {item}
                         </li>
                       ))}
                     </ul>
-                    <div className="mt-auto flex items-center justify-between gap-3 pt-4 border-t-[2px]" style={{ borderColor: 'var(--nfc-divider)' }}>
-                      <p className="font-mono text-2xl font-bold" style={{ color: 'var(--nfc-ink)' }}>{p.price}</p>
-                      <NfcButton href="#pedido" onClick={() => setSelectedProduct(p.name)} className="text-[13px] px-5 py-2.5">Elegir</NfcButton>
+                    <div className="mt-auto flex items-center justify-between gap-2 pt-3 border-t-[2px]" style={{ borderColor: 'var(--nfc-divider)' }}>
+                      <p className="font-mono text-lg font-bold" style={{ color: 'var(--nfc-ink)' }}>{p.price}</p>
+                      <NfcButton href="#pedido" onClick={() => setSelectedProduct(p.name)} className="text-[12px] px-3.5 py-2">Elegir</NfcButton>
                     </div>
                     <p className="text-[10px] font-mono uppercase tracking-wide" style={{ color: 'var(--nfc-ink3)' }}>Precio orientativo, a confirmar</p>
                   </div>
