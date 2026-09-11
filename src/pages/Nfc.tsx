@@ -241,13 +241,15 @@ export default function Nfc() {
         {/* Composición visual */}
         <FadeIn immediate delay={300}>
           <div className="relative max-w-3xl mx-auto mt-12 mb-8 px-2 md:px-6">
-            {/* Bloque de titular — en xl+ vive en el hueco a la izquierda de la
-                composición, centrado verticalmente con las tarjetas; por debajo
-                de xl se queda en flujo normal, centrado, encima de las tarjetas */}
-            <div className="mb-10 text-center xl:mb-0 xl:absolute xl:z-30 xl:top-1/2 xl:-translate-y-1/2 xl:-left-[300px] xl:w-72 xl:text-left">
+            {/* Bloque de titular — a partir de lg: (mismo punto en el que las
+                tarjetas pasan a absolute) vive en el hueco a la izquierda de la
+                composición, centrado verticalmente con ella; así nunca empuja
+                el flujo de las tarjetas en ningún ancho. Por debajo de lg se
+                queda en flujo normal, centrado, encima de las tarjetas */}
+            <div className="mb-10 text-center lg:mb-0 lg:absolute lg:z-30 lg:top-1/2 lg:-translate-y-1/2 lg:-left-[100px] lg:w-56 lg:text-left">
               <FadeIn immediate><NfcEyebrow className="mb-5">NFC Canarias</NfcEyebrow></FadeIn>
               <FadeIn immediate delay={100}>
-                <h1 className="uppercase leading-[0.98] mb-5" style={{ ...HEADING_STYLE, fontSize: 'clamp(1.8rem,2.6vw,2.6rem)' }}>
+                <h1 className="uppercase leading-[0.98] mb-5" style={{ ...HEADING_STYLE, fontSize: 'clamp(1.5rem,2.2vw,2.2rem)' }}>
                   Tu tarjeta NFC{' '}
                   <span className="inline-block px-1.5 rounded-md" style={{ background: 'var(--nfc-yellow)' }}>todo-en-uno</span>.
                 </h1>
