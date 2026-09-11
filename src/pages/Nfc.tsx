@@ -238,7 +238,7 @@ export default function Nfc() {
           className="hidden lg:block absolute z-20 top-[90px] pointer-events-none select-none left-[calc(50%-60px)] -translate-x-1/2 w-[680px] xl:w-[820px]"
         />
 
-        <div className="relative z-30 max-w-lg lg:text-left text-center mx-auto lg:mx-0">
+        <div className="relative z-30 max-w-3xl mx-auto text-center">
           <FadeIn immediate><NfcEyebrow className="mb-5">NFC Canarias</NfcEyebrow></FadeIn>
           <FadeIn immediate delay={100}>
             <h1 className="uppercase leading-[0.98] mb-5" style={{ ...HEADING_STYLE, fontSize: 'clamp(2rem,4.6vw,3.2rem)' }}>
@@ -263,7 +263,7 @@ export default function Nfc() {
         <FadeIn immediate delay={300}>
           <div className="relative max-w-3xl mx-auto mt-12 mb-8 px-2 md:px-6">
             {/* Tarjeta izquierda, asomando */}
-            <div className="hidden lg:block absolute left-0 top-2 w-48 -rotate-6 z-0">
+            <div className="hidden lg:block absolute left-0 top-2 w-48 -rotate-6 z-20">
               <NfcCard tabColor="var(--nfc-lavender)" shadow="sm" className="p-5">
                 <div className="flex items-center gap-2 mb-2.5">
                   <div className="w-7 h-7 rounded-full border-[2px] flex items-center justify-center shrink-0" style={{ background: 'var(--nfc-yellow)', borderColor: 'var(--nfc-border)' }}>
@@ -301,7 +301,7 @@ export default function Nfc() {
             </div>
 
             {/* Tarjeta derecha, asomando */}
-            <div className="hidden lg:block absolute right-0 top-10 w-48 rotate-6 z-0">
+            <div className="hidden lg:block absolute right-0 top-10 w-48 rotate-6 z-20">
               <NfcCard tabColor="var(--nfc-green)" shadow="sm" className="p-5">
                 <p className="font-mono text-[9px] font-bold uppercase tracking-wide mb-2.5" style={{ color: 'var(--nfc-ink3)' }}>Todo en un toque</p>
                 <div className="flex flex-wrap gap-1.5">
