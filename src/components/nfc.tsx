@@ -19,6 +19,7 @@ export const NFC_GREEN = '#4A9B4E';
 export const NFC_SALMON = '#F2857A';
 export const NFC_LAVENDER = '#9B8FD9';
 export const NFC_TAN = '#C9A876';
+export const NFC_DISPLAY_FALLBACK = "'Space Grotesk', ui-sans-serif, system-ui, sans-serif";
 
 /** Paleta rotativa usada para etiquetas y tiles de icono en tarjetas repetidas. */
 export const NFC_PALETTE = [NFC_YELLOW, NFC_GREEN, NFC_SALMON, NFC_LAVENDER, NFC_TAN];
@@ -159,6 +160,40 @@ export function NfcCard({
       >
         {children}
       </div>
+    </div>
+  );
+}
+
+/** Franja de CTA a media página: fondo de color plano, borde negro y sombra dura. */
+export function NfcCtaBanner({
+  eyebrow,
+  title,
+  buttonLabel = 'Pide la tuya',
+  buttonHref = '#pedido',
+  background = NFC_SALMON,
+}: {
+  eyebrow: string;
+  title: ReactNode;
+  buttonLabel?: string;
+  buttonHref?: string;
+  background?: string;
+}) {
+  return (
+    <div
+      className="rounded-[24px] px-6 py-8 md:px-10 md:py-10 flex flex-col md:flex-row items-center gap-6 border-[2.5px]"
+      style={{
+        background,
+        borderColor: `var(--nfc-border, ${NFC_BORDER})`,
+        boxShadow: `6px 6px 0 var(--nfc-border, ${NFC_BORDER})`,
+      }}
+    >
+      <div className="flex-1 text-center md:text-left">
+        <p className="font-mono text-[11px] font-bold tracking-[0.2em] uppercase mb-2" style={{ color: NFC_INK }}>{eyebrow}</p>
+        <p className="text-lg md:text-xl font-bold leading-snug" style={{ fontFamily: `var(--nfc-display, ${NFC_DISPLAY_FALLBACK})`, color: NFC_INK }}>
+          {title}
+        </p>
+      </div>
+      <NfcButton href={buttonHref} className="whitespace-nowrap shrink-0">{buttonLabel}</NfcButton>
     </div>
   );
 }

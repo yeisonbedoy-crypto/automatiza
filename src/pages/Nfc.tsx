@@ -3,7 +3,7 @@ import { Footer } from '../components/Sections';
 import FadeIn from '../components/FadeIn';
 import { useState } from 'react';
 import type { ChangeEvent, FormEvent } from 'react';
-import { NfcBackground, NfcEyebrow, NfcButton, NfcGhostButton, NfcIconTile, NfcCard, NFC_PALETTE } from '../components/nfc';
+import { NfcBackground, NfcEyebrow, NfcButton, NfcGhostButton, NfcIconTile, NfcCard, NfcCtaBanner, NFC_PALETTE } from '../components/nfc';
 import {
   Wifi, Check, CircleDollarSign, Smartphone, Truck,
   Star, IdCard, UtensilsCrossed, Instagram, MessageCircle, MapPin, Cpu, ChevronDown,
@@ -298,6 +298,14 @@ export default function Nfc() {
                 <p className="text-[10px] font-mono uppercase tracking-wide" style={{ color: 'var(--nfc-ink3)' }}>Precio orientativo, a confirmar</p>
               </NfcCard>
             ))}
+          </div>
+          <div className="mt-10">
+            <NfcCtaBanner
+              eyebrow="¿Ya tienes claro cuál quieres?"
+              title="Resérvala hoy y la tendrás lista para tu negocio en pocos días."
+              buttonLabel="Pide la tuya"
+              buttonHref="#pedido"
+            />
           </div>
         </div>
       </section>
