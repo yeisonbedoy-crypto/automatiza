@@ -72,6 +72,16 @@ export default function Nfc() {
           className="hidden lg:block absolute z-20 top-[90px] pointer-events-none select-none left-[calc(50%-60px)] -translate-x-1/2 w-[680px] xl:w-[820px]"
         />
 
+        {/* Cobertura — encaja en el hueco a la derecha de la mano */}
+        <div className="hidden lg:block absolute z-20 top-[110px] right-4 xl:right-10 max-w-[230px] text-right">
+          <FadeIn immediate delay={150}>
+            <NfcEyebrow className="mb-3">Dónde estamos</NfcEyebrow>
+            <p className="leading-snug" style={{ ...HEADING_STYLE, fontSize: 'clamp(1.1rem,1.6vw,1.35rem)' }}>
+              De Gran Canaria a toda España.
+            </p>
+          </FadeIn>
+        </div>
+
         <div className="relative z-30 max-w-lg mx-auto lg:mx-0 text-center lg:text-left">
           <FadeIn immediate><NfcEyebrow className="mb-5">NFC Canarias</NfcEyebrow></FadeIn>
           <FadeIn immediate delay={100}>
