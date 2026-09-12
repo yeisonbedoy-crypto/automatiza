@@ -77,7 +77,7 @@ export default function Nfc() {
             <FadeIn immediate><NfcEyebrow className="mb-5">NFC Canarias</NfcEyebrow></FadeIn>
             <FadeIn immediate delay={100}>
               <h1 className="uppercase leading-[0.98] mb-5" style={{ ...HEADING_STYLE, fontSize: 'clamp(2rem,4.6vw,3.2rem)' }}>
-                Tu tarjeta NFC{' '}
+                Tu chip NFC{' '}
                 <span className="inline-block px-1.5 rounded-md" style={{ background: 'var(--nfc-yellow)' }}>todo-en-uno</span>.
               </h1>
             </FadeIn>
