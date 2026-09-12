@@ -172,7 +172,7 @@ export default function Nfc() {
 
       {/* Selector de producto */}
       <section className="relative z-10 w-full px-4 md:px-8 lg:px-16 py-16" id="productos">
-        <div className="max-w-[96rem] mx-auto">
+        <div className="max-w-[115.2rem] mx-auto">
           <div className="text-center mb-12">
             <NfcEyebrow className="mb-4">Elige tu formato</NfcEyebrow>
             <h2 style={{ ...HEADING_STYLE, fontSize: 'clamp(1.8rem,3.4vw,2.8rem)' }}>
@@ -183,7 +183,7 @@ export default function Nfc() {
             {PRODUCTS.map((p) => {
               const color = p.color;
               return (
-                <a key={p.name} href={`/nfc/${p.slug}`} className="block h-full">
+                <a key={p.name} href={`/nfc/${p.slug}`} className="block h-full transition-transform duration-200 ease-out hover:-translate-y-1.5">
                 <NfcCard tabColor={color} shadow={p.featured ? 'lg' : 'md'} className="overflow-hidden flex flex-col">
                   {/* Cabecera visual */}
                   <div className="relative w-full aspect-[4/5] shrink-0 overflow-hidden" style={{ background: color }}>
