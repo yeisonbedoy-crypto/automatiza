@@ -2,6 +2,11 @@
   "rewrites": [
     { "source": "/api/chat", "destination": "https://ggenccaztvpmcnqqzlpw.supabase.co/functions/v1/chat" },
     { "source": "/nfc(/)?", "destination": "/nfc/index.html" },
+    { "source": "/nfc/tag-nfc(/)?", "destination": "/nfc/tag-nfc/index.html" },
+    { "source": "/nfc/tarjeta-nfc(/)?", "destination": "/nfc/tarjeta-nfc/index.html" },
+    { "source": "/nfc/placa-mostrador(/)?", "destination": "/nfc/placa-mostrador/index.html" },
+    { "source": "/nfc/expositor-multi-enlace(/)?", "destination": "/nfc/expositor-multi-enlace/index.html" },
+    { "source": "/nfc/pack-negocio(/)?", "destination": "/nfc/pack-negocio/index.html" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }

@@ -18,6 +18,7 @@ import Ecosistema from './pages/Ecosistema.tsx';
 import Presupuesto from './pages/Presupuesto.tsx';
 import Contacto from './pages/Contacto.tsx';
 import Nfc from './pages/Nfc.tsx';
+import NfcProducto from './pages/NfcProducto.tsx';
 import StickyAssistant from './components/StickyAssistant.tsx';
 import './index.css';
 
@@ -40,6 +41,11 @@ const Page =
   path === '/presupuesto'             ? Presupuesto        :
   path === '/contacto'                ? Contacto           :
   path === '/nfc'                     ? Nfc                :
+  path === '/nfc/tag-nfc'                ? NfcProducto  :
+  path === '/nfc/tarjeta-nfc'            ? NfcProducto  :
+  path === '/nfc/placa-mostrador'        ? NfcProducto  :
+  path === '/nfc/expositor-multi-enlace' ? NfcProducto  :
+  path === '/nfc/pack-negocio'           ? NfcProducto  :
   App;
 
 createRoot(document.getElementById('root')!).render(

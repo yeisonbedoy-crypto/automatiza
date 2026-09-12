@@ -56,7 +56,6 @@ const HEADING_STYLE = { fontFamily: 'var(--nfc-display)', fontWeight: 700, color
 
 export default function Nfc() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
-  const [selectedProduct, setSelectedProduct] = useState<string | null>(null);
 
   return (
     <main className="relative w-full min-h-screen overflow-x-hidden flex flex-col font-sans">
@@ -127,7 +126,6 @@ export default function Nfc() {
               </div>
               <a
                 href="#pedido"
-                onClick={() => setSelectedProduct(null)}
                 className="nfc-press w-full text-center rounded-2xl font-bold text-sm border-[2.5px] px-7 py-3.5"
                 style={{ background: 'var(--nfc-paper)', color: 'var(--nfc-ink)', borderColor: 'var(--nfc-border)', boxShadow: '4px 4px 0 var(--nfc-border)' }}
               >
@@ -220,7 +218,7 @@ export default function Nfc() {
                     </ul>
                     <div className="mt-auto flex items-center justify-between gap-2 pt-3 border-t-[2px]" style={{ borderColor: 'var(--nfc-divider)' }}>
                       <p className="font-mono text-lg font-bold" style={{ color: 'var(--nfc-ink)' }}>{p.price}</p>
-                      <NfcButton href="#pedido" onClick={() => setSelectedProduct(p.name)} className="text-[12px] px-3.5 py-2">Elegir</NfcButton>
+                      <NfcButton href={`/nfc/${p.slug}`} className="text-[12px] px-3.5 py-2">Elegir</NfcButton>
                     </div>
                     <p className="text-[10px] font-mono uppercase tracking-wide" style={{ color: 'var(--nfc-ink3)' }}>Precio orientativo, a confirmar</p>
                   </div>
@@ -393,7 +391,7 @@ export default function Nfc() {
               Cuéntanos sobre tu negocio.
             </h2>
           </div>
-          <OrderForm preselected={selectedProduct} />
+          <OrderForm />
         </div>
       </section>
 
