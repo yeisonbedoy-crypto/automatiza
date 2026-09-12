@@ -1,6 +1,6 @@
 import FadeIn from '../components/FadeIn';
 import { useState } from 'react';
-import { NfcBackground, NfcNavbar, NfcEyebrow, NfcButton, NfcIconTile, NfcCard, NfcCtaBanner, NfcFooter, NFC_PALETTE } from '../components/nfc';
+import { NfcBackground, NfcNavbar, NfcEyebrow, NfcIconTile, NfcCard, NfcCtaBanner, NfcFooter, NFC_PALETTE } from '../components/nfc';
 import { PRODUCTS, USE_CASES, FAQS } from '../data/nfcProducts';
 import { OrderForm } from '../components/NfcOrderForm';
 import {
@@ -183,9 +183,10 @@ export default function Nfc() {
             {PRODUCTS.map((p) => {
               const color = p.color;
               return (
-                <NfcCard key={p.name} tabColor={color} shadow={p.featured ? 'lg' : 'md'} className="overflow-hidden flex flex-col">
+                <a key={p.name} href={`/nfc/${p.slug}`} className="block h-full">
+                <NfcCard tabColor={color} shadow={p.featured ? 'lg' : 'md'} className="overflow-hidden flex flex-col">
                   {/* Cabecera visual */}
-                  <div className="relative w-full aspect-[4/3] shrink-0 overflow-hidden" style={{ background: color }}>
+                  <div className="relative w-full aspect-[4/5] shrink-0 overflow-hidden" style={{ background: color }}>
                     <img
                       src={p.image}
                       alt={p.name}
@@ -218,11 +219,17 @@ export default function Nfc() {
                     </ul>
                     <div className="mt-auto flex items-center justify-between gap-2 pt-3 border-t-[2px]" style={{ borderColor: 'var(--nfc-divider)' }}>
                       <p className="font-mono text-lg font-bold" style={{ color: 'var(--nfc-ink)' }}>{p.price}</p>
-                      <NfcButton href={`/nfc/${p.slug}`} className="text-[12px] px-3.5 py-2">Elegir</NfcButton>
+                      <span
+                        className="nfc-press inline-flex items-center justify-center gap-2 rounded-2xl font-bold border-[2.5px] text-[12px] px-3.5 py-2"
+                        style={{ background: 'var(--nfc-accent)', color: 'var(--nfc-ink)', borderColor: 'var(--nfc-border)', boxShadow: '4px 4px 0 var(--nfc-border)' }}
+                      >
+                        Elegir
+                      </span>
                     </div>
                     <p className="text-[10px] font-mono uppercase tracking-wide" style={{ color: 'var(--nfc-ink3)' }}>Precio orientativo, a confirmar</p>
                   </div>
                 </NfcCard>
+                </a>
               );
             })}
           </div>
