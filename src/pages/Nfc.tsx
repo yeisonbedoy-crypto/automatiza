@@ -1,21 +1,13 @@
 import FadeIn from '../components/FadeIn';
 import { useState, useEffect } from 'react';
 import type { ChangeEvent, FormEvent } from 'react';
-import { NfcBackground, NfcNavbar, NfcEyebrow, NfcButton, NfcIconTile, NfcCard, NfcCtaBanner, NfcFooter, NFC_PALETTE, NFC_SALMON, NFC_LAVENDER, NFC_BLUE, NFC_TAN, NFC_YELLOW } from '../components/nfc';
+import { NfcBackground, NfcNavbar, NfcEyebrow, NfcButton, NfcIconTile, NfcCard, NfcCtaBanner, NfcFooter, NFC_PALETTE } from '../components/nfc';
+import { PRODUCTS, USE_CASES, FAQS } from '../data/nfcProducts';
 import {
   Wifi, Check, CircleDollarSign, Smartphone, Truck,
-  Star, IdCard, UtensilsCrossed, Instagram, MessageCircle, MapPin, Cpu, ChevronDown,
-  CreditCard, MonitorSmartphone, Layers, Tag, LayoutGrid, Link2, RefreshCw,
+  Star, Instagram, UtensilsCrossed, MapPin, Cpu, ChevronDown,
+  Link2, RefreshCw,
 } from 'lucide-react';
-
-const FAQS = [
-  { q: "¿Funciona con cualquier móvil?", a: "Sí. Funciona con iPhone 7 o superior y con prácticamente cualquier Android de los últimos años. No hace falta instalar ninguna app para usarlo, solo para configurarlo." },
-  { q: "¿Necesita batería o cargarse?", a: "No. La tecnología NFC es pasiva: no lleva batería ni necesita cargarse nunca." },
-  { q: "¿Puedo cambiar el enlace después?", a: "Sí, cuando quieras y gratis, desde la app gratuita NFC Tools, sin volver a comprar nada." },
-  { q: "¿Cuánto tarda el envío?", a: "3-5 días laborables en Gran Canaria. Al resto de Canarias y a la península, entre 4 y 7 días." },
-  { q: "¿Necesita que el negocio tenga wifi o conexión?", a: "No. El teléfono del cliente necesita conexión para abrir el enlace, pero la tarjeta o placa no necesita electricidad ni wifi propio." },
-  { q: "¿Tiene garantía?", a: "Sí, 12 meses de garantía por defectos de fabricación. Si el chip falla, lo reponemos sin coste." },
-];
 
 type NfcFormState = { nombre: string; negocio: string; isla: string; whatsapp: string; producto: string; mensaje: string };
 
@@ -137,15 +129,6 @@ function FaqItem({ q, a, isOpen, onToggle, id }: { q: string; a: string; isOpen:
   );
 }
 
-const USE_CASES = [
-  { Icon: Star,             title: "Reseñas de Google",         desc: "Un toque lleva directo a dejar una reseña en Google, sin buscar ni escribir el nombre del negocio." },
-  { Icon: IdCard,           title: "Tarjeta de visita digital", desc: "Comparte tu contacto, cargo y redes al instante, sin quedarte sin tarjetas de papel." },
-  { Icon: UtensilsCrossed,  title: "Carta o menú digital",      desc: "Perfecto para bares y restaurantes: la carta siempre actualizada, sin reimprimir." },
-  { Icon: Instagram,        title: "Redes sociales",            desc: "Lleva a tu Instagram, Facebook o TikTok en un toque, sin que el cliente tenga que buscarte." },
-  { Icon: Wifi,             title: "WiFi del local",            desc: "Comparte la contraseña del WiFi sin que nadie tenga que preguntarla ni teclearla." },
-  { Icon: MessageCircle,    title: "Contacto directo",          desc: "Abre WhatsApp o una ficha de contacto lista para guardar, sin pedir el número." },
-];
-
 const STEPS = [
   { num: "01", title: "Acercas el móvil",       desc: "Sin apps ni cámara: solo acercar el teléfono a la tarjeta o placa.", Icon: Smartphone },
   { num: "02", title: "Se abre tu enlace",      desc: "El destino que hayas elegido se abre al instante — reseña, redes, carta o contacto.", Icon: Link2 },
@@ -157,59 +140,6 @@ const WHY = [
   { Icon: MapPin,           title: "Hecho en Gran Canaria", desc: "Diseñamos, configuramos y enviamos desde aquí, con soporte cercano en español." },
   { Icon: Truck,            title: "Envío rápido",          desc: "3-5 días en Gran Canaria, y a todas las islas y la península." },
   { Icon: Cpu,              title: "Integrable con IA",     desc: "Conecta tu NFC con los agentes de IA de AutomatizaGC para automatizar lo que pasa después de cada toque." },
-];
-
-const PRODUCTS = [
-  {
-    name: "Tag NFC",
-    price: "12€",
-    desc: "El punto de partida: una pegatina NFC discreta para pegar donde haga falta.",
-    items: ["1 tag NFC adhesivo", "Enlace configurable", "Ideal para probar antes de pedir más"],
-    featured: false,
-    Icon: Tag,
-    image: "/nfc/productos/tag-nfc.webp",
-    color: NFC_SALMON,
-  },
-  {
-    name: "Tarjeta NFC",
-    price: "19€",
-    desc: "Tarjeta individual, tamaño de visita, para ti o cada miembro de tu equipo.",
-    items: ["1 tarjeta NFC personalizada", "Enlace configurable (reseñas, redes, contacto)", "Envío en 3-5 días en Gran Canaria"],
-    featured: false,
-    Icon: CreditCard,
-    image: "/nfc/productos/tarjeta-nfc.webp",
-    color: NFC_LAVENDER,
-  },
-  {
-    name: "Placa de Mostrador",
-    price: "39€",
-    desc: "Placa de sobremesa para el mostrador, visible para cada cliente que pasa por caja.",
-    items: ["1 placa NFC de mostrador", "Diseño a juego con tu marca", "Ideal para pedir reseñas en el momento del pago"],
-    featured: true,
-    Icon: MonitorSmartphone,
-    image: "/nfc/productos/placa-mostrador.webp",
-    color: NFC_BLUE,
-  },
-  {
-    name: "Expositor Multi-Enlace",
-    price: "69€",
-    desc: "Expositor de sobremesa con varios puntos de toque a la vez, cada uno con su propio destino.",
-    items: ["1 expositor con 3 zonas de toque", "Reseñas, redes y contacto por separado", "Pensado para mostradores con mucho tráfico"],
-    featured: false,
-    Icon: LayoutGrid,
-    image: "/nfc/productos/expositor-multi-enlace.webp",
-    color: NFC_TAN,
-  },
-  {
-    name: "Pack Negocio",
-    price: "89€",
-    desc: "Todo lo que necesita tu negocio: placa de mostrador + 3 tarjetas para el equipo.",
-    items: ["1 placa + 3 tarjetas NFC", "Todos los enlaces configurables desde el móvil", "Soporte prioritario por WhatsApp"],
-    featured: false,
-    Icon: Layers,
-    image: "/nfc/productos/pack-negocio.webp",
-    color: NFC_YELLOW,
-  },
 ];
 
 const TRUST_BADGES = [
