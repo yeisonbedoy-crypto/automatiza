@@ -182,16 +182,15 @@ export default function Nfc() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 pt-3">
             {PRODUCTS.map((p) => {
               const color = p.color;
-              const zoomedOut = p.slug === 'tarjeta-nfc' || p.slug === 'placa-mostrador';
               return (
                 <a key={p.name} href={`/nfc/${p.slug}`} className="block h-full transition-transform duration-200 ease-out hover:-translate-y-1.5">
                 <NfcCard tabColor={color} shadow={p.featured ? 'lg' : 'md'} className="overflow-hidden flex flex-col">
                   {/* Cabecera visual */}
-                  <div className="relative w-full aspect-[4/5] shrink-0 overflow-hidden" style={{ background: color }}>
+                  <div className="relative w-full aspect-square shrink-0 overflow-hidden" style={{ background: color }}>
                     <img
                       src={p.image}
                       alt={p.name}
-                      className={`absolute inset-0 w-full h-full ${zoomedOut ? 'object-contain p-2 scale-[1.3]' : 'object-cover'}`}
+                      className="absolute inset-0 w-full h-full object-cover"
                       loading="lazy"
                     />
                     {p.featured && (
