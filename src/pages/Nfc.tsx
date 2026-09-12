@@ -191,7 +191,7 @@ export default function Nfc() {
                     <img
                       src={p.image}
                       alt={p.name}
-                      className={`absolute inset-0 w-full h-full ${zoomedOut ? 'object-contain p-2' : 'object-cover'}`}
+                      className={`absolute inset-0 w-full h-full ${zoomedOut ? 'object-contain p-2 scale-[1.3]' : 'object-cover'}`}
                       loading="lazy"
                     />
                     {p.featured && (
