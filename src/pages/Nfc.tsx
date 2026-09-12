@@ -1,7 +1,7 @@
 import FadeIn from '../components/FadeIn';
 import { useState, useEffect } from 'react';
 import type { ChangeEvent, FormEvent } from 'react';
-import { NfcBackground, NfcNavbar, NfcEyebrow, NfcButton, NfcIconTile, NfcCard, NfcCtaBanner, NfcFooter, NFC_PALETTE } from '../components/nfc';
+import { NfcBackground, NfcNavbar, NfcEyebrow, NfcButton, NfcIconTile, NfcCard, NfcCtaBanner, NfcFooter, NFC_PALETTE, NFC_SALMON, NFC_LAVENDER, NFC_BLUE, NFC_TAN, NFC_YELLOW } from '../components/nfc';
 import {
   Wifi, Check, CircleDollarSign, Smartphone, Truck,
   Star, IdCard, UtensilsCrossed, Instagram, MessageCircle, MapPin, Cpu, ChevronDown,
@@ -168,6 +168,7 @@ const PRODUCTS = [
     featured: false,
     Icon: Tag,
     image: "/nfc/productos/tag-nfc.webp",
+    color: NFC_SALMON,
   },
   {
     name: "Tarjeta NFC",
@@ -177,6 +178,7 @@ const PRODUCTS = [
     featured: false,
     Icon: CreditCard,
     image: "/nfc/productos/tarjeta-nfc.webp",
+    color: NFC_LAVENDER,
   },
   {
     name: "Placa de Mostrador",
@@ -186,6 +188,7 @@ const PRODUCTS = [
     featured: true,
     Icon: MonitorSmartphone,
     image: "/nfc/productos/placa-mostrador.webp",
+    color: NFC_BLUE,
   },
   {
     name: "Expositor Multi-Enlace",
@@ -195,6 +198,7 @@ const PRODUCTS = [
     featured: false,
     Icon: LayoutGrid,
     image: "/nfc/productos/expositor-multi-enlace.webp",
+    color: NFC_TAN,
   },
   {
     name: "Pack Negocio",
@@ -204,6 +208,7 @@ const PRODUCTS = [
     featured: false,
     Icon: Layers,
     image: "/nfc/productos/pack-negocio.webp",
+    color: NFC_YELLOW,
   },
 ];
 
@@ -344,7 +349,7 @@ export default function Nfc() {
 
       {/* Selector de producto */}
       <section className="relative z-10 w-full px-4 md:px-8 lg:px-16 py-16" id="productos">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-[96rem] mx-auto">
           <div className="text-center mb-12">
             <NfcEyebrow className="mb-4">Elige tu formato</NfcEyebrow>
             <h2 style={{ ...HEADING_STYLE, fontSize: 'clamp(1.8rem,3.4vw,2.8rem)' }}>
@@ -352,8 +357,8 @@ export default function Nfc() {
             </h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 pt-3">
-            {PRODUCTS.map((p, i) => {
-              const color = NFC_PALETTE[i % NFC_PALETTE.length];
+            {PRODUCTS.map((p) => {
+              const color = p.color;
               return (
                 <NfcCard key={p.name} tabColor={color} shadow={p.featured ? 'lg' : 'md'} className="overflow-hidden flex flex-col">
                   {/* Cabecera visual */}

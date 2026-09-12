@@ -23,6 +23,7 @@ export const NFC_GREEN = '#4A9B4E';
 export const NFC_SALMON = '#F2857A';
 export const NFC_LAVENDER = '#9B8FD9';
 export const NFC_TAN = '#C9A876';
+export const NFC_BLUE = '#4C63D2';
 export const NFC_DISPLAY_FALLBACK = "'Space Grotesk', ui-sans-serif, system-ui, sans-serif";
 
 /** Paleta rotativa usada para etiquetas y tiles de icono en tarjetas repetidas. */
