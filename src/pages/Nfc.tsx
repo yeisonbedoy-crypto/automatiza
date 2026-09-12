@@ -167,6 +167,7 @@ const PRODUCTS = [
     items: ["1 tag NFC adhesivo", "Enlace configurable", "Ideal para probar antes de pedir más"],
     featured: false,
     Icon: Tag,
+    image: "/nfc/productos/tag-nfc.webp",
   },
   {
     name: "Tarjeta NFC",
@@ -175,6 +176,7 @@ const PRODUCTS = [
     items: ["1 tarjeta NFC personalizada", "Enlace configurable (reseñas, redes, contacto)", "Envío en 3-5 días en Gran Canaria"],
     featured: false,
     Icon: CreditCard,
+    image: "/nfc/productos/tarjeta-nfc.webp",
   },
   {
     name: "Placa de Mostrador",
@@ -183,6 +185,7 @@ const PRODUCTS = [
     items: ["1 placa NFC de mostrador", "Diseño a juego con tu marca", "Ideal para pedir reseñas en el momento del pago"],
     featured: true,
     Icon: MonitorSmartphone,
+    image: "/nfc/productos/placa-mostrador.webp",
   },
   {
     name: "Expositor Multi-Enlace",
@@ -191,6 +194,7 @@ const PRODUCTS = [
     items: ["1 expositor con 3 zonas de toque", "Reseñas, redes y contacto por separado", "Pensado para mostradores con mucho tráfico"],
     featured: false,
     Icon: LayoutGrid,
+    image: "/nfc/productos/expositor-multi-enlace.webp",
   },
   {
     name: "Pack Negocio",
@@ -199,6 +203,7 @@ const PRODUCTS = [
     items: ["1 placa + 3 tarjetas NFC", "Todos los enlaces configurables desde el móvil", "Soporte prioritario por WhatsApp"],
     featured: false,
     Icon: Layers,
+    image: "/nfc/productos/pack-negocio.webp",
   },
 ];
 
@@ -352,7 +357,13 @@ export default function Nfc() {
               return (
                 <NfcCard key={p.name} tabColor={color} shadow={p.featured ? 'lg' : 'md'} className="overflow-hidden flex flex-col">
                   {/* Cabecera visual */}
-                  <div className="relative w-full aspect-[4/3] flex items-center justify-center shrink-0" style={{ background: color }}>
+                  <div className="relative w-full aspect-[4/3] shrink-0 overflow-hidden" style={{ background: color }}>
+                    <img
+                      src={p.image}
+                      alt={p.name}
+                      className="absolute inset-0 w-full h-full object-cover"
+                      loading="lazy"
+                    />
                     {p.featured && (
                       <span
                         className="absolute top-3 right-3 font-mono text-[10px] tracking-[0.15em] uppercase px-2.5 py-1 rounded-full border-[2px]"
@@ -361,8 +372,8 @@ export default function Nfc() {
                         Más pedido
                       </span>
                     )}
-                    <div className="w-14 h-14 rounded-2xl border-[2.5px] flex items-center justify-center" style={{ background: 'var(--nfc-paper)', borderColor: 'var(--nfc-border)' }}>
-                      <p.Icon className="w-6 h-6" style={{ color: 'var(--nfc-ink)' }} />
+                    <div className="absolute bottom-3 left-3 w-10 h-10 rounded-xl border-[2.5px] flex items-center justify-center" style={{ background: 'var(--nfc-paper)', borderColor: 'var(--nfc-border)' }}>
+                      <p.Icon className="w-4.5 h-4.5" style={{ color: 'var(--nfc-ink)' }} />
                     </div>
                   </div>
                   {/* Contenido */}
