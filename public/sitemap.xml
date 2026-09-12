@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://automatizagc.xyz/</loc><priority>1.0</priority></url>
   <url><loc>https://automatizagc.xyz/nfc</loc><priority>0.9</priority></url>
+  <url><loc>https://automatizagc.xyz/nfc/tag-nfc</loc><priority>0.8</priority></url>
+  <url><loc>https://automatizagc.xyz/nfc/tarjeta-nfc</loc><priority>0.8</priority></url>
+  <url><loc>https://automatizagc.xyz/nfc/placa-mostrador</loc><priority>0.8</priority></url>
+  <url><loc>https://automatizagc.xyz/nfc/expositor-multi-enlace</loc><priority>0.8</priority></url>
+  <url><loc>https://automatizagc.xyz/nfc/pack-negocio</loc><priority>0.8</priority></url>
   <url><loc>https://automatizagc.xyz/servicios</loc><priority>0.8</priority></url>
   <url><loc>https://automatizagc.xyz/proyectos</loc><priority>0.6</priority></url>
   <url><loc>https://automatizagc.xyz/ecosistema</loc><priority>0.6</priority></url>
