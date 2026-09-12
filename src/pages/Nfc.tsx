@@ -187,7 +187,7 @@ export default function Nfc() {
                 <a key={p.name} href={`/nfc/${p.slug}`} className="block h-full transition-transform duration-200 ease-out hover:-translate-y-1.5">
                 <NfcCard tabColor={color} shadow={p.featured ? 'lg' : 'md'} className="overflow-hidden flex flex-col">
                   {/* Cabecera visual */}
-                  <div className={`relative w-full ${zoomedOut ? 'aspect-square' : 'aspect-[4/5]'} shrink-0 overflow-hidden`} style={{ background: color }}>
+                  <div className="relative w-full aspect-[4/5] shrink-0 overflow-hidden" style={{ background: color }}>
                     <img
                       src={p.image}
                       alt={p.name}
