@@ -72,35 +72,37 @@ export default function Nfc() {
           className="hidden lg:block absolute z-20 top-[90px] pointer-events-none select-none left-[calc(50%-60px)] -translate-x-1/2 w-[680px] xl:w-[820px]"
         />
 
-        {/* Cobertura — encaja en el hueco a la derecha de la mano */}
-        <div className="hidden lg:block absolute z-20 top-[110px] right-4 xl:right-10 max-w-[230px] text-right">
-          <FadeIn immediate delay={150}>
-            <NfcEyebrow className="mb-3">Dónde estamos</NfcEyebrow>
-            <p className="leading-snug" style={{ ...HEADING_STYLE, fontSize: 'clamp(1.1rem,1.6vw,1.35rem)' }}>
-              De Gran Canaria a toda España.
-            </p>
-          </FadeIn>
-        </div>
+        <div className="relative z-30 lg:flex lg:items-start lg:justify-between lg:gap-8">
+          <div className="max-w-lg mx-auto lg:mx-0 text-center lg:text-left">
+            <FadeIn immediate><NfcEyebrow className="mb-5">NFC Canarias</NfcEyebrow></FadeIn>
+            <FadeIn immediate delay={100}>
+              <h1 className="uppercase leading-[0.98] mb-5" style={{ ...HEADING_STYLE, fontSize: 'clamp(2rem,4.6vw,3.2rem)' }}>
+                Tu tarjeta NFC{' '}
+                <span className="inline-block px-1.5 rounded-md" style={{ background: 'var(--nfc-yellow)' }}>todo-en-uno</span>.
+              </h1>
+            </FadeIn>
+            <FadeIn immediate delay={200}>
+              <p className="text-base md:text-lg leading-relaxed mb-5" style={{ color: 'var(--nfc-ink2)' }}>
+                Reseñas de Google, redes sociales, carta digital y contacto — todo en un solo
+                toque del móvil. Sin apps para tu cliente, sin suscripción.
+              </p>
+            </FadeIn>
+            <FadeIn immediate delay={250}>
+              <a href="#como-funciona" className="inline-block font-bold text-sm underline underline-offset-4" style={{ color: 'var(--nfc-ink)' }}>
+                Ver cómo funciona
+              </a>
+            </FadeIn>
+          </div>
 
-        <div className="relative z-30 max-w-lg mx-auto lg:mx-0 text-center lg:text-left">
-          <FadeIn immediate><NfcEyebrow className="mb-5">NFC Canarias</NfcEyebrow></FadeIn>
-          <FadeIn immediate delay={100}>
-            <h1 className="uppercase leading-[0.98] mb-5" style={{ ...HEADING_STYLE, fontSize: 'clamp(2rem,4.6vw,3.2rem)' }}>
-              Tu tarjeta NFC{' '}
-              <span className="inline-block px-1.5 rounded-md" style={{ background: 'var(--nfc-yellow)' }}>todo-en-uno</span>.
-            </h1>
-          </FadeIn>
-          <FadeIn immediate delay={200}>
-            <p className="text-base md:text-lg leading-relaxed mb-5" style={{ color: 'var(--nfc-ink2)' }}>
-              Reseñas de Google, redes sociales, carta digital y contacto — todo en un solo
-              toque del móvil. Sin apps para tu cliente, sin suscripción.
-            </p>
-          </FadeIn>
-          <FadeIn immediate delay={250}>
-            <a href="#como-funciona" className="inline-block font-bold text-sm underline underline-offset-4" style={{ color: 'var(--nfc-ink)' }}>
-              Ver cómo funciona
-            </a>
-          </FadeIn>
+          {/* Cobertura — encaja en el hueco a la derecha de la mano, misma altura y tamaño que el h1 */}
+          <div className="hidden lg:block max-w-[260px] text-right shrink-0">
+            <FadeIn immediate><NfcEyebrow className="mb-5">Dónde estamos</NfcEyebrow></FadeIn>
+            <FadeIn immediate delay={100}>
+              <p className="leading-[0.98]" style={{ ...HEADING_STYLE, fontSize: 'clamp(2rem,4.6vw,3.2rem)' }}>
+                De Gran Canaria a toda España.
+              </p>
+            </FadeIn>
+          </div>
         </div>
 
         {/* Composición visual */}
