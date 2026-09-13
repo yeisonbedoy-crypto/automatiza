@@ -245,8 +245,8 @@ export function NfcFooter() {
           <div>
             <h4 className={NFC_FOOTER_HEADING_CLASS} style={{ color: `var(--nfc-ink, ${NFC_INK})` }}>NFC Canarias</h4>
             <ul className="text-[13px] space-y-2.5">
-              <li><a href="#productos" className="hover:underline" style={NFC_FOOTER_LINK_STYLE}>Productos</a></li>
-              <li><a href="#como-funciona" className="hover:underline" style={NFC_FOOTER_LINK_STYLE}>Cómo funciona</a></li>
+              <li><a href="/nfc#productos" className="hover:underline" style={NFC_FOOTER_LINK_STYLE}>Productos</a></li>
+              <li><a href="/nfc#como-funciona" className="hover:underline" style={NFC_FOOTER_LINK_STYLE}>Cómo funciona</a></li>
               <li><a href="#pedido" className="hover:underline" style={NFC_FOOTER_LINK_STYLE}>Pide la tuya</a></li>
             </ul>
           </div>
