@@ -7,6 +7,9 @@
     { "source": "/nfc/placa-mostrador(/)?", "destination": "/nfc/placa-mostrador/index.html" },
     { "source": "/nfc/expositor-multi-enlace(/)?", "destination": "/nfc/expositor-multi-enlace/index.html" },
     { "source": "/nfc/pack-negocio(/)?", "destination": "/nfc/pack-negocio/index.html" },
+    { "source": "/nfc/tenerife(/)?", "destination": "/nfc/tenerife/index.html" },
+    { "source": "/nfc/lanzarote(/)?", "destination": "/nfc/lanzarote/index.html" },
+    { "source": "/nfc/fuerteventura(/)?", "destination": "/nfc/fuerteventura/index.html" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }

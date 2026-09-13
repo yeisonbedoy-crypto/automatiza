@@ -19,7 +19,9 @@ import Presupuesto from './pages/Presupuesto.tsx';
 import Contacto from './pages/Contacto.tsx';
 import Nfc from './pages/Nfc.tsx';
 import NfcProducto from './pages/NfcProducto.tsx';
+import NfcZona from './pages/NfcZona.tsx';
 import { PRODUCTS } from './data/nfcProducts';
+import { ZONAS } from './data/nfcZonas';
 import StickyAssistant from './components/StickyAssistant.tsx';
 import './index.css';
 
@@ -43,6 +45,7 @@ const Page =
   path === '/contacto'                ? Contacto           :
   path === '/nfc'                     ? Nfc                :
   PRODUCTS.some(p => `/nfc/${p.slug}` === path) ? NfcProducto :
+  ZONAS.some(z => `/nfc/${z.slug}` === path) ? NfcZona :
   App;
 
 createRoot(document.getElementById('root')!).render(

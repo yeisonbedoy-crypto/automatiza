@@ -2,6 +2,7 @@ import FadeIn from '../components/FadeIn';
 import { useState } from 'react';
 import { NfcBackground, NfcNavbar, NfcEyebrow, NfcIconTile, NfcCard, NfcCtaBanner, NfcFooter, NFC_PALETTE } from '../components/nfc';
 import { PRODUCTS, USE_CASES, FAQS } from '../data/nfcProducts';
+import { ZONAS } from '../data/nfcZonas';
 import { OrderForm } from '../components/NfcOrderForm';
 import {
   Wifi, Check, CircleDollarSign, Smartphone, Truck,
@@ -381,6 +382,13 @@ export default function Nfc() {
             Canarias (Tenerife, Lanzarote, Fuerteventura, La Palma, La Gomera, El Hierro) y a
             toda España peninsular.
           </p>
+          <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 mt-5">
+            {ZONAS.map(z => (
+              <a key={z.slug} href={`/nfc/${z.slug}`} className="font-bold text-sm underline underline-offset-4" style={{ color: 'var(--nfc-ink)' }}>
+                Tarjeta NFC en {z.isla}
+              </a>
+            ))}
+          </div>
         </div>
       </section>
 
