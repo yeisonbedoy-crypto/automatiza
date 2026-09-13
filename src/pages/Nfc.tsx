@@ -41,6 +41,12 @@ const NAV_ITEMS = [
 
 const HEADING_STYLE = { fontFamily: 'var(--nfc-display)', fontWeight: 700, color: 'var(--nfc-ink)' } as const;
 
+const LANDING_FAQS = [
+  ...FAQS,
+  { q: "¿Dónde está NFC Canarias?", a: "Estamos en Gran Canaria, en Vecindario (Santa Lucía de Tirajana). Diseñamos, configuramos y enviamos cada pedido desde aquí." },
+  { q: "¿Hacéis entregas en toda Gran Canaria?", a: "Sí. Enviamos a Las Palmas de Gran Canaria, Telde, Santa Lucía de Tirajana, San Bartolomé de Tirajana, Maspalomas, Arucas y el resto de la isla en 3-5 días laborables." },
+];
+
 export default function Nfc() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
@@ -81,8 +87,8 @@ export default function Nfc() {
             </FadeIn>
           </div>
 
-          {/* Cobertura — encaja en el hueco a la derecha de la mano, misma altura y tamaño que el h1 */}
-          <div className="hidden lg:block max-w-[260px] text-right shrink-0">
+          {/* Cobertura — encaja en el hueco a la derecha de la mano en desktop; en móvil se apila bajo el H1 */}
+          <div className="max-w-[260px] mx-auto lg:mx-0 mt-8 lg:mt-0 text-center lg:text-right shrink-0">
             <FadeIn immediate><NfcEyebrow className="mb-5">Dónde estamos</NfcEyebrow></FadeIn>
             <FadeIn immediate delay={100}>
               <p className="leading-[0.98]" style={{ ...HEADING_STYLE, fontSize: 'clamp(2rem,4.6vw,3.2rem)' }}>
@@ -188,7 +194,7 @@ export default function Nfc() {
                   <div className="relative w-full aspect-square shrink-0 overflow-hidden" style={{ background: color }}>
                     <img
                       src={p.image}
-                      alt={p.name}
+                      alt={`${p.name} — tarjeta NFC Gran Canaria`}
                       className="absolute inset-0 w-full h-full object-cover"
                       loading="lazy"
                     />
@@ -362,11 +368,17 @@ export default function Nfc() {
             De Gran Canaria a toda España.
           </h2>
           <p className="text-[14px] md:text-base leading-relaxed" style={{ color: 'var(--nfc-ink2)' }}>
-            Diseñamos y preparamos cada pedido en Gran Canaria, y damos servicio a negocios de
-            Las Palmas de Gran Canaria, Telde, Santa Lucía de Tirajana, San Bartolomé de
-            Tirajana, Maspalomas, Arucas y el resto de la isla. Enviamos también al resto de
-            Canarias (Tenerife, Lanzarote, Fuerteventura, La Palma, La Gomera, El Hierro) y a
-            toda España peninsular.
+            Diseñamos y preparamos cada pedido en Gran Canaria, desde Vecindario (Santa Lucía de
+            Tirajana), y damos servicio a negocios de Las Palmas de Gran Canaria, Telde, Santa
+            Lucía de Tirajana, San Bartolomé de Tirajana, Maspalomas, Arucas y el resto de la
+            isla. Enviamos también al resto de Canarias (Tenerife, Lanzarote, Fuerteventura, La
+            Palma, La Gomera, El Hierro) y a toda España peninsular.
+          </p>
+          <p className="text-[14px] md:text-base leading-relaxed mt-4" style={{ color: 'var(--nfc-ink2)' }}>
+            En Gran Canaria trabajamos con restaurantes y cafeterías que quieren su carta siempre
+            actualizada, alojamientos turísticos que comparten el WiFi sin escribirlo a mano,
+            peluquerías, comercios locales e inmobiliarias que necesitan más reseñas de Google, y
+            cualquier negocio que quiera compartir sus redes y su contacto en un solo toque.
           </p>
           <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 mt-5">
             {ZONAS.map(z => (
@@ -388,7 +400,7 @@ export default function Nfc() {
             </h2>
           </div>
           <NfcCard tabColor="var(--nfc-tan)" className="px-6 md:px-8">
-            {FAQS.map((f, i) => (
+            {LANDING_FAQS.map((f, i) => (
               <FaqItem key={f.q} q={f.q} a={f.a} isOpen={openFaq === i} onToggle={() => setOpenFaq(openFaq === i ? null : i)} id={`faq-answer-${i}`} />
             ))}
           </NfcCard>
