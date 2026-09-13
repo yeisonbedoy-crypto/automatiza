@@ -20,11 +20,11 @@ const NFC_INPUT_CLASS = "w-full rounded-xl px-4 py-3 text-sm border-[2px] focus:
 const NFC_INPUT_STYLE = { borderColor: 'var(--nfc-border)', background: 'var(--nfc-paper)', color: 'var(--nfc-ink)' };
 const NFC_LABEL_CLASS = "block font-mono text-[10px] tracking-[0.15em] uppercase mb-2";
 
-export function OrderForm({ preselected = null, presetColor }: { preselected?: string | null; presetColor?: string }) {
+export function OrderForm({ preselected = null, presetColor, presetIsla }: { preselected?: string | null; presetColor?: string; presetIsla?: string }) {
   const [form, setForm] = useState<NfcFormState>({
     nombre: '',
     negocio: '',
-    isla: 'Gran Canaria',
+    isla: presetIsla ?? 'Gran Canaria',
     whatsapp: '',
     producto: preselected ?? PRODUCTS[0].name,
     color: presetColor ?? NFC_COLOR_NO_PREFERENCE,
@@ -40,6 +40,10 @@ export function OrderForm({ preselected = null, presetColor }: { preselected?: s
   useEffect(() => {
     if (presetColor) setForm(prev => ({ ...prev, color: presetColor }));
   }, [presetColor]);
+
+  useEffect(() => {
+    if (presetIsla) setForm(prev => ({ ...prev, isla: presetIsla }));
+  }, [presetIsla]);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
