@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ChevronLeft, Check } from 'lucide-react';
 import { NfcBackground, NfcNavbar, NfcEyebrow, NfcButton, NfcIconTile, NfcCard, NfcFooter, NFC_PALETTE } from '../components/nfc';
 import { OrderForm } from '../components/NfcOrderForm';
+import { FaqItem } from '../components/NfcFaqItem';
 import { PRODUCTS, NFC_COLOR_OPTIONS, USE_CASES, FAQS } from '../data/nfcProducts';
 
 const NAV_ITEMS = [
@@ -16,13 +17,6 @@ const NAV_ITEMS = [
 const HEADING_STYLE = { fontFamily: 'var(--nfc-display)', fontWeight: 700, color: 'var(--nfc-ink)' } as const;
 
 const USE_CASE_TITLES_FOR_PRODUCT_PAGE = ["Reseñas de Google", "Tarjeta de visita digital", "Redes sociales"];
-const COMPAT_FAQ_QUESTIONS = [
-  "¿Funciona con cualquier móvil?",
-  "¿Necesita batería o cargarse?",
-  "¿Puedo cambiar el enlace después?",
-  "¿Cuánto tarda el envío?",
-  "¿Tiene garantía?",
-];
 
 function getSlugFromPath(): string {
   const path = window.location.pathname.replace(/\/+$/, '');
@@ -33,9 +27,9 @@ export default function NfcProducto() {
   const slug = getSlugFromPath();
   const product = PRODUCTS.find(p => p.slug === slug) ?? PRODUCTS[0];
   const [color, setColor] = useState(NFC_COLOR_OPTIONS[0].name);
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   const relatedUseCases = USE_CASES.filter(u => USE_CASE_TITLES_FOR_PRODUCT_PAGE.includes(u.title));
-  const compatFaqs = FAQS.filter(f => COMPAT_FAQ_QUESTIONS.includes(f.q));
 
   return (
     <main className="relative w-full min-h-screen overflow-x-hidden flex flex-col font-sans">
@@ -140,24 +134,19 @@ export default function NfcProducto() {
         </div>
       </section>
 
-      {/* Compatibilidad y garantía */}
+      {/* FAQ */}
       <section className="relative z-10 w-full px-4 md:px-8 lg:px-16 py-16">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-10">
-            <NfcEyebrow className="mb-4">Compatibilidad y garantía</NfcEyebrow>
-            <h2 style={{ ...HEADING_STYLE, fontSize: 'clamp(1.6rem,3vw,2.2rem)' }}>Todo lo que necesitas saber.</h2>
+            <NfcEyebrow className="mb-4">Preguntas frecuentes</NfcEyebrow>
+            <h2 style={{ ...HEADING_STYLE, fontSize: 'clamp(1.8rem,3.4vw,2.8rem)' }}>
+              Resolvemos tus dudas.
+            </h2>
           </div>
-          <NfcCard tabColor="var(--nfc-tan)" className="p-7 md:p-8">
-            <ul className="space-y-4">
-              {compatFaqs.map(f => (
-                <li key={f.q} className="flex items-start gap-3">
-                  <Check className="w-4 h-4 shrink-0 mt-1" style={{ color: 'var(--nfc-ink)' }} />
-                  <p className="text-[13.5px] leading-relaxed" style={{ color: 'var(--nfc-ink2)' }}>
-                    <span className="font-bold" style={{ color: 'var(--nfc-ink)' }}>{f.q}</span> {f.a}
-                  </p>
-                </li>
-              ))}
-            </ul>
+          <NfcCard tabColor="var(--nfc-tan)" className="px-6 md:px-8">
+            {FAQS.map((f, i) => (
+              <FaqItem key={f.q} q={f.q} a={f.a} isOpen={openFaq === i} onToggle={() => setOpenFaq(openFaq === i ? null : i)} id={`faq-answer-${i}`} />
+            ))}
           </NfcCard>
         </div>
       </section>

@@ -1,6 +1,8 @@
-import { Check, MapPin } from 'lucide-react';
+import { useState } from 'react';
+import { MapPin } from 'lucide-react';
 import { NfcBackground, NfcNavbar, NfcEyebrow, NfcButton, NfcIconTile, NfcCard, NfcFooter, NFC_PALETTE } from '../components/nfc';
 import { OrderForm } from '../components/NfcOrderForm';
+import { FaqItem } from '../components/NfcFaqItem';
 import { ZONAS } from '../data/nfcZonas';
 import { USE_CASES, FAQS } from '../data/nfcProducts';
 
@@ -23,6 +25,7 @@ function getSlugFromPath(): string {
 export default function NfcZona() {
   const slug = getSlugFromPath();
   const zona = ZONAS.find(z => z.slug === slug) ?? ZONAS[0];
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   const orderedUseCases = zona.useCaseTitles
     .map(title => USE_CASES.find(u => u.title === title))
@@ -107,17 +110,10 @@ export default function NfcZona() {
               Resolvemos tus dudas.
             </h2>
           </div>
-          <NfcCard tabColor="var(--nfc-tan)" className="p-7 md:p-8">
-            <ul className="space-y-4">
-              {FAQS.map(f => (
-                <li key={f.q} className="flex items-start gap-3">
-                  <Check className="w-4 h-4 shrink-0 mt-1" style={{ color: 'var(--nfc-ink)' }} />
-                  <p className="text-[13.5px] leading-relaxed" style={{ color: 'var(--nfc-ink2)' }}>
-                    <span className="font-bold" style={{ color: 'var(--nfc-ink)' }}>{f.q}</span> {f.a}
-                  </p>
-                </li>
-              ))}
-            </ul>
+          <NfcCard tabColor="var(--nfc-tan)" className="px-6 md:px-8">
+            {FAQS.map((f, i) => (
+              <FaqItem key={f.q} q={f.q} a={f.a} isOpen={openFaq === i} onToggle={() => setOpenFaq(openFaq === i ? null : i)} id={`faq-answer-${i}`} />
+            ))}
           </NfcCard>
         </div>
       </section>
