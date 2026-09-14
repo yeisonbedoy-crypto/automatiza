@@ -30,6 +30,7 @@ export default function NfcProducto() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   const relatedUseCases = USE_CASES.filter(u => USE_CASE_TITLES_FOR_PRODUCT_PAGE.includes(u.title));
+  const displayImage = product.imagesByColor?.[color] ?? product.image;
 
   return (
     <main className="relative w-full min-h-screen overflow-x-hidden flex flex-col font-sans">
@@ -52,7 +53,7 @@ export default function NfcProducto() {
             {/* Foto */}
             <NfcCard tabColor={product.color} shadow="lg" className="overflow-hidden">
               <div className="relative w-full aspect-[4/3]" style={{ background: product.color }}>
-                <img src={product.image} alt={product.name} className="absolute inset-0 w-full h-full object-cover" />
+                <img src={displayImage} alt={product.name} className="absolute inset-0 w-full h-full object-cover" />
                 {product.featured && (
                   <span
                     className="absolute top-4 right-4 font-mono text-[10px] tracking-[0.15em] uppercase px-2.5 py-1 rounded-full border-[2px]"

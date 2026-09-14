@@ -1,6 +1,6 @@
 import type { LucideIcon } from 'lucide-react';
 import {
-  CreditCard, MonitorSmartphone, Layers, Tag, LayoutGrid,
+  Layers, Tag, LayoutGrid, CircleDollarSign,
   Star, IdCard, UtensilsCrossed, Instagram, Wifi, MessageCircle,
 } from 'lucide-react';
 import { NFC_SALMON, NFC_LAVENDER, NFC_BLUE, NFC_TAN, NFC_YELLOW } from '../components/nfc';
@@ -14,6 +14,8 @@ export type NfcProduct = {
   featured: boolean;
   Icon: LucideIcon;
   image: string;
+  /** Fotos alternativas por color de acabado (nombre de NFC_COLOR_OPTIONS -> ruta). Si el color elegido no tiene foto propia, se usa `image`. */
+  imagesByColor?: Partial<Record<string, string>>;
   color: string;
 };
 
@@ -21,7 +23,7 @@ export const PRODUCTS: NfcProduct[] = [
   {
     slug: "tag-nfc",
     name: "Tag NFC",
-    price: "12€",
+    price: "10€",
     desc: "El punto de partida: una pegatina NFC discreta para pegar donde haga falta.",
     items: ["1 tag NFC adhesivo", "Enlace configurable", "Ideal para probar antes de pedir más"],
     featured: false,
@@ -30,31 +32,39 @@ export const PRODUCTS: NfcProduct[] = [
     color: NFC_SALMON,
   },
   {
-    slug: "tarjeta-nfc",
-    name: "Tarjeta NFC",
-    price: "19€",
-    desc: "Tarjeta individual, tamaño de visita, para ti o cada miembro de tu equipo.",
-    items: ["1 tarjeta NFC personalizada", "Enlace configurable (reseñas, redes, contacto)", "Envío en 3-5 días en Gran Canaria"],
+    slug: "google-review-card",
+    name: "Google Review Card",
+    price: "20€",
+    desc: "Tarjeta o placa NFC con acceso directo a tu ficha de reseñas de Google.",
+    items: ["1 tarjeta o placa NFC con enlace fijo a tu ficha de Google", "El cliente solo acerca el móvil y pulsa \"Reseña\"", "Ideal para arrancar o acelerar tu volumen de reseñas"],
     featured: false,
-    Icon: CreditCard,
-    image: "/nfc/productos/tarjeta-nfc.webp",
+    Icon: Star,
+    image: "/nfc/productos/google-review-card.webp",
+    imagesByColor: {
+      Blanco: "/nfc/productos/google-review-card.webp",
+      Negro: "/nfc/productos/google-review-card-black.webp",
+    },
     color: NFC_LAVENDER,
   },
   {
-    slug: "placa-mostrador",
-    name: "Placa de Mostrador",
-    price: "39€",
-    desc: "Placa de sobremesa para el mostrador, visible para cada cliente que pasa por caja.",
-    items: ["1 placa NFC de mostrador", "Diseño a juego con tu marca", "Ideal para pedir reseñas en el momento del pago"],
+    slug: "nfc-payment-review-tray",
+    name: "NFC Payment / Review Tray",
+    price: "20€",
+    desc: "Bandeja NFC para la mesa: el cliente acerca el móvil al pagar y accede al destino que elijas.",
+    items: ["1 bandeja NFC para mesa o mostrador", "El cliente paga y deja su reseña, menú o redes en el mismo toque", "Ideal para restaurantes, cafeterías y hostelería"],
     featured: true,
-    Icon: MonitorSmartphone,
-    image: "/nfc/productos/placa-mostrador.webp",
+    Icon: CircleDollarSign,
+    image: "/nfc/productos/nfc-payment-review-tray.webp",
+    imagesByColor: {
+      Negro: "/nfc/productos/nfc-payment-review-tray.webp",
+      Beige: "/nfc/productos/nfc-payment-review-tray-beige.webp",
+    },
     color: NFC_BLUE,
   },
   {
     slug: "expositor-multi-enlace",
-    name: "Expositor Multi-Enlace",
-    price: "69€",
+    name: "Smart Board",
+    price: "29,90€",
     desc: "Expositor de sobremesa con varios puntos de toque a la vez, cada uno con su propio destino.",
     items: ["1 expositor con 3 zonas de toque", "Reseñas, redes y contacto por separado", "Pensado para mostradores con mucho tráfico"],
     featured: false,
@@ -64,8 +74,8 @@ export const PRODUCTS: NfcProduct[] = [
   },
   {
     slug: "pack-negocio",
-    name: "Pack Negocio",
-    price: "89€",
+    name: "Smart Board Pro",
+    price: "75€",
     desc: "Todo lo que necesita tu negocio: placa de mostrador + 3 tarjetas para el equipo.",
     items: ["1 placa + 3 tarjetas NFC", "Todos los enlaces configurables desde el móvil", "Soporte prioritario por WhatsApp"],
     featured: false,

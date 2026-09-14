@@ -43,8 +43,12 @@
         --font-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
         --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
       }
-      .nfc-press { transition: transform .12s ease, box-shadow .12s ease; }
+      .nfc-press { transition: transform .12s ease, box-shadow .18s ease, background-color .18s ease, color .18s ease; }
+      .nfc-press:hover { background: var(--nfc-green) !important; color: var(--nfc-paper) !important; box-shadow: 6px 6px 0 var(--nfc-border) !important; }
       .nfc-press:active { transform: translate(4px, 4px); box-shadow: none !important; }
+
+      .nfc-card-hover { transition: transform .18s ease, box-shadow .18s ease; }
+      .nfc-card-hover:hover { transform: translate(-3px, -3px) !important; box-shadow: 8px 8px 0 var(--nfc-border) !important; }
     </style>
 
     <script type="application/ld+json">

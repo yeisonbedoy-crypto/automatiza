@@ -3,22 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <title>Tarjeta NFC 19€ | NFC Canarias — tarjeta de visita todo-en-uno</title>
-    <meta name="description" content="Tarjeta NFC individual, tamaño de visita, desde 19€. Comparte reseñas, redes o contacto en un toque. Hecha en Gran Canaria, envíos a toda España." />
-    <link rel="canonical" href="https://automatizagc.xyz/nfc/tarjeta-nfc" />
+    <title>Google Review Card NFC 20€ | NFC Canarias — reseñas de Google en un toque</title>
+    <meta name="description" content="Tarjeta o placa NFC con acceso directo a tu ficha de reseñas de Google, desde 20€. El cliente solo acerca el móvil y pulsa reseña. Hecha en Gran Canaria, envíos a toda España." />
+    <link rel="canonical" href="https://automatizagc.xyz/nfc/google-review-card" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="shortcut icon" href="/favicon.svg" />
 
     <meta property="og:type" content="product" />
     <meta property="og:site_name" content="NFC Canarias" />
-    <meta property="og:title" content="Tarjeta NFC 19€ | NFC Canarias" />
-    <meta property="og:description" content="Tarjeta NFC individual, tamaño de visita, desde 19€. Comparte reseñas, redes o contacto en un toque." />
-    <meta property="og:url" content="https://automatizagc.xyz/nfc/tarjeta-nfc" />
-    <meta property="og:image" content="https://automatizagc.xyz/nfc/productos/tarjeta-nfc.webp" />
+    <meta property="og:title" content="Google Review Card NFC 20€ | NFC Canarias" />
+    <meta property="og:description" content="Tarjeta o placa NFC con acceso directo a tu ficha de reseñas de Google, desde 20€. El cliente solo acerca el móvil y pulsa reseña." />
+    <meta property="og:url" content="https://automatizagc.xyz/nfc/google-review-card" />
+    <meta property="og:image" content="https://automatizagc.xyz/nfc/productos/google-review-card.webp" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Tarjeta NFC 19€ | NFC Canarias" />
-    <meta name="twitter:description" content="Tarjeta NFC individual, tamaño de visita, desde 19€. Hecha en Gran Canaria." />
-    <meta name="twitter:image" content="https://automatizagc.xyz/nfc/productos/tarjeta-nfc.webp" />
+    <meta name="twitter:title" content="Google Review Card NFC 20€ | NFC Canarias" />
+    <meta name="twitter:description" content="Tarjeta o placa NFC con acceso directo a tu ficha de reseñas de Google, desde 20€. Hecha en Gran Canaria." />
+    <meta name="twitter:image" content="https://automatizagc.xyz/nfc/productos/google-review-card.webp" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -43,8 +43,12 @@
         --font-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
         --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
       }
-      .nfc-press { transition: transform .12s ease, box-shadow .12s ease; }
+      .nfc-press { transition: transform .12s ease, box-shadow .18s ease, background-color .18s ease, color .18s ease; }
+      .nfc-press:hover { background: var(--nfc-green) !important; color: var(--nfc-paper) !important; box-shadow: 6px 6px 0 var(--nfc-border) !important; }
       .nfc-press:active { transform: translate(4px, 4px); box-shadow: none !important; }
+
+      .nfc-card-hover { transition: transform .18s ease, box-shadow .18s ease; }
+      .nfc-card-hover:hover { transform: translate(-3px, -3px) !important; box-shadow: 8px 8px 0 var(--nfc-border) !important; }
     </style>
 
     <script type="application/ld+json">
@@ -66,15 +70,15 @@
     {
       "@context": "https://schema.org",
       "@type": "Product",
-      "name": "Tarjeta NFC",
-      "description": "Tarjeta individual, tamaño de visita, para ti o cada miembro de tu equipo.",
-      "image": "https://automatizagc.xyz/nfc/productos/tarjeta-nfc.webp",
+      "name": "Google Review Card",
+      "description": "Tarjeta o placa NFC con acceso directo a tu ficha de reseñas de Google.",
+      "image": "https://automatizagc.xyz/nfc/productos/google-review-card.webp",
       "brand": { "@type": "Brand", "name": "NFC Canarias" },
       "offers": {
         "@type": "Offer",
-        "price": "19.00",
+        "price": "20.00",
         "priceCurrency": "EUR",
-        "url": "https://automatizagc.xyz/nfc/tarjeta-nfc",
+        "url": "https://automatizagc.xyz/nfc/google-review-card",
         "availability": "https://schema.org/InStock"
       }
     }

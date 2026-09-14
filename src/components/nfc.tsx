@@ -156,7 +156,7 @@ export function NfcCard({
         }}
       />
       <div
-        className={`relative h-full rounded-[20px] border-[2.5px] ${className}`}
+        className={`relative h-full rounded-[20px] border-[2.5px] nfc-card-hover ${className}`}
         style={{
           borderColor: `var(--nfc-border, ${NFC_BORDER})`,
           background: `var(--nfc-paper, ${NFC_PAPER})`,
